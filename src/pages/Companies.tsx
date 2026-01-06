@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
+import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Brain, Users, CreditCard, TrendingUp } from 'lucide-react';
 import './Companies.css';
 
-const Companies: React.FC = () => {
+const Companies: FC = () => {
     const companies = useMemo(() => [
         {
             icon: <TrendingUp size={32} />,

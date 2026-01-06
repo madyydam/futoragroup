@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type { FC, FormEvent, ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, MessageSquare, User, Instagram, Linkedin, Phone } from 'lucide-react';
 import './ContactSection.css';
@@ -7,7 +8,7 @@ interface ContactSectionProps {
     id?: string;
 }
 
-const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
+const ContactSection: FC<ContactSectionProps> = ({ id }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -15,7 +16,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
     });
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setSubmitted(true);
         setTimeout(() => {
@@ -24,7 +25,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
         }, 3000);
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value

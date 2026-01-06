@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
+import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Sparkles, Target, Rocket, Instagram } from 'lucide-react';
 import './Founder.css';
 
-const Founder: React.FC = () => {
+const Founder: FC = () => {
     const timeline = useMemo(() => [
         { year: 'Vision', title: 'Founded Futora Group', description: 'Started with a vision to build billion-dollar AI platforms' },
         { year: 'Innovation', title: 'Multiple Ventures', description: 'Launched 5 companies across AI, fintech, social, and creative industries' },

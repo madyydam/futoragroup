@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import type { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
-const Navbar: React.FC = () => {
+const Navbar: FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();

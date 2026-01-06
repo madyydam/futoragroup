@@ -1,15 +1,17 @@
 import { useMemo } from 'react';
+import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import './Home.css';
 
-const Home: React.FC = () => {
+const Home: FC = () => {
     const companies = useMemo(() => [
         {
             id: 'futoralift',
             icon: <TrendingUp size={32} />,
             name: 'FutoraLift',
+            tagline: 'Growth at Scale',
             description: 'AI-powered growth & marketing agency helping brands scale faster with data and automation.',
             theme: 'blue',
             gradient: 'linear-gradient(135deg, #0066ff 0%, #00a3ff 100%)',
@@ -20,6 +22,7 @@ const Home: React.FC = () => {
             id: 'futorapay',
             icon: <CreditCard size={32} />,
             name: 'FutoraPay',
+            tagline: 'Intelligent Money Management',
             description: 'AI-powered smart payments and financial management platform.',
             theme: 'futorapay-premium',
             gradient: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
@@ -30,6 +33,7 @@ const Home: React.FC = () => {
             id: 'futoraone',
             icon: <Users size={32} />,
             name: 'FutoraOne',
+            tagline: 'Connect. Build. Grow.',
             description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
             theme: 'purple',
             gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
@@ -40,6 +44,7 @@ const Home: React.FC = () => {
             id: 'futoraai',
             icon: <Brain size={32} />,
             name: 'Futora AI',
+            tagline: 'Intelligence for Tomorrow',
             description: 'AI education, tools & future tech brand building and showcasing cutting-edge AI solutions.',
             theme: 'neon',
             gradient: 'linear-gradient(135deg, #00ffff 0%, #0080ff 100%)',
@@ -132,7 +137,7 @@ const Home: React.FC = () => {
                                     {company.icon}
                                 </div>
                                 <h3>{company.name}</h3>
-                                <p className="company-role">Founder</p>
+                                <p className="company-role">{company.tagline}</p>
                                 <p className="company-description">{company.description}</p>
                                 <a
                                     href={company.link}

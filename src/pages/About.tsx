@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
+import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Zap, Globe, Shield } from 'lucide-react';
 import './About.css';
 
-const About: React.FC = () => {
+const About: FC = () => {
     const pillars = useMemo(() => [
         {
             icon: <Target size={40} />,
