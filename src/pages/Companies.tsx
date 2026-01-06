@@ -1,10 +1,10 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Brain, ShoppingCart, CreditCard, TrendingUp } from 'lucide-react';
+import { ExternalLink, Brain, Users, CreditCard, TrendingUp } from 'lucide-react';
 import './Companies.css';
 
 const Companies: React.FC = () => {
-    const companies = [
+    const companies = useMemo(() => [
         {
             icon: <TrendingUp size={32} />,
             name: 'FutoraLift',
@@ -26,11 +26,11 @@ const Companies: React.FC = () => {
             link: 'https://futorapay.vercel.app/'
         },
         {
-            icon: <ShoppingCart size={32} />,
+            icon: <Users size={32} />,
             name: 'FutoraOne',
-            tagline: 'E-commerce Reimagined',
-            description: 'All-in-one AI e-commerce ecosystem integrating automation and scalable infrastructure.',
-            features: ['Global E-commerce Platform', 'AI-Powered Analytics', 'Smart Automation', 'Scalable Infrastructure'],
+            tagline: 'Connect. Build. Grow.',
+            description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
+            features: ['Tech Community Network', 'AI-Powered Connections', 'Project Showcasing', 'Creator Ecosystem'],
             theme: 'purple',
             gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
             link: '#'
@@ -45,7 +45,7 @@ const Companies: React.FC = () => {
             gradient: 'linear-gradient(135deg, #00ffff 0%, #0080ff 100%)',
             link: 'https://futoraai.vercel.app/'
         }
-    ];
+    ], []);
 
     return (
         <div className="companies-page">

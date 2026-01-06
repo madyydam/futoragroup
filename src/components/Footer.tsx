@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Linkedin, Instagram } from 'lucide-react';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -15,17 +14,14 @@ const Footer: React.FC = () => {
                         <h3 className="gradient-text">FUTORA</h3>
                         <p>Building the Future with AI, Automation & Innovation</p>
                         <div className="footer-socials">
-                            <a href="mailto:contact@futora.com" aria-label="Email">
+                            <a href="mailto:madhurdhadve@gmail.com" aria-label="Email">
                                 <Mail size={20} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                <Twitter size={20} />
-                            </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                                <Github size={20} />
+                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <Instagram size={20} />
                             </a>
                         </div>
                     </div>
@@ -52,7 +48,7 @@ const Footer: React.FC = () => {
                     <div className="footer-links">
                         <h4>Get in Touch</h4>
                         <Link to="/contact">Contact Us</Link>
-                        <a href="mailto:contact@futora.com">Email</a>
+                        <a href="mailto:madhurdhadve@gmail.com">Email</a>
                         <p className="footer-small">Let's build the future together</p>
                     </div>
                 </div>

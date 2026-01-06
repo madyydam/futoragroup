@@ -1,11 +1,11 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Target, Zap, Brain, ShoppingCart, CreditCard, TrendingUp, ExternalLink } from 'lucide-react';
+import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import './Home.css';
 
 const Home: React.FC = () => {
-    const companies = [
+    const companies = useMemo(() => [
         {
             id: 'futoralift',
             icon: <TrendingUp size={32} />,
@@ -28,9 +28,9 @@ const Home: React.FC = () => {
         },
         {
             id: 'futoraone',
-            icon: <ShoppingCart size={32} />,
+            icon: <Users size={32} />,
             name: 'FutoraOne',
-            description: 'All-in-one AI e-commerce ecosystem integrating automation and scalable infrastructure.',
+            description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
             theme: 'purple',
             gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
             accentColor: '#6366f1',
@@ -46,13 +46,13 @@ const Home: React.FC = () => {
             accentColor: '#00ffff',
             link: 'https://futoraai.vercel.app/'
         }
-    ];
+    ], []);
 
-    const values = [
+    const values = useMemo(() => [
         { icon: <Sparkles />, title: 'AI-First Mindset', description: 'Every solution powered by cutting-edge AI' },
         { icon: <Target />, title: 'Global Ambition', description: 'Building for worldwide impact and scale' },
         { icon: <Zap />, title: 'Innovation at Core', description: 'Pushing boundaries of what\'s possible' }
-    ];
+    ], []);
 
     return (
         <div className="home">
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                         >
-                            Futora is a group of companies building AI, fintech,<br />e-commerce, and growth platforms.
+                            Futora is a group of companies building AI, fintech,<br />social, and growth platforms.
                         </motion.p>
                         <motion.div
                             className="hero-buttons"

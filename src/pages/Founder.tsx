@@ -1,20 +1,20 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Sparkles, Target, Rocket, Instagram } from 'lucide-react';
 import './Founder.css';
 
 const Founder: React.FC = () => {
-    const timeline = [
+    const timeline = useMemo(() => [
         { year: 'Vision', title: 'Founded Futora Group', description: 'Started with a vision to build billion-dollar AI platforms' },
-        { year: 'Innovation', title: 'Multiple Ventures', description: 'Launched 5 companies across AI, fintech, e-commerce, and creative industries' },
+        { year: 'Innovation', title: 'Multiple Ventures', description: 'Launched 5 companies across AI, fintech, social, and creative industries' },
         { year: 'Future', title: 'Global Expansion', description: 'Scaling platforms to serve millions worldwide' }
-    ];
+    ], []);
 
-    const traits = [
+    const traits = useMemo(() => [
         { icon: <Sparkles size={32} />, title: 'Visionary', description: 'Sees beyond the horizon' },
         { icon: <Target size={32} />, title: 'Strategic', description: 'Executes with precision' },
         { icon: <Rocket size={32} />, title: 'Ambitious', description: 'Aims for the stars' }
-    ];
+    ], []);
 
     return (
         <div className="founder-page">

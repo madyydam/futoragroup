@@ -1,10 +1,10 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Zap, Globe, Shield } from 'lucide-react';
 import './About.css';
 
 const About: React.FC = () => {
-    const pillars = [
+    const pillars = useMemo(() => [
         {
             icon: <Target size={40} />,
             title: 'Vision',
@@ -25,7 +25,7 @@ const About: React.FC = () => {
             title: 'Ethics & Trust',
             description: 'Building with integrity, transparency, and a commitment to responsible AI that serves humanity.'
         }
-    ];
+    ], []);
 
     return (
         <div className="about-page">
@@ -57,7 +57,7 @@ const About: React.FC = () => {
                             Futora represents a vision to build billion-dollar AI platforms that transform how we live, work, and connect.
                         </p>
                         <p>
-                            From intelligent fintech solutions to global e-commerce platforms, AI-driven growth strategies to
+                            From intelligent fintech solutions to global social communities, AI-driven growth strategies to
                             cutting-edge automation, Futora is building an interconnected ecosystem where innovation thrives.
                         </p>
                         <p>
