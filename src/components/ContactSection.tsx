@@ -1,0 +1,168 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Send, Mail, MessageSquare, User, Instagram, Linkedin, Phone } from 'lucide-react';
+import './ContactSection.css';
+
+interface ContactSectionProps {
+    id?: string;
+}
+
+const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmitted(true);
+        setTimeout(() => {
+            setSubmitted(false);
+            setFormData({ name: '', email: '', message: '' });
+        }, 3000);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    return (
+        <section id={id} className="section contact-section">
+            <div className="container">
+                <motion.div
+                    className="contact-header"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h1>Let's Build the <span className="gradient-text">Future Together</span></h1>
+                    <p>Have a question, partnership opportunity, or just want to connect? We'd love to hear from you.</p>
+                </motion.div>
+
+                <div className="contact-grid">
+                    {/* Contact Form */}
+                    <motion.div
+                        className="contact-form-wrapper glass-card"
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h2>Get in <span className="gradient-text">Touch</span></h2>
+                        {submitted ? (
+                            <motion.div
+                                className="success-message"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                            >
+                                <div className="success-icon">✓</div>
+                                <h3>Message Sent!</h3>
+                                <p>Thank you for reaching out. We'll get back to you soon.</p>
+                            </motion.div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="contact-form">
+                                <div className="form-group">
+                                    <label htmlFor="name">
+                                        <User size={18} /> Full Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="home-name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                        placeholder="Enter your name"
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="email">
+                                        <Mail size={18} /> Email Address
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="home-email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        placeholder="your.email@example.com"
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="message">
+                                        <MessageSquare size={18} /> Message
+                                    </label>
+                                    <textarea
+                                        id="home-message"
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                        rows={4}
+                                        placeholder="How can we help you?"
+                                    />
+                                </div>
+
+                                <button type="submit" className="btn btn-primary submit-btn">
+                                    Send Message <Send size={20} />
+                                </button>
+                            </form>
+                        )}
+                    </motion.div>
+
+                    {/* Contact Info */}
+                    <motion.div
+                        className="contact-info"
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <div className="info-card glass-card">
+                            <h3>Connect with Me</h3>
+                            <div className="contact-links">
+                                <a href="mailto:madhurdhadve@gmail.com" className="contact-link-item">
+                                    <Mail size={18} /> madhurdhadve@gmail.com
+                                </a>
+                                <a href="tel:+918446653644" className="contact-link-item">
+                                    <Phone size={18} /> +91 8446653644
+                                </a>
+                                <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+                                    <Instagram size={18} /> @madhur_dhadve
+                                </a>
+                                <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+                                    <Linkedin size={18} /> Madhur Dhadve
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className="social-icons-row">
+                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="social-icon-btn instagram">
+                                <Instagram size={20} />
+                            </a>
+                            <a href="mailto:madhurdhadve@gmail.com" className="social-icon-btn email">
+                                <Mail size={20} />
+                            </a>
+                            <a href="https://wa.me/918446653644" target="_blank" rel="noopener noreferrer" className="social-icon-btn whatsapp">
+                                <MessageSquare size={20} />
+                            </a>
+                            <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="social-icon-btn linkedin">
+                                <Linkedin size={20} />
+                            </a>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ContactSection;

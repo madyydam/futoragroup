@@ -1,0 +1,200 @@
+.companies-page {
+    padding-top: 100px;
+}
+
+.companies-hero {
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.companies-hero h1 {
+    margin-bottom: 20px;
+}
+
+.companies-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.companies-list {
+    padding-bottom: 80px;
+}
+
+.company-detail-card {
+    margin-bottom: 40px;
+    padding: 40px;
+}
+
+.company-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.company-detail-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    color: var(--pure-white);
+    flex-shrink: 0;
+}
+
+.company-detail-title h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2px;
+    color: var(--pure-white);
+}
+
+.company-tagline {
+    font-size: 0.9rem;
+    color: var(--electric-blue);
+    font-weight: 500;
+}
+
+.company-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray-100);
+    margin-bottom: 24px;
+}
+
+.company-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.feature-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--gray-100);
+    font-weight: 500;
+}
+
+/* Static Theme Borders - Always Visible & Extra Bright Themed */
+.company-card-blue {
+    border: 2px solid rgba(0, 102, 255, 0.9) !important;
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
+    background: rgba(0, 102, 255, 0.03);
+}
+
+.company-card-futorapay-premium {
+    border: 2px solid rgba(0, 223, 154, 0.9) !important;
+    box-shadow: 0 15px 40px rgba(0, 223, 154, 0.25);
+    background: rgba(0, 223, 154, 0.03);
+}
+
+.company-card-purple {
+    border: 2px solid rgba(168, 85, 247, 0.9) !important;
+    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.25);
+    background: rgba(168, 85, 247, 0.03);
+}
+
+.company-card-neon {
+    border: 2px solid rgba(0, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.25);
+    background: rgba(0, 255, 255, 0.03);
+}
+
+.company-detail-card {
+    border-radius: 24px;
+    transition: all 0.4s ease;
+}
+
+.company-card-blue .company-detail-icon {
+    background: linear-gradient(135deg, #0066ff 0%, #00a3ff 100%);
+}
+
+.company-card-futorapay-premium .company-detail-icon {
+    background: linear-gradient(135deg, #00df9a 0%, #00b881 100%);
+}
+
+.company-card-purple .company-detail-icon {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+.company-card-neon .company-detail-icon {
+    background: linear-gradient(135deg, #00ffff 0%, #0080ff 100%);
+}
+
+/* Individual Themes refinements */
+.company-card-blue .company-tagline,
+.company-card-blue .feature-badge {
+    color: #4facfe;
+    border-color: rgba(79, 172, 254, 0.3);
+}
+
+.company-card-futorapay-premium .company-tagline,
+.company-card-futorapay-premium .feature-badge {
+    color: #00df9a;
+    border-color: rgba(0, 223, 154, 0.3);
+}
+
+.company-card-purple .company-tagline,
+.company-card-purple .feature-badge {
+    color: #a855f7;
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.company-card-neon .company-tagline,
+.company-card-neon .feature-badge {
+    color: #00ffff;
+    border-color: rgba(0, 255, 255, 0.3);
+}
+
+.visit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.company-card-blue .visit-btn {
+    background: #0066ff;
+    color: white;
+}
+
+.company-card-futorapay-premium .visit-btn {
+    background: #00df9a;
+    color: black;
+}
+
+.company-card-purple .visit-btn {
+    background: #a855f7;
+    color: white;
+}
+
+.company-card-neon .visit-btn {
+    background: #00ffff;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .company-detail-card {
+        padding: 24px;
+    }
+
+    .company-detail-header {
+        gap: 16px;
+    }
+
+    .company-detail-title h2 {
+        font-size: 1.4rem;
+    }
+
+    .company-description {
+        font-size: 0.95rem;
+    }
+}
