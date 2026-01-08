@@ -1,0 +1,290 @@
+/* Base Layout */
+.insights-page {
+    padding-top: 100px;
+    min-height: 100vh;
+    background: #000;
+    /* Deep black for contrast */
+}
+
+/* Header */
+.insights-header {
+    margin-bottom: 40px;
+}
+
+.live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.blink {
+    color: #ff0000;
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.insights-header h1 {
+    font-size: 5rem;
+    line-height: 0.9;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+/* Featured Card (Massive) */
+.featured-card {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    group: hover;
+}
+
+.featured-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.featured-card:hover .featured-image img {
+    transform: scale(1.05);
+}
+
+.featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.2) 50%, transparent);
+    z-index: 2;
+}
+
+.featured-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 60px;
+    z-index: 3;
+    max-width: 900px;
+}
+
+.featured-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.featured-content h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff, #bbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.featured-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.read-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.read-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    padding-left: 40px;
+}
+
+/* Section Divider */
+.section-header h3 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.icon-zap {
+    color: var(--primary-color);
+}
+
+/* Grid Layout */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 100px;
+}
+
+/* Standard Card - Deadly Style */
+.insight-card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1px;
+    /* Sharp corners or very slight radius */
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.insight-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 40px rgba(0, 91, 234, 0.15);
+}
+
+.card-image-wrapper {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.insight-card:hover .card-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.card-tag {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.card-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-link {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.insight-card:hover .card-link {
+    gap: 12px;
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .insights-header h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-card {
+        height: auto;
+    }
+
+    .featured-content {
+        padding: 30px;
+        position: relative;
+    }
+
+    .featured-content h2 {
+        font-size: 2rem;
+    }
+
+    .insights-header h1 {
+        font-size: 2.5rem;
+    }
+}

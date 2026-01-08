@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import React, { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Linkedin, Instagram } from 'lucide-react';
 import './Footer.css';
@@ -33,6 +33,7 @@ const Footer: FC = () => {
                         <Link to="/">Home</Link>
                         <Link to="/companies">Our Companies</Link>
                         <Link to="/careers">Careers</Link>
+                        <Link to="/insights">Insights</Link>
                         <Link to="/founder">Founder</Link>
                     </div>
 
@@ -54,6 +55,15 @@ const Footer: FC = () => {
                     </div>
                 </div>
 
+                <div className="footer-section newsletter-section">
+                    <h3>Join the Inner Circle</h3>
+                    <p>Get exclusive updates on our billion-dollar journey.</p>
+                    <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+                        <input type="email" placeholder="Enter your email" required />
+                        <button type="submit">Join</button>
+                    </form>
+                </div>
+
                 <div className="footer-bottom">
                     <p>&copy; {currentYear} Futora Group of Companies. All rights reserved.</p>
                     <p>Founded by <span className="gradient-text">Madhur Dhadve</span></p>
@@ -63,4 +73,4 @@ const Footer: FC = () => {
     );
 };
 
-export default Footer;
+export default React.memo(Footer);

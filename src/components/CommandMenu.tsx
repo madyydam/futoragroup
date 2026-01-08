@@ -5,8 +5,9 @@ import {
     Home,
     Briefcase,
     User,
-    Globe,
     Mail,
+    // Link as LinkIcon, unused
+    Book,
     Search,
     CreditCard,
     TrendingUp,
@@ -58,7 +59,11 @@ export default function CommandMenu() {
                             <Briefcase className="cmd-icon" />
                             Companies
                         </Command.Item>
-                        <Command.Item onSelect={() => runCommand(() => navigate('/founder'))}>
+                        <Command.Item onSelect={() => runCommand(() => navigate('/insights'))}>
+                            <Book className="cmd-icon" />
+                            Insights
+                        </Command.Item>
+                        <Command.Item onSelect={() => runCommand(() => navigate('/careers'))}>
                             <User className="cmd-icon" />
                             Founder
                         </Command.Item>

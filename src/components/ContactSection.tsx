@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import type { FC, FormEvent, ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
@@ -51,10 +51,11 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
             setTimeout(() => {
                 setSubmitted(false);
             }, 5000);
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error('FAILED to send email:', error);
-            if (error.text) {
-                alert(`Error: ${error.text}`);
+            const err = error as { text?: string };
+            if (err.text) {
+                alert(`Error: ${err.text}`);
             } else {
                 alert('Something went wrong. Please check the console for details.');
             }
@@ -206,4 +207,4 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
     );
 };
 
-export default ContactSection;
+export default React.memo(ContactSection);

@@ -1,0 +1,80 @@
+/* Main Cursor Container - Handles POSITION only */
+.cursor-earth {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 9999;
+    /* Removed background causing boxy look, moving styles to inner texture */
+    will-change: transform;
+}
+
+/* Texture - Handles LOOK and SCALE */
+.earth-texture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    /* The Colors/Look */
+    background: radial-gradient(circle at 30% 30%, #4facfe, #005bea);
+    box-shadow:
+        0 0 10px rgba(79, 172, 254, 0.6),
+        inset -5px -5px 10px rgba(0, 0, 0, 0.4),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.4);
+
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+    /* Bouncy scale */
+
+    /* Continents Image */
+    position: relative;
+    overflow: hidden;
+}
+
+.earth-texture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/1200px-Earth_Western_Hemisphere_transparent_background.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    animation: rotateEarth 20s linear infinite;
+    mix-blend-mode: overlay;
+}
+
+/* Hover State - Scale the INNER element only */
+.cursor-earth.hovering .earth-texture {
+    transform: scale(1.8);
+    box-shadow: 0 0 25px rgba(79, 172, 254, 0.9);
+    filter: brightness(1.2);
+}
+
+@keyframes rotateEarth {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hide default cursor on desktop only */
+@media (min-width: 768px) {
+
+    body,
+    a,
+    button,
+    input {
+        cursor: none !important;
+    }
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+    .cursor-earth {
+        display: none;
+    }
+}

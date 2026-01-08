@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
+import Hero3D from '../components/Hero3D';
 import './Home.css';
 
 const Home: FC = () => {
@@ -68,6 +69,7 @@ const Home: FC = () => {
             />
             {/* Hero Section */}
             <section className="hero">
+                <Hero3D />
                 <div className="container">
                     <motion.div
                         className="hero-content"

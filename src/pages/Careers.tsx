@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Zap, Globe, Users, Clock, MapPin, ArrowRight } from 'lucide-react';
+import { Briefcase, Zap, Globe, Users, MapPin, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import './Careers.css';
 

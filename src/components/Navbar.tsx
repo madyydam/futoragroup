@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -31,6 +31,7 @@ const Navbar: FC = () => {
         { name: 'Home', path: '/' },
         { name: 'Companies', path: '/companies' },
         { name: 'Careers', path: '/careers' },
+        { name: 'Insights', path: '/insights' },
         { name: 'Founder', path: '/founder' },
         { name: 'Contact', path: '/contact' }
     ];
@@ -98,4 +99,5 @@ const Navbar: FC = () => {
     );
 };
 
-export default Navbar;
+const NavbarMemo = React.memo(Navbar);
+export default NavbarMemo;
