@@ -32,7 +32,7 @@ const Footer: FC = () => {
                         <h4>Quick Links</h4>
                         <Link to="/">Home</Link>
                         <Link to="/companies">Our Companies</Link>
-                        <Link to="/about">About</Link>
+                        <Link to="/careers">Careers</Link>
                         <Link to="/founder">Founder</Link>
                     </div>
 

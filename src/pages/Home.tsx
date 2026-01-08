@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
+import SEO from '../components/SEO';
 import './Home.css';
 
 const Home: FC = () => {
@@ -61,6 +62,10 @@ const Home: FC = () => {
 
     return (
         <div className="home">
+            <SEO
+                title="Home"
+                description="Futora Group is a multi-company tech ecosystem building billion-dollar AI platforms across fintech, social, marketing, and growth."
+            />
             {/* Hero Section */}
             <section className="hero">
                 <div className="container">

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import type { FC, FormEvent, ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, MessageSquare, User, Instagram, Linkedin, Phone } from 'lucide-react';
@@ -9,20 +10,57 @@ interface ContactSectionProps {
 }
 
 const ContactSection: FC<ContactSectionProps> = ({ id }) => {
+    useEffect(() => {
+        emailjs.init("hJPMIZlyhM9e5aUYp");
+    }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
-        setTimeout(() => {
-            setSubmitted(false);
+        setIsSubmitting(true);
+
+        const serviceId = 'service_jh0dmnn';
+        const templateId = 'template_jkesqkz';
+        const publicKey = 'hJPMIZlyhM9e5aUYp';
+
+        try {
+            console.log('Attempting to send email...', { serviceId, templateId });
+            const response = await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                },
+                publicKey
+            );
+
+            console.log('Email sent successfully!', response.status, response.text);
+            setSubmitted(true);
             setFormData({ name: '', email: '', message: '' });
-        }, 3000);
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 5000);
+        } catch (error: any) {
+            console.error('FAILED to send email:', error);
+            if (error.text) {
+                alert(`Error: ${error.text}`);
+            } else {
+                alert('Something went wrong. Please check the console for details.');
+            }
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -112,8 +150,10 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                     />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary submit-btn">
-                                    Send Message <Send size={20} />
+                                <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Sending...' : (
+                                        <>Send Message <Send size={20} /></>
+                                    )}
                                 </button>
                             </form>
                         )}

@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Brain, Users, CreditCard, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Companies.css';
 
 const Companies: FC = () => {
@@ -58,6 +59,11 @@ const Companies: FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
+                        <SEO
+                            title="Our Companies"
+                            description="Explore the Futora Group ecosystem: FutoraLift (Marketing), FutoraPay (Fintech), FutoraOne (Social), and Futora AI (Education & Tools)."
+                            url="https://futora.com/companies"
+                        />
                         <h1>Our <span className="gradient-text">Companies</span></h1>
                         <p>Four visionary brands, one powerful ecosystem—transforming industries with AI, automation, and innovation.</p>
                     </motion.div>

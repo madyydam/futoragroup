@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Sparkles, Target, Rocket, Instagram } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Founder.css';
 
 const Founder: FC = () => {
@@ -27,6 +28,11 @@ const Founder: FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
+                        <SEO
+                            title="Madhur Dhadve - Founder"
+                            description="Meet Madhur Dhadve, the visionary founder behind Futora Group. A passionate innovator building billion-dollar AI platforms."
+                            url="https://futora.com/founder"
+                        />
                         <motion.div
                             className="founder-avatar"
                             initial={{ scale: 0.9, opacity: 0 }}
