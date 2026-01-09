@@ -9,6 +9,7 @@ const Companies = lazy(() => import('./pages/Companies'));
 const Founder = lazy(() => import('./pages/Founder'));
 const Careers = lazy(() => import('./pages/Careers'));
 const Insights = lazy(() => import('./pages/Insights'));
+const ArticleDetail = lazy(() => import('./pages/ArticleDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -38,6 +39,7 @@ export default function AnimatedRoutes() {
                     <Route path="/founder" element={<PageTransition><Founder /></PageTransition>} />
                     <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
                     <Route path="/insights" element={<PageTransition><Insights /></PageTransition>} />
+                    <Route path="/insights/:id" element={<PageTransition><ArticleDetail /></PageTransition>} />
                     <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
                     <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
                 </Routes>
