@@ -13,32 +13,36 @@ const Insights: FC = () => {
             excerpt: 'We are approaching a horizon where algorithmic decision-making surpasses human capability in capital allocation. What happens when the bank is code?',
             category: 'Deep Tech',
             date: 'LIVE NOW',
-            image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=2000',
+            image: '/ai-finance-hero.png',
+            url: 'https://futorapay.vercel.app/',
             featured: true
         },
         {
             id: 2,
-            title: 'Neuromorphic Computing',
-            excerpt: 'Hardware that mimics the human brain is the next step for high-frequency trading.',
+            title: 'Neuromorphic Computing & HFT',
+            excerpt: 'Hardware that mimics the human brain is the next step for high-frequency trading and real-time financial intelligence.',
             category: 'Hardware',
-            date: 'Oct 12, 2025',
-            image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000'
+            date: 'Jan 5, 2026',
+            image: '/neuromorphic-computing.png',
+            url: 'https://futoraai.vercel.app/'
         },
         {
             id: 3,
             title: 'Sovereign Identity Stacks',
-            excerpt: 'The end of passwords and the rise of mathematical proof of existence.',
+            excerpt: 'The end of passwords and the rise of mathematical proof of existence through blockchain-native authentication.',
             category: 'Web3',
-            date: 'Sep 28, 2025',
-            image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1000'
+            date: 'Dec 28, 2025',
+            image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1000',
+            url: 'https://futora.com/'
         },
         {
             id: 4,
             title: 'The Green Compute Paradox',
-            excerpt: 'Solving the energy crisis of massive AI model training.',
+            excerpt: 'Solving the energy crisis of massive AI model training with sustainable infrastructure and efficient algorithms.',
             category: 'Sustainability',
-            date: 'Aug 15, 2025',
-            image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000'
+            date: 'Dec 15, 2025',
+            image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000',
+            url: 'https://futora.com/'
         }
     ], []);
 
@@ -85,9 +89,9 @@ const Insights: FC = () => {
                         </div>
                         <h2>{featured.title}</h2>
                         <p>{featured.excerpt}</p>
-                        <button className="read-btn">
+                        <a href={featured.url} target="_blank" rel="noopener noreferrer" className="read-btn">
                             READ DOSSIER <ArrowRight size={18} />
-                        </button>
+                        </a>
                     </div>
                 </motion.div>
             </section>
@@ -107,6 +111,8 @@ const Insights: FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
+                                onClick={() => window.open(article.url, '_blank')}
+                                style={{ cursor: 'pointer' }}
                             >
                                 <div className="card-image-wrapper">
                                     <img src={article.image} alt={article.title} />
@@ -119,9 +125,9 @@ const Insights: FC = () => {
                                     </div>
                                     <h4>{article.title}</h4>
                                     <p>{article.excerpt}</p>
-                                    <div className="card-link">
+                                    <a href={article.url} target="_blank" rel="noopener noreferrer" className="card-link" onClick={(e) => e.stopPropagation()}>
                                         Read Analysis <ArrowRight size={14} />
-                                    </div>
+                                    </a>
                                 </div>
                             </motion.article>
                         ))}
