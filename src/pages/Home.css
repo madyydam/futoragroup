@@ -353,6 +353,272 @@ section {
     gap: 12px;
 }
 
+/* Upcoming Innovation Section */
+.upcoming-innovation {
+    padding: 40px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.section-header-compact {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header-compact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.upcoming-subtitle {
+    font-size: 0.85rem;
+    color: var(--gray-200);
+    opacity: 0.8;
+}
+
+.mini-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mini-card {
+    background: rgba(15, 15, 25, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 12px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    min-height: 200px;
+}
+
+.mini-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Themes for Mini Cards */
+.mini-card-ai {
+    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.05);
+}
+
+.mini-card-ai:hover {
+    border-color: #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+.mini-card-ai .mini-card-icon {
+    color: #00ffff;
+    background: rgba(0, 255, 255, 0.08);
+}
+
+.mini-card-ai h4 {
+    color: #00ffff;
+}
+
+.mini-card-trust {
+    border-color: rgba(0, 163, 255, 0.4);
+}
+
+.mini-card-trust:hover {
+    border-color: #00a3ff;
+    box-shadow: 0 0 25px rgba(0, 163, 255, 0.2);
+}
+
+.mini-card-trust .mini-card-icon {
+    color: #00a3ff;
+    background: rgba(0, 163, 255, 0.08);
+}
+
+.mini-card-trust h4 {
+    color: #00a3ff;
+}
+
+.mini-card-social {
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+.mini-card-social:hover {
+    border-color: #a855f7;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+.mini-card-social .mini-card-icon {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.08);
+}
+
+.mini-card-social h4 {
+    color: #a855f7;
+}
+
+.mini-card-insights {
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.mini-card-insights:hover {
+    border-color: #6366f1;
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
+}
+
+.mini-card-insights .mini-card-icon {
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.mini-card-insights h4 {
+    color: #6366f1;
+}
+
+.mini-card-fintech {
+    border-color: rgba(0, 223, 154, 0.4);
+}
+
+.mini-card-fintech:hover {
+    border-color: #00df9a;
+    box-shadow: 0 0 25px rgba(0, 223, 154, 0.2);
+}
+
+.mini-card-fintech .mini-card-icon {
+    color: #00df9a;
+    background: rgba(0, 223, 154, 0.08);
+}
+
+.mini-card-fintech h4 {
+    color: #00df9a;
+}
+
+.mini-card-growth {
+    border-color: rgba(255, 170, 0, 0.4);
+}
+
+.mini-card-growth:hover {
+    border-color: #ffaa00;
+    box-shadow: 0 0 25px rgba(255, 170, 0, 0.2);
+}
+
+.mini-card-growth .mini-card-icon {
+    color: #ffaa00;
+    background: rgba(255, 170, 0, 0.08);
+}
+
+.mini-card-growth h4 {
+    color: #ffaa00;
+}
+
+.mini-card-jobs {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mini-card-jobs:hover {
+    border-color: #fff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.mini-card-jobs .mini-card-icon {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mini-card-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+
+.mini-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.mini-card-content h4 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
+.mini-card-description {
+    font-size: 0.72rem;
+    color: var(--gray-200);
+    line-height: 1.4;
+    opacity: 0.8;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.mini-card-tag {
+    font-size: 0.65rem;
+    color: var(--gray-200);
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.mini-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.55rem;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--gray-200);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+    .mini-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .mini-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mini-card {
+        padding: 10px;
+    }
+
+    .mini-card-content h4 {
+        font-size: 0.75rem;
+    }
+}
+
 /* Why Futora */
 .why-futora {
     text-align: center;

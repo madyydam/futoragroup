@@ -46,4 +46,4 @@ const Hero3D = () => {
     );
 };
 
-export default Hero3D;
+export default React.memo(Hero3D);

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Sparkles, Target, Rocket, Instagram } from 'lucide-react';
@@ -139,4 +139,4 @@ const Founder: FC = () => {
     );
 };
 
-export default Founder;
+export default memo(Founder);

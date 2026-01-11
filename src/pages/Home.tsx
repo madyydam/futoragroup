@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink } from 'lucide-react';
+import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, Shield, CheckCircle, Rocket, LineChart, Wallet, Briefcase } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 import Hero3D from '../components/Hero3D';
@@ -59,6 +59,72 @@ const Home: FC = () => {
         { icon: <Sparkles />, title: 'AI-First Mindset', description: 'Every solution powered by cutting-edge AI' },
         { icon: <Target />, title: 'Global Ambition', description: 'Building for worldwide impact and scale' },
         { icon: <Zap />, title: 'Innovation at Core', description: 'Pushing boundaries of what\'s possible' }
+    ], []);
+
+    const upcomingProducts = useMemo(() => [
+        {
+            name: 'FutoraDrop',
+            icon: <Rocket size={18} />,
+            tag: 'Growth',
+            description: 'Global launch and distribution engine',
+            theme: 'growth'
+        },
+        {
+            name: 'FutoraFlow',
+            icon: <Zap size={18} />,
+            tag: 'AI',
+            description: 'AI execution brain for task orchestration',
+            theme: 'ai'
+        },
+        {
+            name: 'FutoraJobs Lite',
+            icon: <Briefcase size={18} />,
+            tag: 'Jobs',
+            description: 'Startup jobs platform for proof of work',
+            theme: 'jobs'
+        },
+        {
+            name: 'FutoraAgents',
+            icon: <Brain size={18} />,
+            tag: 'AI',
+            description: 'Builder for autonomous AI agents & workflows',
+            theme: 'ai'
+        },
+        {
+            name: 'FutoraFinance AI',
+            icon: <Wallet size={18} />,
+            tag: 'Fintech',
+            description: 'Smart financial assistant & global wallet',
+            theme: 'fintech'
+        },
+        {
+            name: 'FutoraPulse',
+            icon: <LineChart size={18} />,
+            tag: 'Insights',
+            description: 'AI-driven social insights & trend detection',
+            theme: 'insights'
+        },
+        {
+            name: 'FutoraID',
+            icon: <Shield size={18} />,
+            tag: 'Trust',
+            description: 'Verified tech identity & reputation backbone',
+            theme: 'trust'
+        },
+        {
+            name: 'FutoraTrust',
+            icon: <CheckCircle size={18} />,
+            tag: 'Trust',
+            description: 'Internet trust engine for credibility scoring',
+            theme: 'trust'
+        },
+        {
+            name: 'FutoraCircle',
+            icon: <Users size={18} />,
+            tag: 'Social',
+            description: 'Private micro-communities for builders',
+            theme: 'social'
+        }
     ], []);
 
     return (
@@ -161,6 +227,44 @@ const Home: FC = () => {
                 </div>
             </section>
 
+            {/* Upcoming Innovation Section */}
+            <section className="section upcoming-innovation">
+                <div className="container">
+                    <motion.div
+                        className="section-header-compact"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2>Upcoming Innovation</h2>
+                        <p className="upcoming-subtitle">In Dev • AI, Trust, Social & Growth Ecosystem</p>
+                    </motion.div>
+
+                    <div className="mini-cards-grid">
+                        {upcomingProducts.map((product, index) => (
+                            <motion.div
+                                key={product.name}
+                                className={`mini-card mini-card-${product.theme}`}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.05, duration: 0.4 }}
+                            >
+                                <div className="mini-card-icon">
+                                    {product.icon}
+                                </div>
+                                <div className="mini-card-content">
+                                    <h4>{product.name}</h4>
+                                    <p className="mini-card-description">{product.description}</p>
+                                    <span className="mini-card-tag">{product.tag}</span>
+                                </div>
+                                <div className="mini-card-badge">In Dev</div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Why Futora */}
             <section className="section why-futora">
                 <div className="container">
@@ -223,4 +327,4 @@ const Home: FC = () => {
     );
 };
 
-export default Home;
+export default memo(Home);

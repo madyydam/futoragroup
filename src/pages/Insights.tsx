@@ -144,4 +144,4 @@ const Insights: FC = () => {
     );
 };
 
-export default Insights;
+export default memo(Insights);

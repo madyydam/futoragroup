@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Zap, Globe, Users, MapPin, ArrowRight } from 'lucide-react';
@@ -136,4 +136,4 @@ const Careers: FC = () => {
     );
 };
 
-export default Careers;
+export default memo(Careers);

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import type { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -107,4 +107,4 @@ const ArticleDetail: FC = () => {
     );
 };
 
-export default ArticleDetail;
+export default memo(ArticleDetail);
