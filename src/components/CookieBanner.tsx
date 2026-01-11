@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie } from 'lucide-react';
 import './CookieBanner.css';
 
-export default function CookieBanner() {
+const CookieBanner = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -53,4 +53,6 @@ export default function CookieBanner() {
             )}
         </AnimatePresence>
     );
-}
+};
+
+export default memo(CookieBanner);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { Command } from 'cmdk';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -6,7 +6,6 @@ import {
     Briefcase,
     User,
     Mail,
-    // Link as LinkIcon, unused
     Book,
     Search,
     CreditCard,
@@ -16,7 +15,7 @@ import {
 } from 'lucide-react';
 import './CommandMenu.css';
 
-export default function CommandMenu() {
+const CommandMenu = () => {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -63,7 +62,7 @@ export default function CommandMenu() {
                             <Book className="cmd-icon" />
                             Insights
                         </Command.Item>
-                        <Command.Item onSelect={() => runCommand(() => navigate('/careers'))}>
+                        <Command.Item onSelect={() => runCommand(() => navigate('/founder'))}>
                             <User className="cmd-icon" />
                             Founder
                         </Command.Item>
@@ -106,4 +105,6 @@ export default function CommandMenu() {
             </div>
         </Command.Dialog>
     );
-}
+};
+
+export default memo(CommandMenu);

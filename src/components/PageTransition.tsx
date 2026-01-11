@@ -1,5 +1,6 @@
-import { motion, type Easing } from 'framer-motion';
+import { memo } from 'react';
 import type { ReactNode } from 'react';
+import { motion, type Easing } from 'framer-motion';
 
 const fadeVariants = {
     initial: {
@@ -35,4 +36,4 @@ const PageTransition = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export default PageTransition;
+export default memo(PageTransition);

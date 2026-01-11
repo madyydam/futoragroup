@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import './CustomCursor.css';
 
 const CustomCursor = () => {
@@ -42,4 +42,4 @@ const CustomCursor = () => {
     );
 };
 
-export default CustomCursor;
+export default memo(CustomCursor);

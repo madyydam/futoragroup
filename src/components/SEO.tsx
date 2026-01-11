@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
@@ -7,7 +8,7 @@ interface SEOProps {
     image?: string;
 }
 
-export default function SEO({ title, description, url = 'https://futora.com', image = '/logo.png' }: SEOProps) {
+const SEO = ({ title, description, url = 'https://futora.com', image = '/logo.png' }: SEOProps) => {
     const fullTitle = `${title} | Futora Group`;
 
     return (
@@ -32,4 +33,6 @@ export default function SEO({ title, description, url = 'https://futora.com', im
             <meta name='twitter:image' content={image} />
         </Helmet>
     );
-}
+};
+
+export default memo(SEO);

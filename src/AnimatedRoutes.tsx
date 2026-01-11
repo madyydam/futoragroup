@@ -40,7 +40,6 @@ export default function AnimatedRoutes() {
                     <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
                     <Route path="/insights" element={<PageTransition><Insights /></PageTransition>} />
                     <Route path="/insights/:id" element={<PageTransition><ArticleDetail /></PageTransition>} />
-                    <Route path="/insights/:id" element={<PageTransition><ArticleDetail /></PageTransition>} />
                     <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
                     <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
                 </Routes>

@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import type { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
+
+const NAV_LINKS = [
+    { name: 'Home', path: '/' },
+    { name: 'Companies', path: '/companies' },
+    { name: 'Careers', path: '/careers' },
+    { name: 'Insights', path: '/insights' },
+    { name: 'Founder', path: '/founder' },
+    { name: 'Contact', path: '/contact' }
+];
 
 const Navbar: FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -27,15 +36,6 @@ const Navbar: FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'Companies', path: '/companies' },
-        { name: 'Careers', path: '/careers' },
-        { name: 'Insights', path: '/insights' },
-        { name: 'Founder', path: '/founder' },
-        { name: 'Contact', path: '/contact' }
-    ];
-
     return (
         <motion.nav
             className={`navbar ${isScrolled ? 'scrolled' : ''}`}
@@ -50,7 +50,7 @@ const Navbar: FC = () => {
 
                 {/* Desktop Navigation */}
                 <ul className="navbar-links">
-                    {navLinks.map((link) => (
+                    {NAV_LINKS.map((link) => (
                         <li key={link.path}>
                             <Link
                                 to={link.path}
@@ -82,7 +82,7 @@ const Navbar: FC = () => {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        {navLinks.map((link) => (
+                        {NAV_LINKS.map((link) => (
                             <Link
                                 key={link.path}
                                 to={link.path}
@@ -99,5 +99,4 @@ const Navbar: FC = () => {
     );
 };
 
-const NavbarMemo = React.memo(Navbar);
-export default NavbarMemo;
+export default memo(Navbar);
