@@ -1,5 +1,5 @@
 import React, { type FC } from 'react';
-import { Link } from 'react-router-dom';
+import React, { type FC } from 'react';
 import { Mail, Linkedin, Instagram } from 'lucide-react';
 import './Footer.css';
 
