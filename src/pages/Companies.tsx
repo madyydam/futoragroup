@@ -1,19 +1,13 @@
 import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Zap, Briefcase, Wallet, LineChart, Shield, CheckCircle } from 'lucide-react';
+import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Zap, Briefcase, Wallet, LineChart, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import './Companies.css';
 
 const Companies: FC = () => {
     const upcomingProducts = useMemo(() => [
-        {
-            name: 'FutoraDrop',
-            icon: <Rocket size={18} />,
-            tag: 'Growth',
-            description: 'Global launch and distribution engine',
-            theme: 'growth'
-        },
+
         {
             name: 'FutoraFlow',
             icon: <Zap size={18} />,
@@ -50,11 +44,11 @@ const Companies: FC = () => {
             theme: 'insights'
         },
         {
-            name: 'FutoraID',
-            icon: <Shield size={18} />,
-            tag: 'Trust',
-            description: 'Verified tech identity & reputation backbone',
-            theme: 'trust'
+            name: 'FutoraWallet',
+            icon: <Wallet size={18} />,
+            tag: 'Fintech',
+            description: 'Secure, AI-powered global wallet for the digital age',
+            theme: 'wallet'
         },
         {
             name: 'FutoraTrust',
@@ -84,6 +78,16 @@ const Companies: FC = () => {
             link: 'https://futoralift.vercel.app/'
         },
         {
+            icon: <Rocket size={32} />,
+            name: 'FutoraDrop',
+            tagline: 'Global Launch Engine',
+            description: 'Global launch and distribution engine for startups to get their first 1000 users in India.',
+            features: ['Global Distribution', 'Launch Analytics', 'Growth Tools', 'Startup Showcase'],
+            theme: 'growth',
+            gradient: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)',
+            link: 'https://futoradrop.vercel.app/'
+        },
+        {
             icon: <CreditCard size={32} />,
             name: 'FutoraPay',
             tagline: 'Intelligent Money Management',
@@ -101,7 +105,7 @@ const Companies: FC = () => {
             features: ['Tech Community Network', 'AI-Powered Connections', 'Project Showcasing', 'Creator Ecosystem'],
             theme: 'purple',
             gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
-            link: '#'
+            link: 'https://futora1.vercel.app/'
         },
         {
             icon: <Brain size={32} />,
@@ -115,6 +119,41 @@ const Companies: FC = () => {
         }
     ], []);
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring" as const,
+                stiffness: 100,
+                damping: 15,
+                mass: 0.9
+            }
+        },
+        hover: {
+            y: -10,
+            scale: 1.02,
+            transition: {
+                type: "spring" as const,
+                stiffness: 400,
+                damping: 10
+            }
+        }
+    };
+
     return (
         <div className="companies-page">
             <div className="companies-hero">
@@ -123,7 +162,7 @@ const Companies: FC = () => {
                         className="hero-content"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.8, type: "spring", stiffness: 60 }}
                     >
                         <SEO
                             title="Our Companies"
@@ -138,35 +177,41 @@ const Companies: FC = () => {
 
             <section className="section companies-list">
                 <div className="container">
-                    {companies.map((company, index) => (
-                        <motion.div
-                            key={company.name}
-                            className={`company-detail-card company-card-${company.theme} glass-card`}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6 }}
-                        >
-                            <div className="company-detail-header">
-                                <div className="company-detail-icon" style={{ background: company.gradient }}>
-                                    {company.icon}
+                    <motion.div
+                        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                    >
+                        {companies.map((company) => (
+                            <motion.div
+                                key={company.name}
+                                className={`company-detail-card company-card-${company.theme} glass-card`}
+                                variants={cardVariants}
+                                whileHover="hover"
+                            >
+                                <div className="company-detail-header">
+                                    <div className="company-detail-icon" style={{ background: company.gradient }}>
+                                        {company.icon}
+                                    </div>
+                                    <div className="company-detail-title">
+                                        <h2>{company.name}</h2>
+                                        <p className="company-tagline">{company.tagline}</p>
+                                    </div>
                                 </div>
-                                <div className="company-detail-title">
-                                    <h2>{company.name}</h2>
-                                    <p className="company-tagline">{company.tagline}</p>
+                                <p className="company-description">{company.description}</p>
+                                <div className="company-features">
+                                    {company.features.map((feature, i) => (
+                                        <span key={i} className="feature-badge">{feature}</span>
+                                    ))}
                                 </div>
-                            </div>
-                            <p className="company-description">{company.description}</p>
-                            <div className="company-features">
-                                {company.features.map((feature, i) => (
-                                    <span key={i} className="feature-badge">{feature}</span>
-                                ))}
-                            </div>
-                            <a href={company.link} className="visit-btn">
-                                View Website <ExternalLink size={18} />
-                            </a>
-                        </motion.div>
-                    ))}
+                                <a href={company.link} className="visit-btn">
+                                    View Website <ExternalLink size={18} />
+                                </a>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 
@@ -175,23 +220,28 @@ const Companies: FC = () => {
                 <div className="container">
                     <motion.div
                         className="section-header-compact"
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.6, type: "spring", stiffness: 50 }}
                     >
                         <h2>Upcoming <span className="gradient-text">Innovation</span></h2>
                         <p className="upcoming-subtitle">In Dev • AI, Trust, Social & Growth Ecosystem</p>
                     </motion.div>
 
-                    <div className="mini-cards-grid">
-                        {upcomingProducts.map((product, index) => (
+                    <motion.div
+                        className="mini-cards-grid"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                    >
+                        {upcomingProducts.map((product) => (
                             <motion.div
                                 key={product.name}
                                 className={`mini-card mini-card-${product.theme}`}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05, duration: 0.4 }}
+                                variants={cardVariants}
+                                whileHover="hover"
                             >
                                 <div className="mini-card-icon">
                                     {product.icon}
@@ -204,7 +254,7 @@ const Companies: FC = () => {
                                 <div className="mini-card-badge">In Dev</div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </div>

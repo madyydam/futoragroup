@@ -129,6 +129,53 @@ const Ecosystem: FC = () => {
         }
     ], []);
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.1
+            }
+        }
+    };
+
+    const sectionHeaderVariants = {
+        hidden: { opacity: 0, scale: 0.95 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                type: "spring",
+                stiffness: 80,
+                damping: 20
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring" as const,
+                stiffness: 100,
+                damping: 15
+            }
+        },
+        hover: {
+            y: -8,
+            scale: 1.02,
+            transition: {
+                type: "spring" as const,
+                stiffness: 400,
+                damping: 10
+            }
+        }
+    };
+
     return (
         <div className="ecosystem-page">
             <SEO
@@ -140,17 +187,27 @@ const Ecosystem: FC = () => {
             <div className="ecosystem-hero">
                 <div className="container">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8, type: "spring", stiffness: 60 }}
                     >
                         <h1 className="gradient-text">Futora Ecosystem</h1>
                         <p>The roadmap to a machine-intelligent future. One weapon at a time.</p>
 
                         <div className="active-arsenal">
-                            <div className="active-grid">
+                            <motion.div
+                                className="active-grid"
+                                variants={containerVariants}
+                                initial="hidden"
+                                animate="visible"
+                            >
                                 {currentCompanies.map((company) => (
-                                    <div key={company.name} className="active-card glass-card">
+                                    <motion.div
+                                        key={company.name}
+                                        className="active-card glass-card"
+                                        variants={cardVariants}
+                                        whileHover="hover"
+                                    >
                                         <div className="active-icon" style={{ background: company.color }}>
                                             {company.icon}
                                         </div>
@@ -158,9 +215,9 @@ const Ecosystem: FC = () => {
                                             <h4>{company.name}</h4>
                                             <p>Active</p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
@@ -168,32 +225,42 @@ const Ecosystem: FC = () => {
 
             <section className="section future-frontier">
                 <div className="container">
-                    <div className="section-header">
+                    <motion.div
+                        className="section-header"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2>Future Frontier</h2>
                         <p>Incoming breakthroughs. Built for speed and acceleration.</p>
-                    </div>
+                    </motion.div>
 
                     {categories.map((cat, catIdx) => (
                         <div key={cat.title} className="category-section">
                             <motion.div
                                 className="category-header"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: catIdx * 0.1 }}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-50px" }}
+                                variants={sectionHeaderVariants}
                             >
                                 <h3>{cat.title}</h3>
                             </motion.div>
 
-                            <div className="product-grid">
-                                {cat.products.map((product, pIdx) => (
+                            <motion.div
+                                className="product-grid"
+                                variants={containerVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-50px" }}
+                            >
+                                {cat.products.map((product) => (
                                     <motion.div
                                         key={product.name}
                                         className="product-card glass-card"
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: (catIdx * 0.1) + (pIdx * 0.05) }}
+                                        variants={cardVariants}
+                                        whileHover="hover"
                                     >
                                         <div className="status-badge">In Dev</div>
                                         <div className="product-icon">{product.icon}</div>
@@ -207,7 +274,7 @@ const Ecosystem: FC = () => {
                                         </div>
                                     </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     ))}
                 </div>

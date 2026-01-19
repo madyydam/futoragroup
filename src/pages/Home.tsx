@@ -21,6 +21,17 @@ const Home: FC = () => {
             link: 'https://futoralift.vercel.app/'
         },
         {
+            id: 'futoradrop',
+            icon: <Rocket size={32} />,
+            name: 'FutoraDrop',
+            tagline: 'Global Launch Engine',
+            description: 'Global launch and distribution engine for startups to get their first 1000 users in India.',
+            theme: 'growth',
+            gradient: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)',
+            accentColor: '#4F46E5',
+            link: 'https://futoradrop.vercel.app/'
+        },
+        {
             id: 'futorapay',
             icon: <CreditCard size={32} />,
             name: 'FutoraPay',
@@ -40,7 +51,7 @@ const Home: FC = () => {
             theme: 'purple',
             gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
             accentColor: '#6366f1',
-            link: '#'
+            link: 'https://futora1.vercel.app/'
         },
         {
             id: 'futoraai',
@@ -62,13 +73,7 @@ const Home: FC = () => {
     ], []);
 
     const upcomingProducts = useMemo(() => [
-        {
-            name: 'FutoraDrop',
-            icon: <Rocket size={18} />,
-            tag: 'Growth',
-            description: 'Global launch and distribution engine',
-            theme: 'growth'
-        },
+
         {
             name: 'FutoraFlow',
             icon: <Zap size={18} />,
@@ -105,11 +110,11 @@ const Home: FC = () => {
             theme: 'insights'
         },
         {
-            name: 'FutoraID',
-            icon: <Shield size={18} />,
-            tag: 'Trust',
-            description: 'Verified tech identity & reputation backbone',
-            theme: 'trust'
+            name: 'FutoraWallet',
+            icon: <Wallet size={18} />,
+            tag: 'Fintech',
+            description: 'Secure, AI-powered global wallet for the digital age',
+            theme: 'wallet'
         },
         {
             name: 'FutoraTrust',
@@ -127,6 +132,55 @@ const Home: FC = () => {
         }
     ], []);
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 12, // slightly bouncy but controlled
+                mass: 0.9
+            }
+        },
+        hover: {
+            y: -10,
+            scale: 1.02,
+            transition: {
+                type: "spring",
+                stiffness: 400,
+                damping: 10
+            }
+        }
+    };
+
+    const heroVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: (custom: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: custom * 0.1,
+                type: "spring",
+                stiffness: 80,
+                damping: 15
+            }
+        })
+    };
+
     return (
         <div className="home">
             <SEO
@@ -139,39 +193,37 @@ const Home: FC = () => {
                 <div className="container">
                     <motion.div
                         className="hero-content"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial="hidden"
+                        animate="visible"
                     >
                         <motion.div
                             className="hero-logo"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1 }}
+                            variants={heroVariants}
+                            custom={0}
                         >
                             <img src="/logo.png" alt="Futora Logo" className="phoenix-logo" />
                         </motion.div>
+
                         <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.8 }}
+                            variants={heroVariants}
+                            custom={1}
                         >
                             Futora Group <br />
                             <span className="gradient-text">of Companies</span>
                         </motion.h1>
+
                         <motion.p
                             className="hero-subtitle"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4, duration: 0.8 }}
+                            variants={heroVariants}
+                            custom={2}
                         >
                             Futora is a group of companies building AI, fintech,<br />social, and growth platforms.
                         </motion.p>
+
                         <motion.div
                             className="hero-buttons"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
+                            variants={heroVariants}
+                            custom={3}
                         >
                             <a href="#companies" className="btn btn-primary">
                                 Explore Companies
@@ -191,20 +243,25 @@ const Home: FC = () => {
                         className="section-title"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6 }}
                     >
                         Our Companies
                     </motion.h2>
-                    <div className="companies-grid">
-                        {companies.map((company, index) => (
+                    <motion.div
+                        className="companies-grid"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                    >
+                        {companies.map((company) => (
                             <motion.div
                                 key={company.name}
                                 id={company.id}
                                 className={`company-card company-card-${company.theme}`}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
+                                variants={cardVariants}
+                                whileHover="hover"
                             >
                                 <div className="company-icon" style={{ background: company.gradient }}>
                                     {company.icon}
@@ -223,7 +280,7 @@ const Home: FC = () => {
                                 </a>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -235,20 +292,25 @@ const Home: FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
                     >
                         <h2>Upcoming Innovation</h2>
                         <p className="upcoming-subtitle">In Dev • AI, Trust, Social & Growth Ecosystem</p>
                     </motion.div>
 
-                    <div className="mini-cards-grid">
-                        {upcomingProducts.map((product, index) => (
+                    <motion.div
+                        className="mini-cards-grid"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                    >
+                        {upcomingProducts.map((product) => (
                             <motion.div
                                 key={product.name}
                                 className={`mini-card mini-card-${product.theme}`}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05, duration: 0.4 }}
+                                variants={cardVariants}
+                                whileHover="hover"
                             >
                                 <div className="mini-card-icon">
                                     {product.icon}
@@ -261,7 +323,7 @@ const Home: FC = () => {
                                 <div className="mini-card-badge">In Dev</div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -275,22 +337,26 @@ const Home: FC = () => {
                     >
                         Why Futora
                     </motion.h2>
-                    <div className="values-grid">
-                        {values.map((value, index) => (
+                    <motion.div
+                        className="values-grid"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        {values.map((value) => (
                             <motion.div
                                 key={value.title}
                                 className="value-card glass-card"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.15, duration: 0.5 }}
+                                variants={cardVariants}
+                                whileHover="hover"
                             >
                                 <div className="value-icon">{value.icon}</div>
                                 <h3>{value.title}</h3>
                                 <p>{value.description}</p>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -299,8 +365,9 @@ const Home: FC = () => {
                 <div className="container">
                     <motion.div
                         className="founder-card glass-card"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ type: "spring", stiffness: 100, damping: 15 }}
                         viewport={{ once: true }}
                     >
                         <div className="founder-content">

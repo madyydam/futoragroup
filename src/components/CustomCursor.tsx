@@ -12,7 +12,7 @@ const CustomCursor = () => {
 
         const updateMousePosition = (e: MouseEvent) => {
             // Move the parent container only
-            cursor.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+            cursor.style.transform = `translate(${e.clientX - 12}px, ${e.clientY - 12}px)`;
         };
 
         const handleMouseOver = (e: MouseEvent) => {

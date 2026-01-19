@@ -3,8 +3,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     pointer-events: none;
     z-index: 9999;
     /* Removed background causing boxy look, moving styles to inner texture */

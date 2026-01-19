@@ -27,32 +27,9 @@ const Footer: FC = () => {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="footer-links">
-                        <h4>Quick Links</h4>
-                        <Link to="/">Home</Link>
-                        <Link to="/companies">Our Companies</Link>
-                        <Link to="/careers">Careers</Link>
-                        <Link to="/insights">Insights</Link>
-                        <Link to="/founder">Founder</Link>
-                    </div>
 
-                    {/* Companies */}
-                    <div className="footer-links">
-                        <h4>Companies</h4>
-                        <a href="https://futoralift.vercel.app/" target="_blank" rel="noopener noreferrer">FutoraLift</a>
-                        <a href="https://futorapay.vercel.app/" target="_blank" rel="noopener noreferrer">FutoraPay</a>
-                        <a href="#futoraone">FutoraOne</a>
-                        <a href="https://futoraai.vercel.app/" target="_blank" rel="noopener noreferrer">Futora AI</a>
-                    </div>
 
-                    {/* Contact */}
-                    <div className="footer-links">
-                        <h4>Get in Touch</h4>
-                        <Link to="/contact">Contact Us</Link>
-                        <a href="mailto:madhurdhadve@gmail.com">Email</a>
-                        <p className="footer-small">Let's build the future together</p>
-                    </div>
+
                 </div>
 
                 <div className="footer-section newsletter-section">
