@@ -147,7 +147,7 @@ const Ecosystem: FC = () => {
             opacity: 1,
             scale: 1,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 80,
                 damping: 20
             }
@@ -236,7 +236,7 @@ const Ecosystem: FC = () => {
                         <p>Incoming breakthroughs. Built for speed and acceleration.</p>
                     </motion.div>
 
-                    {categories.map((cat, catIdx) => (
+                    {categories.map((cat) => (
                         <div key={cat.title} className="category-section">
                             <motion.div
                                 className="category-header"

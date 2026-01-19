@@ -1,5 +1,4 @@
 import React, { type FC } from 'react';
-import React, { type FC } from 'react';
 import { Mail, Linkedin, Instagram } from 'lucide-react';
 import './Footer.css';
 
