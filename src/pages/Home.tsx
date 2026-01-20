@@ -1,7 +1,8 @@
 import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, Shield, CheckCircle, Rocket, LineChart, Wallet, Briefcase } from 'lucide-react';
+import type { Variants } from 'framer-motion';
+import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 import Hero3D from '../components/Hero3D';
@@ -133,7 +134,7 @@ const Home: FC = () => {
     ], []);
 
     // Animation Variants
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -144,7 +145,7 @@ const Home: FC = () => {
         }
     };
 
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
@@ -167,7 +168,7 @@ const Home: FC = () => {
         }
     };
 
-    const heroVariants = {
+    const heroVariants: Variants = {
         hidden: { opacity: 0, y: 40 },
         visible: (custom: number) => ({
             opacity: 1,
