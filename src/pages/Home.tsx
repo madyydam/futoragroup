@@ -45,12 +45,13 @@ const Home: FC = () => {
         },
         {
             id: 'futoraone',
-            icon: <Users size={32} />,
+            logo: '/futoraone-logo.png',
             name: 'FutoraOne',
             tagline: 'Connect. Build. Grow.',
             description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
             theme: 'purple',
-            gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
+            gradient: 'linear-gradient(135deg, #0a0118 0%, #1a1a2e 100%)',
+            buttonGradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
             accentColor: '#6366f1',
             link: 'https://futora1.vercel.app/'
         },
@@ -64,6 +65,18 @@ const Home: FC = () => {
             gradient: 'linear-gradient(135deg, #00ffff 0%, #0080ff 100%)',
             accentColor: '#00ffff',
             link: 'https://futoraai.vercel.app/'
+        },
+        {
+            id: 'futoraflow',
+            logo: '/futoraflow-logo.png',
+            name: 'FutoraFlow',
+            tagline: 'AI Operating System',
+            description: 'Fully AI-commanded business operating system an execution brain for tasks, automation, and growth from one dashboard.',
+            theme: 'flow',
+            gradient: 'linear-gradient(135deg, #050010 0%, #0c001a 100%)',
+            buttonGradient: 'linear-gradient(135deg, #a855f7 0%, #00b4d8 100%)',
+            accentColor: '#a855f7',
+            link: 'https://futoraflow.vercel.app/'
         }
     ], []);
 
@@ -74,14 +87,6 @@ const Home: FC = () => {
     ], []);
 
     const upcomingProducts = useMemo(() => [
-
-        {
-            name: 'FutoraFlow',
-            icon: <Zap size={18} />,
-            tag: 'AI',
-            description: 'AI execution brain for task orchestration',
-            theme: 'ai'
-        },
         {
             name: 'FutoraJobs Lite',
             icon: <Briefcase size={18} />,
@@ -130,6 +135,13 @@ const Home: FC = () => {
             tag: 'Social',
             description: 'Private micro-communities for builders',
             theme: 'social'
+        },
+        {
+            name: 'FutoraID',
+            icon: <Target size={18} />,
+            tag: 'Identity',
+            description: 'Decentralized digital identity & reputation system for the AI era',
+            theme: 'ai'
         }
     ], []);
 
@@ -265,7 +277,11 @@ const Home: FC = () => {
                                 whileHover="hover"
                             >
                                 <div className="company-icon" style={{ background: company.gradient }}>
-                                    {company.icon}
+                                    {company.logo ? (
+                                        <img src={company.logo} alt={`${company.name} logo`} />
+                                    ) : (
+                                        company.icon
+                                    )}
                                 </div>
                                 <h3>{company.name}</h3>
                                 <p className="company-role">{company.tagline}</p>
@@ -275,7 +291,7 @@ const Home: FC = () => {
                                     target={company.link !== '#' ? '_blank' : undefined}
                                     rel={company.link !== '#' ? 'noopener noreferrer' : undefined}
                                     className="company-btn"
-                                    style={{ background: company.gradient }}
+                                    style={{ background: company.buttonGradient || company.gradient }}
                                 >
                                     View Website <ExternalLink size={16} />
                                 </a>

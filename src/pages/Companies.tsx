@@ -1,20 +1,12 @@
 import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Zap, Briefcase, Wallet, LineChart, CheckCircle } from 'lucide-react';
+import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Target, Briefcase, Wallet, LineChart, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import './Companies.css';
 
 const Companies: FC = () => {
     const upcomingProducts = useMemo(() => [
-
-        {
-            name: 'FutoraFlow',
-            icon: <Zap size={18} />,
-            tag: 'AI',
-            description: 'AI execution brain for task orchestration',
-            theme: 'ai'
-        },
         {
             name: 'FutoraJobs Lite',
             icon: <Briefcase size={18} />,
@@ -63,6 +55,13 @@ const Companies: FC = () => {
             tag: 'Social',
             description: 'Private micro-communities for builders',
             theme: 'social'
+        },
+        {
+            name: 'FutoraID',
+            icon: <Target size={18} />,
+            tag: 'Identity',
+            description: 'Decentralized digital identity & reputation system for the AI era',
+            theme: 'ai'
         }
     ], []);
 
@@ -98,13 +97,14 @@ const Companies: FC = () => {
             link: 'https://futorapay.vercel.app/'
         },
         {
-            icon: <Users size={32} />,
+            logo: '/futoraone-logo.png',
             name: 'FutoraOne',
             tagline: 'Connect. Build. Grow.',
             description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
             features: ['Tech Community Network', 'AI-Powered Connections', 'Project Showcasing', 'Creator Ecosystem'],
             theme: 'purple',
-            gradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
+            gradient: 'linear-gradient(135deg, #0a0118 0%, #1a1a2e 100%)',
+            buttonGradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
             link: 'https://futora1.vercel.app/'
         },
         {
@@ -116,6 +116,17 @@ const Companies: FC = () => {
             theme: 'neon',
             gradient: 'linear-gradient(135deg, #00ffff 0%, #0080ff 100%)',
             link: 'https://futoraai.vercel.app/'
+        },
+        {
+            logo: '/futoraflow-logo.png',
+            name: 'FutoraFlow',
+            tagline: 'AI Operating System',
+            description: 'Fully AI-commanded business operating system an execution brain for tasks, automation, and growth from one dashboard.',
+            features: ['AI Command Interface', 'Task Automation', 'Business Intelligence', 'Workflow Orchestration'],
+            theme: 'flow',
+            gradient: 'linear-gradient(135deg, #050010 0%, #0c001a 100%)',
+            buttonGradient: 'linear-gradient(135deg, #a855f7 0%, #00b4d8 100%)',
+            link: 'https://futoraflow.vercel.app/'
         }
     ], []);
 
@@ -166,11 +177,11 @@ const Companies: FC = () => {
                     >
                         <SEO
                             title="Our Companies"
-                            description="Explore the Futora Group ecosystem: FutoraLift (Marketing), FutoraPay (Fintech), FutoraOne (Social), and Futora AI (Education & Tools)."
+                            description="Explore the Futora Group ecosystem: FutoraLift (Marketing), FutoraDrop (Launch), FutoraPay (Fintech), FutoraOne (Social), Futora AI (Education & Tools), and FutoraFlow (AI Operating System)."
                             url="https://futora.com/companies"
                         />
                         <h1>Our <span className="gradient-text">Companies</span></h1>
-                        <p>Four visionary brands, one powerful ecosystem—transforming industries with AI, automation, and innovation.</p>
+                        <p>Six visionary brands, one powerful ecosystem—transforming industries with AI, automation, and innovation.</p>
                     </motion.div>
                 </div>
             </div>
@@ -193,7 +204,11 @@ const Companies: FC = () => {
                             >
                                 <div className="company-detail-header">
                                     <div className="company-detail-icon" style={{ background: company.gradient }}>
-                                        {company.icon}
+                                        {company.logo ? (
+                                            <img src={company.logo} alt={`${company.name} logo`} />
+                                        ) : (
+                                            company.icon
+                                        )}
                                     </div>
                                     <div className="company-detail-title">
                                         <h2>{company.name}</h2>
@@ -206,7 +221,7 @@ const Companies: FC = () => {
                                         <span key={i} className="feature-badge">{feature}</span>
                                     ))}
                                 </div>
-                                <a href={company.link} className="visit-btn">
+                                <a href={company.link} className="visit-btn" style={{ background: company.buttonGradient }}>
                                     View Website <ExternalLink size={18} />
                                 </a>
                             </motion.div>
