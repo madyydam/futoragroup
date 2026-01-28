@@ -1,7 +1,7 @@
 import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Target, Briefcase, Wallet, LineChart, CheckCircle } from 'lucide-react';
+import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Target, Briefcase, Wallet, LineChart, CheckCircle, ArrowRight, Radio } from 'lucide-react';
 import SEO from '../components/SEO';
 import './Companies.css';
 
@@ -22,6 +22,13 @@ const Companies: FC = () => {
             theme: 'ai'
         },
         {
+            name: 'FutoraSense',
+            icon: <Radio size={18} />,
+            tag: 'Signals',
+            description: 'AI platform that senses business signals, risks & opportunities in real-time',
+            theme: 'insights'
+        },
+        {
             name: 'FutoraFinance AI',
             icon: <Wallet size={18} />,
             tag: 'Fintech',
@@ -34,13 +41,6 @@ const Companies: FC = () => {
             tag: 'Insights',
             description: 'AI-driven social insights & trend detection',
             theme: 'insights'
-        },
-        {
-            name: 'FutoraWallet',
-            icon: <Wallet size={18} />,
-            tag: 'Fintech',
-            description: 'Secure, AI-powered global wallet for the digital age',
-            theme: 'wallet'
         },
         {
             name: 'FutoraTrust',
@@ -87,14 +87,30 @@ const Companies: FC = () => {
             link: 'https://futoradrop.vercel.app/'
         },
         {
-            icon: <CreditCard size={32} />,
-            name: 'FutoraPay',
-            tagline: 'Intelligent Money Management',
-            description: 'AI-powered smart payments and financial management platform.',
-            features: ['Smart Payments', 'Financial Analytics', 'Money Management', 'AI-Driven Insights'],
+            logo: '/futorafinance-logo.png',
+            // icon: <CreditCard size={32} />,
+            name: 'Futora Finance',
+            tagline: 'AI-Powered Financial Infrastructure',
+            // description: '', // Removed as requested
             theme: 'futorapay-premium',
             gradient: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
-            link: 'https://futorapay.vercel.app/'
+            link: 'https://futorapay.vercel.app/',
+            modules: [
+                {
+                    name: 'Futora Wallet',
+                    role: 'AI Financial Management OS',
+                    icon: <Wallet size={16} />,
+                    features: ['Finance mgmt', 'AI insights', 'Wallet infra'],
+                    url: 'https://futorapay.vercel.app/'
+                },
+                {
+                    name: 'Futora Pay',
+                    role: 'Next-Gen UPI Payments App',
+                    icon: <CreditCard size={16} />,
+                    features: ['Fast transactions', 'Secure checkout', 'UPI Integration'],
+                    url: 'https://futorawallet.vercel.app/'
+                }
+            ]
         },
         {
             logo: '/futoraone-logo.png',
@@ -195,7 +211,7 @@ const Companies: FC = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                     >
-                        {companies.map((company) => (
+                        {companies.map((company: any) => (
                             <motion.div
                                 key={company.name}
                                 className={`company-detail-card company-card-${company.theme} glass-card`}
@@ -215,15 +231,90 @@ const Companies: FC = () => {
                                         <p className="company-tagline">{company.tagline}</p>
                                     </div>
                                 </div>
-                                <p className="company-description">{company.description}</p>
-                                <div className="company-features">
-                                    {company.features.map((feature, i) => (
-                                        <span key={i} className="feature-badge">{feature}</span>
-                                    ))}
-                                </div>
-                                <a href={company.link} className="visit-btn" style={{ background: company.buttonGradient }}>
-                                    View Website <ExternalLink size={18} />
-                                </a>
+                                {company.description && (
+                                    <p className="company-description">{company.description}</p>
+                                )}
+
+                                {company.modules ? (
+                                    <div className="finance-modules-grid">
+                                        {company.modules.map((module: any, idx: number) => (
+                                            <a key={idx} href={module.url || '#'} target="_blank" rel="noopener noreferrer" style={{
+                                                textDecoration: 'none',
+                                                background: 'rgba(255,255,255,0.03)',
+                                                border: '1px solid rgba(255,255,255,0.06)',
+                                                borderRadius: '8px',
+                                                padding: '12px',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                transition: 'all 0.2s ease',
+                                                cursor: 'pointer',
+                                                position: 'relative',
+                                                overflow: 'hidden'
+                                            }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                                                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                                                    e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                                                }}
+                                            >
+                                                <div style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '8px',
+                                                    marginBottom: '8px',
+                                                    color: '#00df9a'
+                                                }}>
+                                                    {module.icon}
+                                                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{module.name}</span>
+                                                </div>
+                                                <div style={{
+                                                    background: 'rgba(0, 223, 154, 0.1)',
+                                                    border: '1px solid rgba(0, 223, 154, 0.3)',
+                                                    borderRadius: '100px',
+                                                    padding: '2px 10px',
+                                                    fontSize: '0.65rem',
+                                                    color: '#00df9a',
+                                                    fontWeight: 600,
+                                                    width: 'fit-content',
+                                                    marginBottom: '8px',
+                                                    cursor: 'default',
+                                                    boxShadow: '0 0 10px rgba(0, 223, 154, 0.1)'
+                                                }}>
+                                                    {module.role}
+                                                </div>
+
+                                                <div style={{
+                                                    marginTop: '12px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '4px',
+                                                    fontSize: '0.75rem',
+                                                    color: '#00df9a',
+                                                    fontWeight: 600,
+                                                    textShadow: '0 0 8px rgba(0, 223, 154, 0.6)',
+                                                    opacity: 1
+                                                }}>
+                                                    Visit App <ArrowRight size={12} />
+                                                </div>
+                                            </a>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="company-features">
+                                        {company.features.map((feature: string, i: number) => (
+                                            <span key={i} className="feature-badge">{feature}</span>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {!company.modules && (
+                                    <a href={company.link} className="visit-btn" style={{ background: company.buttonGradient }}>
+                                        View Website <ExternalLink size={18} />
+                                    </a>
+                                )}
                             </motion.div>
                         ))}
                     </motion.div>

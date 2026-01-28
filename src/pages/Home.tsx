@@ -2,7 +2,7 @@ import { useMemo, memo } from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase } from 'lucide-react';
+import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase, Radio } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 import Hero3D from '../components/Hero3D';
@@ -33,15 +33,32 @@ const Home: FC = () => {
             link: 'https://futoradrop.vercel.app/'
         },
         {
-            id: 'futorapay',
-            icon: <CreditCard size={32} />,
-            name: 'FutoraPay',
-            tagline: 'Intelligent Money Management',
-            description: 'AI-powered smart payments and financial management platform.',
+            id: 'futorafinance',
+            logo: '/futorafinance-logo.png',
+            // icon: <CreditCard size={32} />, // Replaced by logo
+            name: 'Futora Finance',
+            tagline: 'AI-Powered Financial Infrastructure',
+            // description: '', // Removed as requested
             theme: 'futorapay-premium',
             gradient: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
             accentColor: '#00df9a',
-            link: 'https://futorapay.vercel.app/'
+            link: 'https://futorapay.vercel.app/',
+            modules: [
+                {
+                    name: 'Futora Wallet',
+                    role: 'AI Financial Management OS',
+                    icon: <Wallet size={16} />,
+                    features: ['Finance mgmt', 'AI insights', 'Wallet infra'],
+                    url: 'https://futorapay.vercel.app/'
+                },
+                {
+                    name: 'Futora Pay',
+                    role: 'Next-Gen UPI Payments App',
+                    icon: <CreditCard size={16} />,
+                    features: ['Fast transactions', 'Secure checkout', 'UPI Integration'],
+                    url: 'https://futorawallet.vercel.app/'
+                }
+            ]
         },
         {
             id: 'futoraone',
@@ -102,6 +119,13 @@ const Home: FC = () => {
             theme: 'ai'
         },
         {
+            name: 'FutoraSense',
+            icon: <Radio size={18} />,
+            tag: 'Signals',
+            description: 'AI platform that senses business signals, risks & opportunities in real-time',
+            theme: 'insights'
+        },
+        {
             name: 'FutoraFinance AI',
             icon: <Wallet size={18} />,
             tag: 'Fintech',
@@ -114,13 +138,6 @@ const Home: FC = () => {
             tag: 'Insights',
             description: 'AI-driven social insights & trend detection',
             theme: 'insights'
-        },
-        {
-            name: 'FutoraWallet',
-            icon: <Wallet size={18} />,
-            tag: 'Fintech',
-            description: 'Secure, AI-powered global wallet for the digital age',
-            theme: 'wallet'
         },
         {
             name: 'FutoraTrust',
@@ -268,7 +285,7 @@ const Home: FC = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                     >
-                        {companies.map((company) => (
+                        {companies.map((company: any) => (
                             <motion.div
                                 key={company.name}
                                 id={company.id}
@@ -283,18 +300,92 @@ const Home: FC = () => {
                                         company.icon
                                     )}
                                 </div>
-                                <h3>{company.name}</h3>
-                                <p className="company-role">{company.tagline}</p>
-                                <p className="company-description">{company.description}</p>
-                                <a
-                                    href={company.link}
-                                    target={company.link !== '#' ? '_blank' : undefined}
-                                    rel={company.link !== '#' ? 'noopener noreferrer' : undefined}
-                                    className="company-btn"
-                                    style={{ background: company.buttonGradient || company.gradient }}
-                                >
-                                    View Website <ExternalLink size={16} />
-                                </a>
+                                <h3 style={{ marginBottom: '4px' }}>{company.name}</h3>
+                                <p className="company-role" style={{ fontSize: '0.85rem', opacity: 0.9, marginBottom: '12px' }}>{company.tagline}</p>
+                                {company.description && (
+                                    <p className="company-description" style={{ marginBottom: company.modules ? '20px' : '15px' }}>{company.description}</p>
+                                )}
+
+                                {company.modules && (
+                                    <div className="finance-modules-grid">
+                                        {company.modules.map((module: any, idx: number) => (
+                                            <a key={idx} href={module.url || '#'} target="_blank" rel="noopener noreferrer" style={{
+                                                textDecoration: 'none',
+                                                background: 'rgba(255,255,255,0.03)',
+                                                border: '1px solid rgba(255,255,255,0.06)',
+                                                borderRadius: '8px',
+                                                padding: '12px',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                transition: 'all 0.2s ease',
+                                                cursor: 'pointer',
+                                                position: 'relative',
+                                                overflow: 'hidden'
+                                            }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                                                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                                                    e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                                                }}
+                                            >
+                                                <div style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '8px',
+                                                    marginBottom: '8px',
+                                                    color: company.accentColor
+                                                }}>
+                                                    {module.icon}
+                                                    <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>{module.name}</span>
+                                                </div>
+                                                <div style={{
+                                                    background: 'rgba(0, 223, 154, 0.1)',
+                                                    border: '1px solid rgba(0, 223, 154, 0.3)',
+                                                    borderRadius: '100px',
+                                                    padding: '2px 10px',
+                                                    fontSize: '0.65rem',
+                                                    color: '#00df9a',
+                                                    fontWeight: 600,
+                                                    width: 'fit-content',
+                                                    marginBottom: '8px',
+                                                    cursor: 'default',
+                                                    boxShadow: '0 0 10px rgba(0, 223, 154, 0.1)'
+                                                }}>
+                                                    {module.role}
+                                                </div>
+
+                                                <div style={{
+                                                    marginTop: '12px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '4px',
+                                                    fontSize: '0.75rem',
+                                                    color: company.accentColor,
+                                                    fontWeight: 600,
+                                                    textShadow: '0 0 8px rgba(0, 223, 154, 0.6)',
+                                                    opacity: 1
+                                                }}>
+                                                    Visit App <ArrowRight size={12} />
+                                                </div>
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {!company.modules && (
+                                    <a
+                                        href={company.link}
+                                        target={company.link !== '#' ? '_blank' : undefined}
+                                        rel={company.link !== '#' ? 'noopener noreferrer' : undefined}
+                                        className="company-btn"
+                                        style={{ background: company.buttonGradient || company.gradient, marginTop: 'auto' }}
+                                    >
+                                        View Website <ExternalLink size={16} />
+                                    </a>
+                                )}
                             </motion.div>
                         ))}
                     </motion.div>

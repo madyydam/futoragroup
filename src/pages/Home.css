@@ -423,6 +423,7 @@ section {
     margin-bottom: 8px;
     background: linear-gradient(135deg, #fff 0%, #aaa 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -956,5 +957,21 @@ section {
 @media (min-width: 769px) {
     .mobile-sticky-cta {
         display: none;
+    }
+}
+
+/* Responsive Grid for Finance Modules */
+.finance-modules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 640px) {
+    .finance-modules-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
