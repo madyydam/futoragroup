@@ -495,6 +495,32 @@ const Home: FC = () => {
                 </div>
             </section>
 
+            {/* Legal & Compliance Section */}
+            <section className="section legal-compliance-home" style={{ paddingTop: 0 }}>
+                <div className="container">
+                    <motion.div
+                        className="legal-card-home glass-card"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        style={{ padding: '40px' }}
+                    >
+                        <h3 style={{ marginBottom: '30px', fontSize: '1.5rem', color: '#fff' }}>Legal & Compliance</h3>
+                        <div className="legal-content-wrapper-home">
+                            <div className="legal-logo-column">
+                                <img src="/msme-logo.png" alt="MSME Logo" className="legal-msme-logo" />
+                            </div>
+                            <div className="legal-text-column">
+                                <p style={{ fontSize: '1.1rem', color: 'var(--gray-200)', lineHeight: '1.6' }}>
+                                    Futora Group of Companies is a Government of India recognized MSME, operating as a registered technology holding company focused on AI, fintech, and digital platforms.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Contact Section */}
             <div id="contact">
                 <ContactSection />
