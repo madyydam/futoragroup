@@ -237,6 +237,55 @@
     margin-bottom: 16px;
 }
 
+.legal-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--pure-white);
+}
+
+.legal-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.legal-logo-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legal-msme-logo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    filter: brightness(1.1);
+    /* Attempting to blend simulated transparent background */
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.legal-msme-logo:hover {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.legal-text-column {
+    text-align: left;
+}
+
+.legal-card p {
+    font-size: 1.1rem;
+    color: var(--gray-100);
+    line-height: 1.6;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+
 .timeline-item h3 {
     font-size: 1.5rem;
     margin-bottom: 12px;
@@ -250,6 +299,20 @@
 }
 
 @media (max-width: 768px) {
+    .legal-card {
+        padding: 24px 20px;
+        text-align: center;
+    }
+
+    .legal-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .legal-msme-logo {
+        max-width: 200px;
+    }
+
     .avatar-placeholder {
         width: 120px;
         height: 120px;

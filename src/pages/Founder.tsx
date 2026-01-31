@@ -145,9 +145,16 @@ const Founder: FC = () => {
                         viewport={{ once: true }}
                     >
                         <h3>Legal & Compliance</h3>
-                        <p>
-                            Futora Group of Companies is a Government of India recognized MSME, operating as a registered technology holding company focused on AI, fintech, and digital platforms.
-                        </p>
+                        <div className="legal-content-wrapper">
+                            <div className="legal-logo-column">
+                                <img src="/msme-logo.png" alt="MSME Logo" className="legal-msme-logo" />
+                            </div>
+                            <div className="legal-text-column">
+                                <p>
+                                    Futora Group of Companies is a Government of India recognized MSME, operating as a registered technology holding company focused on AI, fintech, and digital platforms.
+                                </p>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </section>
