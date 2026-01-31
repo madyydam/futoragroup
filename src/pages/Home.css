@@ -975,3 +975,47 @@ section {
         gap: 16px;
     }
 }
+
+/* Legal Compliance Home */
+.legal-card-home {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.legal-content-wrapper-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.legal-msme-logo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    filter: brightness(1.1);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.legal-msme-logo:hover {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .legal-content-wrapper-home {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .legal-card-home {
+        text-align: center;
+        padding: 30px 20px !important;
+    }
+
+    .legal-msme-logo {
+        max-width: 200px;
+    }
+}
