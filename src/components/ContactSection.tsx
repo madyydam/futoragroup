@@ -184,6 +184,11 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                     <Linkedin size={18} /> Madhur Dhadve
                                 </a>
                             </div>
+                            <div className="contact-compliance" style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                                <p style={{ fontSize: '0.75rem', color: 'var(--gray-300)', opacity: 0.8, lineHeight: 1.5 }}>
+                                    Futora Group of Companies is a Government of India recognized MSME.
+                                </p>
+                            </div>
                         </div>
 
                         <div className="social-icons-row">

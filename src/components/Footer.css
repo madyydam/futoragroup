@@ -144,12 +144,32 @@
 /* Bottom Bar */
 .footer-bottom {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.9rem;
+}
+
+.footer-compliance {
+    text-align: center;
+}
+
+.msme-text {
+    font-size: var(--font-small);
+    color: var(--compliance-text);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 /* Responsive */

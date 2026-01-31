@@ -135,6 +135,22 @@ const Founder: FC = () => {
                     </div>
                 </div>
             </section>
+
+            <section className="section legal-section">
+                <div className="container">
+                    <motion.div
+                        className="legal-card glass-card"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3>Legal & Compliance</h3>
+                        <p>
+                            Futora Group of Companies is a Government of India recognized MSME, operating as a registered technology holding company focused on AI, fintech, and digital platforms.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
         </div>
     );
 };

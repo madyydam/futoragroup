@@ -121,8 +121,8 @@ const Home: FC = () => {
         {
             name: 'FutoraSense',
             icon: <Radio size={18} />,
-            tag: 'Signals',
-            description: 'AI platform that senses business signals, risks & opportunities in real-time',
+            tag: 'Launching Soon',
+            description: 'AI platform that senses business signals, risks & opportunities in real-time. Coming soon to the Futora ecosystem.',
             theme: 'insights'
         },
         {
@@ -247,7 +247,8 @@ const Home: FC = () => {
                             variants={heroVariants}
                             custom={2}
                         >
-                            Futora is a group of companies building AI, fintech,<br />social, and growth platforms.
+                            Building the future of AI-driven platforms.<br />
+                            Vision. Scale. Innovation.
                         </motion.p>
 
                         <motion.div

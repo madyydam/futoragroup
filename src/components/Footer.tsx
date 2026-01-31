@@ -41,8 +41,13 @@ const Footer: FC = () => {
                 </div>
 
                 <div className="footer-bottom">
-                    <p>&copy; {currentYear} Futora Group of Companies. All rights reserved.</p>
-                    <p>Founded by <span className="gradient-text">Madhur Dhadve</span></p>
+                    <div className="footer-compliance">
+                        <p className="msme-text">Futora Group of Companies — A Government of India recognized MSME</p>
+                    </div>
+                    <div className="footer-copyright">
+                        <p>&copy; {currentYear} Futora Group of Companies. All rights reserved.</p>
+                        <p>Founded by <span className="gradient-text">Madhur Dhadve</span></p>
+                    </div>
                 </div>
             </div>
         </footer>

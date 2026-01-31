@@ -24,8 +24,8 @@ const Companies: FC = () => {
         {
             name: 'FutoraSense',
             icon: <Radio size={18} />,
-            tag: 'Signals',
-            description: 'AI platform that senses business signals, risks & opportunities in real-time',
+            tag: 'Launching Soon',
+            description: 'AI platform that senses business signals, risks & opportunities in real-time. Coming soon to the Futora ecosystem.',
             theme: 'insights'
         },
         {
