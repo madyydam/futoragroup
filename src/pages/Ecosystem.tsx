@@ -23,7 +23,8 @@ const Ecosystem: FC = () => {
         { name: 'FutoraLift', icon: <TrendingUp size={20} />, color: '#0066ff' },
         { name: 'FutoraPay', icon: <CreditCard size={20} />, color: '#00df9a' },
         { name: 'FutoraOne', icon: <Users size={20} />, color: '#a855f7' },
-        { name: 'Futora AI', icon: <Brain size={20} />, color: '#00ffff' }
+        { name: 'Futora AI', icon: <Brain size={20} />, color: '#00ffff' },
+        { name: 'Career OS', icon: <Briefcase size={20} />, color: '#ffffff', iconColor: '#ffffff' }
     ], []);
 
     const categories = useMemo(() => [
@@ -115,18 +116,7 @@ const Ecosystem: FC = () => {
                 }
             ]
         },
-        {
-            title: 'Work & Opportunities',
-            products: [
-                {
-                    name: 'FutoraJobs Lite',
-                    desc: 'Proof‑of‑work focused startup jobs platform.',
-                    icon: <Briefcase size={24} />,
-                    tag: 'Jobs',
-                    hook: 'Work that matters.'
-                }
-            ]
-        }
+
     ], []);
 
     // Animation Variants
@@ -208,7 +198,7 @@ const Ecosystem: FC = () => {
                                         variants={cardVariants}
                                         whileHover="hover"
                                     >
-                                        <div className="active-icon" style={{ background: company.color }}>
+                                        <div className="active-icon" style={{ background: company.color, color: (company as any).iconColor || 'inherit' }}>
                                             {company.icon}
                                         </div>
                                         <div className="active-info">

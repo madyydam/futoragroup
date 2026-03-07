@@ -130,6 +130,16 @@
     background: rgba(79, 70, 229, 0.03);
 }
 
+.company-card-jobs {
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.company-card-jobs .company-detail-icon {
+    color: #ffffff;
+}
+
 .company-detail-card {
     border-radius: 20px;
     transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
@@ -156,6 +166,10 @@
 
 .company-card-growth .company-detail-icon {
     background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+}
+
+.company-card-jobs .company-detail-icon {
+    background: linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%);
 }
 
 .company-card-flow {
@@ -201,6 +215,12 @@
     border-color: rgba(79, 70, 229, 0.3);
 }
 
+.company-card-jobs .company-tagline,
+.company-card-jobs .feature-badge {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
 .visit-btn {
     display: inline-flex;
     align-items: center;
@@ -243,6 +263,11 @@
 .company-card-growth .visit-btn {
     background: #4F46E5;
     color: white;
+}
+
+.company-card-jobs .visit-btn {
+    background: #ffffff;
+    color: black;
 }
 
 .company-card-flow .company-tagline,

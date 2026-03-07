@@ -94,6 +94,17 @@ const Home: FC = () => {
             buttonGradient: 'linear-gradient(135deg, #a855f7 0%, #00b4d8 100%)',
             accentColor: '#a855f7',
             link: 'https://futoraflow.vercel.app/'
+        },
+        {
+            id: 'careeros',
+            icon: <Briefcase size={32} />,
+            name: 'Career OS',
+            tagline: 'Courses • Internships • Jobs',
+            description: 'The ultimate proof-of-work platform to learn, get internships, and land high-impact startup jobs.',
+            theme: 'jobs',
+            gradient: 'linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%)',
+            accentColor: '#ffffff',
+            link: 'https://careerosx.vercel.app/'
         }
     ], []);
 
@@ -104,13 +115,7 @@ const Home: FC = () => {
     ], []);
 
     const upcomingProducts = useMemo(() => [
-        {
-            name: 'FutoraJobs Lite',
-            icon: <Briefcase size={18} />,
-            tag: 'Jobs',
-            description: 'Startup jobs platform for proof of work',
-            theme: 'jobs'
-        },
+
         {
             name: 'FutoraAgents',
             icon: <Brain size={18} />,
@@ -302,9 +307,9 @@ const Home: FC = () => {
                                     )}
                                 </div>
                                 <h3 style={{ marginBottom: '4px' }}>{company.name}</h3>
-                                <p className="company-role" style={{ fontSize: '0.85rem', opacity: 0.9, marginBottom: '12px' }}>{company.tagline}</p>
+                                <p className="company-role" style={{ fontSize: '0.7rem', opacity: 0.9, marginBottom: '8px' }}>{company.tagline}</p>
                                 {company.description && (
-                                    <p className="company-description" style={{ marginBottom: company.modules ? '20px' : '15px' }}>{company.description}</p>
+                                    <p className="company-description" style={{ marginBottom: company.modules ? '12px' : '8px' }}>{company.description}</p>
                                 )}
 
                                 {company.modules && (
@@ -315,7 +320,7 @@ const Home: FC = () => {
                                                 background: 'rgba(255,255,255,0.03)',
                                                 border: '1px solid rgba(255,255,255,0.06)',
                                                 borderRadius: '8px',
-                                                padding: '12px',
+                                                padding: '8px',
                                                 display: 'flex',
                                                 flexDirection: 'column',
                                                 transition: 'all 0.2s ease',
@@ -340,18 +345,18 @@ const Home: FC = () => {
                                                     color: company.accentColor
                                                 }}>
                                                     {module.icon}
-                                                    <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>{module.name}</span>
+                                                    <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#fff' }}>{module.name}</span>
                                                 </div>
                                                 <div style={{
                                                     background: 'rgba(0, 223, 154, 0.1)',
                                                     border: '1px solid rgba(0, 223, 154, 0.3)',
                                                     borderRadius: '100px',
-                                                    padding: '2px 10px',
-                                                    fontSize: '0.65rem',
+                                                    padding: '2px 8px',
+                                                    fontSize: '0.6rem',
                                                     color: '#00df9a',
                                                     fontWeight: 600,
                                                     width: 'fit-content',
-                                                    marginBottom: '8px',
+                                                    marginBottom: '4px',
                                                     cursor: 'default',
                                                     boxShadow: '0 0 10px rgba(0, 223, 154, 0.1)'
                                                 }}>
@@ -359,11 +364,11 @@ const Home: FC = () => {
                                                 </div>
 
                                                 <div style={{
-                                                    marginTop: '12px',
+                                                    marginTop: '8px',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     gap: '4px',
-                                                    fontSize: '0.75rem',
+                                                    fontSize: '0.65rem',
                                                     color: company.accentColor,
                                                     fontWeight: 600,
                                                     textShadow: '0 0 8px rgba(0, 223, 154, 0.6)',

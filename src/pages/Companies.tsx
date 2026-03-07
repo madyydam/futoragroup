@@ -7,13 +7,7 @@ import './Companies.css';
 
 const Companies: FC = () => {
     const upcomingProducts = useMemo(() => [
-        {
-            name: 'FutoraJobs Lite',
-            icon: <Briefcase size={18} />,
-            tag: 'Jobs',
-            description: 'Startup jobs platform for proof of work',
-            theme: 'jobs'
-        },
+
         {
             name: 'FutoraAgents',
             icon: <Brain size={18} />,
@@ -143,6 +137,17 @@ const Companies: FC = () => {
             gradient: 'linear-gradient(135deg, #050010 0%, #0c001a 100%)',
             buttonGradient: 'linear-gradient(135deg, #a855f7 0%, #00b4d8 100%)',
             link: 'https://futoraflow.vercel.app/'
+        },
+        {
+            icon: <Briefcase size={32} />,
+            name: 'Career OS',
+            tagline: 'Courses • Internships • Jobs',
+            description: 'The ultimate proof-of-work platform to learn, get internships, and land high-impact startup jobs.',
+            features: ['Proof of Work', 'Startup Internships', 'AI-Driven Courses', 'Job Placement'],
+            theme: 'jobs',
+            gradient: 'linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%)',
+            buttonGradient: 'linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%)',
+            link: 'https://careerosx.vercel.app/'
         }
     ], []);
 
