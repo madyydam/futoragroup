@@ -8,6 +8,7 @@ import './Navbar.css';
 const NAV_LINKS = [
     { name: 'Home', path: '/' },
     { name: 'Companies', path: '/companies' },
+    { name: 'Services', path: '/services' },
     { name: 'Careers', path: '/careers' },
     { name: 'Insights', path: '/insights' },
     { name: 'Founder', path: '/founder' },
@@ -44,7 +45,7 @@ const Navbar: FC = () => {
             transition={{ duration: 0.5 }}
         >
             <div className="navbar-container container">
-                <Link to="/" className="navbar-logo">
+                <Link to="/" className="navbar-logo" aria-label="Futora Group Homepage">
                     <span className="gradient-text">FUTORA</span>
                 </Link>
 

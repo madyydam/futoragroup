@@ -25,7 +25,7 @@ export const articleData: Article[] = [
         excerpt: 'We are approaching a horizon where algorithmic decision-making surpasses human capability in capital allocation. What happens when the bank is code?',
         category: 'Deep Tech',
         date: 'January 8, 2026',
-        image: '/ai-finance-hero.png',
+        image: '/ai-finance-hero.webp',
         featured: true,
         tags: ['AI', 'FinTech', 'Machine Learning', 'Future of Banking', 'Automation'],
         content: [
@@ -85,7 +85,7 @@ export const articleData: Article[] = [
         excerpt: 'Hardware that mimics the human brain is the next step for high-frequency trading and real-time financial intelligence.',
         category: 'Hardware',
         date: 'January 5, 2026',
-        image: '/neuromorphic-computing.png',
+        image: '/neuromorphic-computing.webp',
         tags: ['Neuromorphic', 'Hardware', 'HFT', 'Quantum Computing', 'Trading'],
         content: [
             {

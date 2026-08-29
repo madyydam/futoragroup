@@ -6,6 +6,7 @@ import PageTransition from './components/PageTransition';
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
 const Companies = lazy(() => import('./pages/Companies'));
+const Services = lazy(() => import('./pages/Services'));
 const Founder = lazy(() => import('./pages/Founder'));
 const Careers = lazy(() => import('./pages/Careers'));
 const Insights = lazy(() => import('./pages/Insights'));
@@ -36,6 +37,7 @@ export default function AnimatedRoutes() {
                 <Routes location={location} key={location.pathname}>
                     <Route path="/" element={<PageTransition><Home /></PageTransition>} />
                     <Route path="/companies" element={<PageTransition><Companies /></PageTransition>} />
+                    <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
                     <Route path="/founder" element={<PageTransition><Founder /></PageTransition>} />
                     <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
                     <Route path="/insights" element={<PageTransition><Insights /></PageTransition>} />

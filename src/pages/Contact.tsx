@@ -7,9 +7,9 @@ const Contact: FC = () => {
     return (
         <div className="contact-page">
             <SEO
-                title="Contact Us"
-                description="Get in touch with Futora Group. We are always looking for partners, investors, and visionaries to build the future with us."
-                url="https://futora.com/contact"
+                title="Contact Us — Partner with Futora Group"
+                description="Get in touch with Futora Group. Partner with our AI product ecosystem or consult with our growth and technology services."
+                url="https://futoragroup.in/contact"
             />
             <ContactSection />
         </div>

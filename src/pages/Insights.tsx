@@ -16,7 +16,7 @@ const FeaturedCard = memo(({ article }: { article: Article }) => (
         transition={{ duration: 0.8 }}
     >
         <div className="featured-image">
-            <img src={article.image} alt={article.title} loading="eager" />
+            <img src={article.image} alt={article.title} loading="eager" width="600" height="340" />
             <div className="featured-overlay"></div>
         </div>
         <div className="featured-content">
@@ -50,7 +50,7 @@ const InsightCard = memo(({ article, index }: { article: Article; index: number 
         transition={{ delay: index * 0.1, duration: 0.5 }}
     >
         <div className="card-image-wrapper">
-            <img src={article.image} alt={article.title} loading="lazy" />
+            <img src={article.image} alt={article.title} loading="lazy" width="400" height="220" />
             <div className="card-overlay"></div>
         </div>
         <div className="card-content">
@@ -58,7 +58,7 @@ const InsightCard = memo(({ article, index }: { article: Article; index: number 
                 <span className="card-tag">{article.category}</span>
                 <span className="card-date">{article.date}</span>
             </div>
-            <h4>{article.title}</h4>
+            <h3>{article.title}</h3>
 
             <div className="insight-report compact">
                 <ul className="insight-list">
@@ -93,21 +93,18 @@ const Insights: FC = () => {
         "publisher": {
             "@type": "Organization",
             "name": "Futora Group",
-            "logo": "https://futora.com/logo.png"
+            "logo": "https://futoragroup.in/logo.webp"
         }
     }), []);
 
     return (
         <div className="insights-page">
             <SEO
-                title="Futora Intelligence | The Edge | Deep Tech & Finance Analysis"
+                title="Futora Intelligence | The Edge — Deep Tech & Finance Analysis"
                 description="Cutting-edge analysis on the future of money, neural finance, and sovereign identity. Stay ahead with Futora's core intelligence feed."
-                url="https://futora.com/insights"
+                url="https://futoragroup.in/insights"
+                schema={jsonLd}
             />
-
-            <script type="application/ld+json">
-                {JSON.stringify(jsonLd)}
-            </script>
 
             <section className="insights-header container">
                 <motion.div
@@ -131,7 +128,7 @@ const Insights: FC = () => {
             <section className="section">
                 <div className="container">
                     <div className="section-header">
-                        <h3><Zap size={20} className="icon-zap" /> LATEST SIGNALS</h3>
+                        <h2><Zap size={20} className="icon-zap" /> LATEST SIGNALS</h2>
                     </div>
                     <div className="insights-grid">
                         {gridArticles.map((article, index) => (

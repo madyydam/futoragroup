@@ -1,20 +1,48 @@
-import { useMemo, memo } from 'react';
-import type { FC } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useMemo, memo } from 'react';
+import type { FC, ReactNode } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase, Radio } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase, Radio, ChevronDown, Cpu, Layers } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 import Hero3D from '../components/Hero3D';
 import './Home.css';
 
+interface CompanyModule {
+    name: string;
+    role: string;
+    icon: ReactNode;
+    features: string[];
+    url: string;
+}
+
+interface CompanyItem {
+    id: string;
+    icon?: ReactNode;
+    logo?: string;
+    name: string;
+    tagline: string;
+    quotable?: string;
+    description?: string;
+    theme: string;
+    gradient: string;
+    buttonGradient?: string;
+    accentColor?: string;
+    link?: string;
+    modules?: CompanyModule[];
+}
+
 const Home: FC = () => {
+    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
     const companies = useMemo(() => [
         {
             id: 'futoralift',
             icon: <TrendingUp size={32} />,
             name: 'FutoraLift',
             tagline: 'Growth at Scale',
+            quotable: 'FutoraLift is an AI-powered growth marketing and user acquisition engine helping businesses scale with automated data pipelines.',
             description: 'AI-powered growth & marketing agency helping brands scale faster with data and automation.',
             theme: 'blue',
             gradient: 'linear-gradient(135deg, #0066ff 0%, #00a3ff 100%)',
@@ -26,6 +54,7 @@ const Home: FC = () => {
             icon: <Rocket size={32} />,
             name: 'FutoraDrop',
             tagline: 'Global Launch Engine',
+            quotable: 'FutoraDrop is a high-velocity distribution launchpad helping tech startups secure their first 1,000 active users in India.',
             description: 'Global launch and distribution engine for startups to get their first 1000 users in India.',
             theme: 'growth',
             gradient: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)',
@@ -34,11 +63,11 @@ const Home: FC = () => {
         },
         {
             id: 'futorafinance',
-            logo: '/futorafinance-logo.png',
-            // icon: <CreditCard size={32} />, // Replaced by logo
+            logo: '/futorafinance-logo.webp',
             name: 'Futora Finance',
             tagline: 'AI-Powered Financial Infrastructure',
-            // description: '', // Removed as requested
+            quotable: 'Futora Finance is a next-generation AI financial infrastructure providing intelligent wealth management and instant UPI payments.',
+            description: 'Intelligent fintech operating system powering AI asset management and instant transactions.',
             theme: 'futorapay-premium',
             gradient: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
             accentColor: '#00df9a',
@@ -62,9 +91,10 @@ const Home: FC = () => {
         },
         {
             id: 'futoraone',
-            logo: '/futoraone-logo.png',
+            logo: '/futoraone-logo.webp',
             name: 'FutoraOne',
             tagline: 'Connect. Build. Grow.',
+            quotable: 'FutoraOne is an AI-native social network and collaborative ecosystem for developers, tech creators, and founders.',
             description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
             theme: 'purple',
             gradient: 'linear-gradient(135deg, #0a0118 0%, #1a1a2e 100%)',
@@ -77,6 +107,7 @@ const Home: FC = () => {
             icon: <Brain size={32} />,
             name: 'Futora AI',
             tagline: 'Intelligence for Tomorrow',
+            quotable: 'Futora AI is the core intelligence and research engine developing autonomous AI agent workflows and developer tools.',
             description: 'AI education, tools & future tech brand building and showcasing cutting-edge AI solutions.',
             theme: 'neon',
             gradient: 'linear-gradient(135deg, #00ffff 0%, #0080ff 100%)',
@@ -85,9 +116,10 @@ const Home: FC = () => {
         },
         {
             id: 'futoraflow',
-            logo: '/futoraflow-logo.png',
+            logo: '/futoraflow-logo.webp',
             name: 'FutoraFlow',
             tagline: 'AI Operating System',
+            quotable: 'FutoraFlow is an autonomous business execution OS that orchestrates workflows, automation, and tasks from a unified dashboard.',
             description: 'Fully AI-commanded business operating system an execution brain for tasks, automation, and growth from one dashboard.',
             theme: 'flow',
             gradient: 'linear-gradient(135deg, #050010 0%, #0c001a 100%)',
@@ -100,6 +132,7 @@ const Home: FC = () => {
             icon: <Briefcase size={32} />,
             name: 'Career OS',
             tagline: 'Courses • Internships • Jobs',
+            quotable: 'Career OS is a proof-of-work talent platform connecting ambitious developers and builders with top startup opportunities.',
             description: 'The ultimate proof-of-work platform to learn, get internships, and land high-impact startup jobs.',
             theme: 'jobs',
             gradient: 'linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%)',
@@ -115,7 +148,6 @@ const Home: FC = () => {
     ], []);
 
     const upcomingProducts = useMemo(() => [
-
         {
             name: 'FutoraAgents',
             icon: <Brain size={18} />,
@@ -167,6 +199,78 @@ const Home: FC = () => {
         }
     ], []);
 
+    const faqs = useMemo(() => [
+        {
+            question: 'What is Futora Group?',
+            answer: 'Futora Group is a product-and-service technology company founded by Madhur Dhadve, building AI-driven software platforms across fintech, social networking, AI infrastructure, and workflow operating systems while offering growth and technology consulting to external businesses.'
+        },
+        {
+            question: 'Is Futora Group a product company or a service company?',
+            answer: 'Futora Group operates on a dual model: we build and own proprietary AI products (FutoraOne, FutoraPay, Futora AI, FutoraLift, FutoraFlow) and deliver technology and growth services (Growth Services) to help partner companies scale.'
+        },
+        {
+            question: 'What is Futora Finance (FutoraPay & Futora Wallet)?',
+            answer: 'Futora Finance is an AI-powered financial infrastructure ecosystem providing Futora Wallet for intelligent financial management and Futora Pay for next-generation instant UPI transactions.'
+        },
+        {
+            question: 'What is FutoraOne?',
+            answer: 'FutoraOne is an AI-powered social media and tech community platform where developers, creators, and startup founders connect, showcase projects, and build together.'
+        },
+        {
+            question: 'What services does Futora Group offer to external businesses?',
+            answer: 'Through our Growth Services division, we provide enterprise AI consulting, custom software and AI engineering, performance marketing and launch distribution via FutoraLift, and cloud infrastructure optimization.'
+        },
+        {
+            question: 'Who founded Futora Group?',
+            answer: 'Futora Group was founded by Madhur Dhadve, an Indian tech entrepreneur and AI specialist building billion-dollar scalable technology ecosystems.'
+        }
+    ], []);
+
+    const homeSchemas = useMemo(() => [
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            'name': 'Futora Group of Companies',
+            'alternateName': 'Futora Group',
+            'url': 'https://futoragroup.in',
+            'logo': 'https://futoragroup.in/logo.webp',
+            'founder': {
+                '@type': 'Person',
+                'name': 'Madhur Dhadve',
+                'jobTitle': 'Founder & Visionary',
+                'sameAs': [
+                    'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
+                    'https://instagram.com/madhur_dhadve'
+                ]
+            },
+            'sameAs': [
+                'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
+                'https://instagram.com/madhur_dhadve'
+            ],
+            'description': 'Futora Group is a product-and-service technology company building AI platforms across fintech, social media, marketing, and growth sectors.',
+            'brand': [
+                { '@type': 'Brand', 'name': 'FutoraLift' },
+                { '@type': 'Brand', 'name': 'FutoraPay' },
+                { '@type': 'Brand', 'name': 'FutoraOne' },
+                { '@type': 'Brand', 'name': 'Futora AI' },
+                { '@type': 'Brand', 'name': 'FutoraFlow' },
+                { '@type': 'Brand', 'name': 'Career OS' }
+            ]
+        },
+        {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            'mainEntity': faqs.map((faq) => ({
+                '@type': 'Question',
+                'name': faq.question,
+                'acceptedAnswer': {
+                    '@type': 'Answer',
+                    'text': faq.answer
+                }
+            }))
+        }
+    ], [faqs]);
+
     // Animation Variants
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -187,7 +291,7 @@ const Home: FC = () => {
             transition: {
                 type: "spring",
                 stiffness: 100,
-                damping: 12, // slightly bouncy but controlled
+                damping: 12,
                 mass: 0.9
             }
         },
@@ -219,9 +323,12 @@ const Home: FC = () => {
     return (
         <div className="home">
             <SEO
-                title="Home"
-                description="Futora Group is a multi-company tech ecosystem building billion-dollar AI platforms across fintech, social, marketing, and growth."
+                title="Building the Future with AI Products & Growth Services"
+                description="Futora Group is a product-and-service tech ecosystem founded by Madhur Dhadve, building AI platforms across fintech (FutoraPay), social (FutoraOne), AI (Futora AI), and marketing (FutoraLift)."
+                url="https://futoragroup.in/"
+                schema={homeSchemas}
             />
+
             {/* Hero Section */}
             <section className="hero">
                 <Hero3D />
@@ -236,7 +343,14 @@ const Home: FC = () => {
                             variants={heroVariants}
                             custom={0}
                         >
-                            <img src="/logo.png" alt="Futora Logo" className="phoenix-logo" />
+                            <img
+                                src="/logo.webp"
+                                alt="Futora Group Phoenix Logo"
+                                className="phoenix-logo"
+                                width="140"
+                                height="140"
+                                fetchPriority="high"
+                            />
                         </motion.div>
 
                         <motion.h1
@@ -261,14 +375,110 @@ const Home: FC = () => {
                             variants={heroVariants}
                             custom={3}
                         >
-                            <a href="#companies" className="btn btn-primary">
-                                Explore Companies
+                            <a href="#companies" className="btn btn-primary" aria-label="Explore Futora Group Companies and Products">
+                                Explore Products
                             </a>
-                            <a href="#contact" className="secondary-link">
+                            <Link to="/services" className="btn btn-secondary" aria-label="Explore Futora Group Technology and Growth Services" style={{
+                                padding: '12px 28px',
+                                borderRadius: '100px',
+                                background: 'rgba(255,255,255,0.06)',
+                                border: '1px solid rgba(255,255,255,0.15)',
+                                color: '#fff',
+                                textDecoration: 'none',
+                                fontWeight: 600,
+                                fontSize: '0.9rem',
+                                transition: 'all 0.2s ease'
+                            }}>
+                                Growth Services
+                            </Link>
+                            <a href="#contact" className="secondary-link" aria-label="Contact Futora Group">
                                 Contact Futora <ArrowRight size={18} />
                             </a>
                         </motion.div>
                     </motion.div>
+                </div>
+            </section>
+
+            {/* Two Ways We Work: Dual Model */}
+            <section className="section dual-model-section">
+                <div className="container">
+                    <motion.div
+                        className="section-header-compact"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className="innovation-badge">
+                            <Layers size={14} /> Dual Operating Model
+                        </div>
+                        <h2>Two Ways We Work</h2>
+                        <p className="upcoming-subtitle">
+                            Combining the relentless innovation of a product venture builder with the hands-on partnership of a modern engineering and growth firm.
+                        </p>
+                    </motion.div>
+
+                    <div className="dual-model-grid" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                        gap: '28px',
+                        marginTop: '36px'
+                    }}>
+                        <motion.div
+                            className="glass-card"
+                            style={{
+                                padding: '36px',
+                                borderRadius: '24px',
+                                border: '1px solid rgba(99, 102, 241, 0.3)',
+                                background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(10, 1, 24, 0.6) 100%)'
+                            }}
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(99, 102, 241, 0.1)', borderRadius: '16px', color: '#6366f1', marginBottom: '20px' }}>
+                                <Cpu size={28} />
+                            </div>
+                            <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '12px' }}>1. Proprietary Products</h3>
+                            <p style={{ color: 'var(--gray-200)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
+                                We invent, architect, and scale self-owned AI platforms across fintech (FutoraPay), social (FutoraOne), automation (FutoraFlow), and developer infrastructure.
+                            </p>
+                            <a href="#companies" className="btn btn-primary" aria-label="Explore proprietary products" style={{ fontSize: '0.85rem', padding: '10px 22px' }}>
+                                Explore Products <ArrowRight size={16} />
+                            </a>
+                        </motion.div>
+
+                        <motion.div
+                            className="glass-card"
+                            style={{
+                                padding: '36px',
+                                borderRadius: '24px',
+                                border: '1px solid rgba(0, 223, 154, 0.3)',
+                                background: 'linear-gradient(135deg, rgba(0, 223, 154, 0.05) 0%, rgba(5, 0, 16, 0.6) 100%)'
+                            }}
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(0, 223, 154, 0.1)', borderRadius: '16px', color: '#00df9a', marginBottom: '20px' }}>
+                                <TrendingUp size={28} />
+                            </div>
+                            <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '12px' }}>2. Growth & Tech Services</h3>
+                            <p style={{ color: 'var(--gray-200)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
+                                We partner with external businesses and enterprises to deploy custom AI architectures, performance growth marketing (FutoraLift), and high-scale cloud engineering.
+                            </p>
+                            <Link to="/services" className="btn btn-primary" aria-label="Explore Growth Services offerings" style={{
+                                fontSize: '0.85rem',
+                                padding: '10px 22px',
+                                background: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
+                                color: '#000'
+                            }}>
+                                Explore Services <ArrowRight size={16} />
+                            </Link>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -282,7 +492,7 @@ const Home: FC = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
                     >
-                        Our Companies
+                        Our Companies & Products
                     </motion.h2>
                     <motion.div
                         className="companies-grid"
@@ -291,8 +501,8 @@ const Home: FC = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                     >
-                        {companies.map((company: any) => (
-                            <motion.div
+                        {companies.map((company: CompanyItem) => (
+                            <motion.article
                                 key={company.name}
                                 id={company.id}
                                 className={`company-card company-card-${company.theme}`}
@@ -301,33 +511,50 @@ const Home: FC = () => {
                             >
                                 <div className="company-icon" style={{ background: company.gradient }}>
                                     {company.logo ? (
-                                        <img src={company.logo} alt={`${company.name} logo`} />
+                                        <img
+                                            src={company.logo}
+                                            alt={`${company.name} official logo`}
+                                            width="44"
+                                            height="44"
+                                            loading="lazy"
+                                        />
                                     ) : (
                                         company.icon
                                     )}
                                 </div>
                                 <h3 style={{ marginBottom: '4px' }}>{company.name}</h3>
                                 <p className="company-role" style={{ fontSize: '0.7rem', opacity: 0.9, marginBottom: '8px' }}>{company.tagline}</p>
+                                {company.quotable && (
+                                    <p style={{ fontSize: '0.78rem', color: '#fff', fontStyle: 'italic', opacity: 0.9, marginBottom: '8px', borderLeft: '2px solid rgba(255,255,255,0.2)', paddingLeft: '8px' }}>
+                                        {company.quotable}
+                                    </p>
+                                )}
                                 {company.description && (
                                     <p className="company-description" style={{ marginBottom: company.modules ? '12px' : '8px' }}>{company.description}</p>
                                 )}
 
                                 {company.modules && (
                                     <div className="finance-modules-grid">
-                                        {company.modules.map((module: any, idx: number) => (
-                                            <a key={idx} href={module.url || '#'} target="_blank" rel="noopener noreferrer" style={{
-                                                textDecoration: 'none',
-                                                background: 'rgba(255,255,255,0.03)',
-                                                border: '1px solid rgba(255,255,255,0.06)',
-                                                borderRadius: '8px',
-                                                padding: '8px',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                transition: 'all 0.2s ease',
-                                                cursor: 'pointer',
-                                                position: 'relative',
-                                                overflow: 'hidden'
-                                            }}
+                                        {company.modules.map((module: CompanyModule, idx: number) => (
+                                            <a
+                                                key={idx}
+                                                href={module.url || '#'}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`Open ${module.name} application`}
+                                                style={{
+                                                    textDecoration: 'none',
+                                                    background: 'rgba(255,255,255,0.03)',
+                                                    border: '1px solid rgba(255,255,255,0.06)',
+                                                    borderRadius: '8px',
+                                                    padding: '8px',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    transition: 'all 0.2s ease',
+                                                    cursor: 'pointer',
+                                                    position: 'relative',
+                                                    overflow: 'hidden'
+                                                }}
                                                 onMouseEnter={(e) => {
                                                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                                                     e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
@@ -387,12 +614,13 @@ const Home: FC = () => {
                                         target={company.link !== '#' ? '_blank' : undefined}
                                         rel={company.link !== '#' ? 'noopener noreferrer' : undefined}
                                         className="company-btn"
+                                        aria-label={`Visit ${company.name} website`}
                                         style={{ background: company.buttonGradient || company.gradient, marginTop: 'auto' }}
                                     >
                                         View Website <ExternalLink size={16} />
                                     </a>
                                 )}
-                            </motion.div>
+                            </motion.article>
                         ))}
                     </motion.div>
                 </div>
@@ -430,7 +658,7 @@ const Home: FC = () => {
                                     {product.icon}
                                 </div>
                                 <div className="mini-card-content">
-                                    <h4>{product.name}</h4>
+                                    <h3>{product.name}</h3>
                                     <p className="mini-card-description">{product.description}</p>
                                     <span className="mini-card-tag">{product.tag}</span>
                                 </div>
@@ -474,6 +702,101 @@ const Home: FC = () => {
                 </div>
             </section>
 
+            {/* FAQ Section (AEO & GEO Powerhouse) */}
+            <section className="section faq-section">
+                <div className="container">
+                    <motion.div
+                        className="section-header-compact"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="innovation-badge">
+                            <Brain size={14} /> Clear Facts & Questions
+                        </div>
+                        <h2>Frequently Asked Questions</h2>
+                        <p className="upcoming-subtitle">
+                            Everything you need to know about the Futora Group ecosystem, platforms, and services.
+                        </p>
+                    </motion.div>
+
+                    <div className="faq-accordion" style={{ maxWidth: '800px', margin: '36px auto 0', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                        {faqs.map((faq, index) => {
+                            const isOpen = openFaqIndex === index;
+                            return (
+                                <motion.div
+                                    key={index}
+                                    className="glass-card faq-item"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    style={{
+                                        borderRadius: '16px',
+                                        overflow: 'hidden',
+                                        border: isOpen ? '1px solid rgba(99, 102, 241, 0.4)' : '1px solid rgba(255, 255, 255, 0.08)',
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                >
+                                    <button
+                                        onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                                        aria-expanded={isOpen}
+                                        aria-controls={`faq-answer-${index}`}
+                                        style={{
+                                            width: '100%',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'space-between',
+                                            padding: '20px 24px',
+                                            background: 'transparent',
+                                            border: 'none',
+                                            color: '#fff',
+                                            textAlign: 'left',
+                                            fontSize: '1.05rem',
+                                            fontWeight: 600,
+                                            cursor: 'pointer'
+                                        }}
+                                    >
+                                        <span>{faq.question}</span>
+                                        <ChevronDown
+                                            size={20}
+                                            style={{
+                                                transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                transition: 'transform 0.3s ease',
+                                                color: isOpen ? '#6366f1' : 'var(--gray-300)',
+                                                flexShrink: 0
+                                            }}
+                                        />
+                                    </button>
+                                    <AnimatePresence>
+                                        {isOpen && (
+                                            <motion.div
+                                                id={`faq-answer-${index}`}
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <div style={{
+                                                    padding: '0 24px 20px',
+                                                    color: 'var(--gray-200)',
+                                                    fontSize: '0.95rem',
+                                                    lineHeight: '1.6',
+                                                    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+                                                    paddingTop: '16px'
+                                                }}>
+                                                    {faq.answer}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
             {/* Founder Highlight */}
             <section className="section founder-highlight">
                 <div className="container">
@@ -492,9 +815,9 @@ const Home: FC = () => {
                                 A passionate innovator dedicated to building billion-dollar AI platforms that shape the future.
                                 With expertise in AI, startups, and future tech, Madhur is creating an ecosystem that scales globally.
                             </p>
-                            <a href="/founder" className="btn btn-primary">
+                            <Link to="/founder" className="btn btn-primary" aria-label="Read full story of Madhur Dhadve">
                                 Read Full Story <ArrowRight size={20} />
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
@@ -511,10 +834,17 @@ const Home: FC = () => {
                         transition={{ duration: 0.6 }}
                         style={{ padding: '40px' }}
                     >
-                        <h3 style={{ marginBottom: '30px', fontSize: '1.5rem', color: '#fff' }}>Legal & Compliance</h3>
+                        <h2 style={{ marginBottom: '30px', fontSize: '1.5rem', color: '#fff' }}>Legal & Compliance</h2>
                         <div className="legal-content-wrapper-home">
                             <div className="legal-logo-column">
-                                <img src="/msme-logo.png" alt="MSME Logo" className="legal-msme-logo" />
+                                <img
+                                    src="/msme-logo.webp"
+                                    alt="Government of India MSME Logo"
+                                    className="legal-msme-logo"
+                                    width="160"
+                                    height="80"
+                                    loading="lazy"
+                                />
                             </div>
                             <div className="legal-text-column">
                                 <p style={{ fontSize: '1.1rem', color: 'var(--gray-200)', lineHeight: '1.6' }}>

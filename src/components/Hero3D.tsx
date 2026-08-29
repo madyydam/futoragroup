@@ -38,8 +38,8 @@ const Stars = (props: React.ComponentProps<typeof Points>) => {
 
 const Hero3D = () => {
     return (
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, opacity: 0.6 }}>
-            <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 2]}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, opacity: 0.6, pointerEvents: 'none' }} aria-hidden="true">
+            <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 1.5]} gl={{ powerPreference: 'high-performance', antialias: false }}>
                 <Stars />
             </Canvas>
         </div>

@@ -42,9 +42,9 @@ const Careers: FC = () => {
     return (
         <div className="careers-page">
             <SEO
-                title="Careers at Futora"
-                description="Join the revolution. We are hiring visionaries, engineers, and creators to build the future of AI."
-                url="https://futora.com/careers"
+                title="Careers at Futora Group — Build the Future of AI"
+                description="Join Futora Group. We are hiring visionaries, AI engineers, and growth marketers to build proprietary platforms and scale technology services."
+                url="https://futoragroup.in/careers"
             />
 
             <section className="careers-hero">
@@ -56,7 +56,7 @@ const Careers: FC = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h1>Join the <span className="gradient-text">Revolution</span></h1>
-                        <p>We're looking for the crazy ones, the misfits, the rebels—the visionaries who want to build the future with us.</p>
+                        <p>We're looking for the crazy ones, the misfits, the rebels—the visionaries who want to build the future of AI products and growth services.</p>
                     </motion.div>
 
                     <div className="benefits-grid">
@@ -107,7 +107,11 @@ const Careers: FC = () => {
                                         <span className="job-tag status-tag">Opening Q2 2026</span>
                                     </div>
                                 </div>
-                                <a href="mailto:careers@futora.com?subject=Interest in ${job.title}" className="apply-btn secondary">
+                                <a
+                                    href={`mailto:madhurdhadve@gmail.com?subject=Interest%20in%20${encodeURIComponent(job.title)}`}
+                                    className="apply-btn secondary"
+                                    aria-label={`Express interest in ${job.title} position`}
+                                >
                                     Express Interest
                                 </a>
                             </motion.div>
@@ -122,11 +126,11 @@ const Careers: FC = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                     >
-                        <h3>Don't see a role?</h3>
+                        <h2>Don't see your specific role?</h2>
                         <p style={{ maxWidth: '500px', margin: '1rem auto 2rem', color: 'var(--text-secondary)' }}>
-                            We are always looking for exceptional talent. If you think you can add value, email us directly.
+                            We are always looking for exceptional builders. If you think you can add massive value, email us directly.
                         </p>
-                        <a href="mailto:madhurdhadve@gmail.com" className="btn btn-primary">
+                        <a href="mailto:madhurdhadve@gmail.com" className="btn btn-primary" aria-label="Email Founder Madhur Dhadve regarding careers">
                             Email Founder <ArrowRight size={20} />
                         </a>
                     </motion.div>

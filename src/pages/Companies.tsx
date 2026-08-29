@@ -1,13 +1,38 @@
 import { useMemo, memo } from 'react';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { ExternalLink, Brain, Users, CreditCard, TrendingUp, Rocket, Target, Briefcase, Wallet, LineChart, CheckCircle, ArrowRight, Radio } from 'lucide-react';
 import SEO from '../components/SEO';
 import './Companies.css';
 
+interface CompanyModule {
+    name: string;
+    role: string;
+    icon: ReactNode;
+    features: string[];
+    url: string;
+}
+
+interface CompanyItem {
+    id?: string;
+    icon?: ReactNode;
+    logo?: string;
+    name: string;
+    tagline: string;
+    quotable: string;
+    description?: string;
+    features?: string[];
+    theme: string;
+    gradient: string;
+    buttonGradient?: string;
+    accentColor?: string;
+    link?: string;
+    modules?: CompanyModule[];
+}
+
 const Companies: FC = () => {
     const upcomingProducts = useMemo(() => [
-
         {
             name: 'FutoraAgents',
             icon: <Brain size={18} />,
@@ -64,6 +89,7 @@ const Companies: FC = () => {
             icon: <TrendingUp size={32} />,
             name: 'FutoraLift',
             tagline: 'Growth at Scale',
+            quotable: 'FutoraLift is an AI-powered growth & performance marketing agency that helps brands scale faster through automated testing and data analytics.',
             description: 'AI-powered growth & marketing agency helping brands scale faster with data and automation.',
             features: ['AI Marketing Strategy', 'Data-Driven Growth', 'Ad Automation', 'Performance Analytics'],
             theme: 'blue',
@@ -74,6 +100,7 @@ const Companies: FC = () => {
             icon: <Rocket size={32} />,
             name: 'FutoraDrop',
             tagline: 'Global Launch Engine',
+            quotable: 'FutoraDrop is a high-velocity startup distribution and launchpad platform built to help early-stage ventures gain their first 1,000 users.',
             description: 'Global launch and distribution engine for startups to get their first 1000 users in India.',
             features: ['Global Distribution', 'Launch Analytics', 'Growth Tools', 'Startup Showcase'],
             theme: 'growth',
@@ -81,11 +108,11 @@ const Companies: FC = () => {
             link: 'https://futoradrop.vercel.app/'
         },
         {
-            logo: '/futorafinance-logo.png',
-            // icon: <CreditCard size={32} />,
+            logo: '/futorafinance-logo.webp',
             name: 'Futora Finance',
             tagline: 'AI-Powered Financial Infrastructure',
-            // description: '', // Removed as requested
+            quotable: 'Futora Finance is an AI-native financial operating system providing intelligent portfolio management and instant UPI payments infrastructure.',
+            description: 'Intelligent fintech operating system powering AI asset management and instant transactions.',
             theme: 'futorapay-premium',
             gradient: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
             link: 'https://futorapay.vercel.app/',
@@ -107,9 +134,10 @@ const Companies: FC = () => {
             ]
         },
         {
-            logo: '/futoraone-logo.png',
+            logo: '/futoraone-logo.webp',
             name: 'FutoraOne',
             tagline: 'Connect. Build. Grow.',
+            quotable: 'FutoraOne is an AI-powered social media and tech community platform where developers, creators, and startup founders connect and collaborate.',
             description: 'An AI-powered social media and tech community platform where creators, developers, and founders connect, share, and build together.',
             features: ['Tech Community Network', 'AI-Powered Connections', 'Project Showcasing', 'Creator Ecosystem'],
             theme: 'purple',
@@ -121,6 +149,7 @@ const Companies: FC = () => {
             icon: <Brain size={32} />,
             name: 'Futora AI',
             tagline: 'Intelligence for Tomorrow',
+            quotable: 'Futora AI is the core intelligence division researching and deploying autonomous AI agent systems and practical AI tools.',
             description: 'AI education, tools & future tech brand building and showcasing cutting-edge AI solutions.',
             features: ['AI Education & Resources', 'Cutting-edge AI Tools', 'Automation Systems', 'Intelligence Platforms'],
             theme: 'neon',
@@ -128,9 +157,10 @@ const Companies: FC = () => {
             link: 'https://futoraai.vercel.app/'
         },
         {
-            logo: '/futoraflow-logo.png',
+            logo: '/futoraflow-logo.webp',
             name: 'FutoraFlow',
             tagline: 'AI Operating System',
+            quotable: 'FutoraFlow is an autonomous AI command OS and execution brain orchestrating tasks, automation, and cross-team workflows from one unified interface.',
             description: 'Fully AI-commanded business operating system an execution brain for tasks, automation, and growth from one dashboard.',
             features: ['AI Command Interface', 'Task Automation', 'Business Intelligence', 'Workflow Orchestration'],
             theme: 'flow',
@@ -142,6 +172,7 @@ const Companies: FC = () => {
             icon: <Briefcase size={32} />,
             name: 'Career OS',
             tagline: 'Courses • Internships • Jobs',
+            quotable: 'Career OS is a proof-of-work talent platform connecting builders with verified startup internships and high-impact tech roles.',
             description: 'The ultimate proof-of-work platform to learn, get internships, and land high-impact startup jobs.',
             features: ['Proof of Work', 'Startup Internships', 'AI-Driven Courses', 'Job Placement'],
             theme: 'jobs',
@@ -151,8 +182,25 @@ const Companies: FC = () => {
         }
     ], []);
 
+    const productsSchema = useMemo(() => ({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'itemListElement': companies.map((c, idx) => ({
+            '@type': 'ListItem',
+            'position': idx + 1,
+            'item': {
+                '@type': 'SoftwareApplication',
+                'name': c.name,
+                'applicationCategory': 'BusinessApplication',
+                'operatingSystem': 'Web',
+                'description': c.quotable,
+                'url': c.link
+            }
+        }))
+    }), [companies]);
+
     // Animation Variants
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -163,23 +211,22 @@ const Companies: FC = () => {
         }
     };
 
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                type: "spring" as const,
-                stiffness: 100,
-                damping: 15,
-                mass: 0.9
+                type: "spring",
+                stiffness: 80,
+                damping: 12
             }
         },
         hover: {
             y: -10,
             scale: 1.02,
             transition: {
-                type: "spring" as const,
+                type: "spring",
                 stiffness: 400,
                 damping: 10
             }
@@ -197,12 +244,13 @@ const Companies: FC = () => {
                         transition={{ duration: 0.8, type: "spring", stiffness: 60 }}
                     >
                         <SEO
-                            title="Our Companies"
-                            description="Explore the Futora Group ecosystem: FutoraLift (Marketing), FutoraDrop (Launch), FutoraPay (Fintech), FutoraOne (Social), Futora AI (Education & Tools), and FutoraFlow (AI Operating System)."
-                            url="https://futora.com/companies"
+                            title="Our Companies & AI Products"
+                            description="Explore the Futora Group product portfolio: FutoraLift (Marketing), FutoraDrop (Launch), FutoraPay (Fintech), FutoraOne (Social), Futora AI (Tools), FutoraFlow (AI OS), and Career OS."
+                            url="https://futoragroup.in/companies"
+                            schema={productsSchema}
                         />
-                        <h1>Our <span className="gradient-text">Companies</span></h1>
-                        <p>Six visionary brands, one powerful ecosystem—transforming industries with AI, automation, and innovation.</p>
+                        <h1>Our <span className="gradient-text">Companies & Products</span></h1>
+                        <p>Visionary AI brands, one powerful ecosystem—transforming industries with intelligence, automation, and scalable platforms.</p>
                     </motion.div>
                 </div>
             </div>
@@ -216,8 +264,8 @@ const Companies: FC = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                     >
-                        {companies.map((company: any) => (
-                            <motion.div
+                        {companies.map((company: CompanyItem) => (
+                            <motion.article
                                 key={company.name}
                                 className={`company-detail-card company-card-${company.theme} glass-card`}
                                 variants={cardVariants}
@@ -226,7 +274,13 @@ const Companies: FC = () => {
                                 <div className="company-detail-header">
                                     <div className="company-detail-icon" style={{ background: company.gradient }}>
                                         {company.logo ? (
-                                            <img src={company.logo} alt={`${company.name} logo`} />
+                                            <img
+                                                src={company.logo}
+                                                alt={`${company.name} official logo`}
+                                                width="60"
+                                                height="60"
+                                                loading="lazy"
+                                            />
                                         ) : (
                                             company.icon
                                         )}
@@ -236,26 +290,35 @@ const Companies: FC = () => {
                                         <p className="company-tagline">{company.tagline}</p>
                                     </div>
                                 </div>
+                                <p style={{ fontSize: '0.88rem', color: '#fff', fontStyle: 'italic', opacity: 0.95, marginBottom: '12px', borderLeft: '2px solid rgba(255,255,255,0.2)', paddingLeft: '10px' }}>
+                                    {company.quotable}
+                                </p>
                                 {company.description && (
                                     <p className="company-description">{company.description}</p>
                                 )}
 
                                 {company.modules ? (
                                     <div className="finance-modules-grid">
-                                        {company.modules.map((module: any, idx: number) => (
-                                            <a key={idx} href={module.url || '#'} target="_blank" rel="noopener noreferrer" style={{
-                                                textDecoration: 'none',
-                                                background: 'rgba(255,255,255,0.03)',
-                                                border: '1px solid rgba(255,255,255,0.06)',
-                                                borderRadius: '8px',
-                                                padding: '12px',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                transition: 'all 0.2s ease',
-                                                cursor: 'pointer',
-                                                position: 'relative',
-                                                overflow: 'hidden'
-                                            }}
+                                        {company.modules.map((module: CompanyModule, idx: number) => (
+                                            <a
+                                                key={idx}
+                                                href={module.url || '#'}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`Open ${module.name} application`}
+                                                style={{
+                                                    textDecoration: 'none',
+                                                    background: 'rgba(255,255,255,0.03)',
+                                                    border: '1px solid rgba(255,255,255,0.06)',
+                                                    borderRadius: '8px',
+                                                    padding: '12px',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    transition: 'all 0.2s ease',
+                                                    cursor: 'pointer',
+                                                    position: 'relative',
+                                                    overflow: 'hidden'
+                                                }}
                                                 onMouseEnter={(e) => {
                                                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                                                     e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
@@ -307,20 +370,27 @@ const Companies: FC = () => {
                                             </a>
                                         ))}
                                     </div>
-                                ) : (
+                                ) : company.features ? (
                                     <div className="company-features">
                                         {company.features.map((feature: string, i: number) => (
                                             <span key={i} className="feature-badge">{feature}</span>
                                         ))}
                                     </div>
-                                )}
+                                ) : null}
 
                                 {!company.modules && (
-                                    <a href={company.link} className="visit-btn" style={{ background: company.buttonGradient }}>
+                                    <a
+                                        href={company.link}
+                                        className="visit-btn"
+                                        aria-label={`Visit ${company.name} official website`}
+                                        style={{ background: company.buttonGradient }}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         View Website <ExternalLink size={18} />
                                     </a>
                                 )}
-                            </motion.div>
+                            </motion.article>
                         ))}
                     </motion.div>
                 </div>
@@ -358,7 +428,7 @@ const Companies: FC = () => {
                                     {product.icon}
                                 </div>
                                 <div className="mini-card-content">
-                                    <h4>{product.name}</h4>
+                                    <h3>{product.name}</h3>
                                     <p className="mini-card-description">{product.description}</p>
                                     <span className="mini-card-tag">{product.tag}</span>
                                 </div>

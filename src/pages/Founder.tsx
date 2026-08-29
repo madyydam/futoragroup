@@ -8,15 +8,33 @@ import './Founder.css';
 const Founder: FC = () => {
     const timeline = useMemo(() => [
         { year: 'Vision', title: 'Founded Futora Group', description: 'Started with a vision to build billion-dollar AI platforms' },
-        { year: 'Innovation', title: 'Multiple Ventures', description: 'Launched 5 companies across AI, fintech, social, and creative industries' },
-        { year: 'Future', title: 'Global Expansion', description: 'Scaling platforms to serve millions worldwide' }
+        { year: 'Innovation', title: 'Multiple Ventures', description: 'Launched multiple AI-first companies across fintech, social, tools, and growth engineering' },
+        { year: 'Future', title: 'Global Expansion & Services', description: 'Scaling self-owned products and high-impact technology services worldwide' }
     ], []);
 
     const traits = useMemo(() => [
-        { icon: <Sparkles size={32} />, title: 'Visionary', description: 'Sees beyond the horizon' },
-        { icon: <Target size={32} />, title: 'Strategic', description: 'Executes with precision' },
-        { icon: <Rocket size={32} />, title: 'Ambitious', description: 'Aims for the stars' }
+        { icon: <Sparkles size={32} />, title: 'Visionary', description: 'Sees beyond the horizon with AI-first architecture' },
+        { icon: <Target size={32} />, title: 'Strategic', description: 'Executes with technical precision and scalable systems' },
+        { icon: <Rocket size={32} />, title: 'Ambitious', description: 'Builds billion-dollar ecosystem platforms for global scale' }
     ], []);
+
+    const founderSchema = useMemo(() => ({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        'name': 'Madhur Dhadve',
+        'jobTitle': 'Founder & CEO',
+        'worksFor': {
+            '@type': 'Organization',
+            'name': 'Futora Group of Companies',
+            'url': 'https://futoragroup.in'
+        },
+        'description': 'Founder and visionary behind Futora Group, leading an ecosystem of AI products and growth services.',
+        'url': 'https://futoragroup.in/founder',
+        'sameAs': [
+            'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
+            'https://instagram.com/madhur_dhadve'
+        ]
+    }), []);
 
     return (
         <div className="founder-page">
@@ -29,9 +47,10 @@ const Founder: FC = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <SEO
-                            title="Madhur Dhadve - Founder"
-                            description="Meet Madhur Dhadve, the visionary founder behind Futora Group. A passionate innovator building billion-dollar AI platforms."
-                            url="https://futora.com/founder"
+                            title="Madhur Dhadve — Founder & Visionary"
+                            description="Meet Madhur Dhadve, the visionary founder and CEO behind Futora Group. Building billion-dollar AI platforms across fintech, social, and growth services."
+                            url="https://futoragroup.in/founder"
+                            schema={founderSchema}
                         />
                         <motion.div
                             className="founder-avatar"
@@ -46,13 +65,13 @@ const Founder: FC = () => {
                         <h1><span className="gradient-text">Madhur Dhadve</span></h1>
                         <p className="founder-title">Founder & Visionary</p>
                         <div className="founder-social">
-                            <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer">
+                            <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on LinkedIn">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer">
+                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on Instagram">
                                 <Instagram size={20} />
                             </a>
-                            <a href="mailto:madhurdhadve@gmail.com">
+                            <a href="mailto:madhurdhadve@gmail.com" aria-label="Send email to Madhur Dhadve">
                                 <Mail size={20} />
                             </a>
                         </div>
@@ -70,8 +89,8 @@ const Founder: FC = () => {
                     >
                         <h2>About Madhur</h2>
                         <ul className="main-points">
-                            <li><strong>Visionary Founder:</strong> Leading Futora Group with a mission to build a powerful ecosystem of AI-driven companies.</li>
-                            <li><strong>AI Specialist:</strong> Passionate about artificial intelligence, automation systems, and future tech.</li>
+                            <li><strong>Visionary Founder:</strong> Leading Futora Group with a mission to build a powerful ecosystem of AI-driven companies and partner services.</li>
+                            <li><strong>AI Specialist:</strong> Passionate about artificial intelligence, autonomous agent workflows, and future technology systems.</li>
                             <li><strong>Scale Strategist:</strong> Dedicated to building ethical, scalable, and transformative solutions for the global digital economy.</li>
                         </ul>
                     </motion.div>
@@ -144,10 +163,17 @@ const Founder: FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h3>Legal & Compliance</h3>
+                        <h2>Legal & Compliance</h2>
                         <div className="legal-content-wrapper">
                             <div className="legal-logo-column">
-                                <img src="/msme-logo.png" alt="MSME Logo" className="legal-msme-logo" />
+                                <img
+                                    src="/msme-logo.webp"
+                                    alt="Government of India MSME Logo"
+                                    className="legal-msme-logo"
+                                    width="160"
+                                    height="80"
+                                    loading="lazy"
+                                />
                             </div>
                             <div className="legal-text-column">
                                 <p>

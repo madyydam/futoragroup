@@ -107,7 +107,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                         ) : (
                             <form onSubmit={handleSubmit} className="contact-form">
                                 <div className="form-group">
-                                    <label htmlFor="name">
+                                    <label htmlFor="home-name">
                                         <User size={18} /> Full Name
                                     </label>
                                     <input
@@ -122,7 +122,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="email">
+                                    <label htmlFor="home-email">
                                         <Mail size={18} /> Email Address
                                     </label>
                                     <input
@@ -137,7 +137,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="message">
+                                    <label htmlFor="home-message">
                                         <MessageSquare size={18} /> Message
                                     </label>
                                     <textarea
@@ -151,7 +151,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                     />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
+                                <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting} aria-label="Submit contact form">
                                     {isSubmitting ? 'Sending...' : (
                                         <>Send Message <Send size={20} /></>
                                     )}
@@ -171,16 +171,16 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                         <div className="info-card glass-card">
                             <h3>Connect with Me</h3>
                             <div className="contact-links">
-                                <a href="mailto:madhurdhadve@gmail.com" className="contact-link-item">
+                                <a href="mailto:madhurdhadve@gmail.com" className="contact-link-item" aria-label="Send email to madhurdhadve@gmail.com">
                                     <Mail size={18} /> madhurdhadve@gmail.com
                                 </a>
-                                <a href="tel:+918446653644" className="contact-link-item">
+                                <a href="tel:+918446653644" className="contact-link-item" aria-label="Call +91 8446653644">
                                     <Phone size={18} /> +91 8446653644
                                 </a>
-                                <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+                                <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Madhur Dhadve Instagram">
                                     <Instagram size={18} /> @madhur_dhadve
                                 </a>
-                                <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+                                <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Madhur Dhadve LinkedIn">
                                     <Linkedin size={18} /> Madhur Dhadve
                                 </a>
                             </div>
@@ -192,16 +192,16 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                         </div>
 
                         <div className="social-icons-row">
-                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="social-icon-btn instagram">
+                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="social-icon-btn instagram" aria-label="Visit Madhur Dhadve on Instagram">
                                 <Instagram size={20} />
                             </a>
-                            <a href="mailto:madhurdhadve@gmail.com" className="social-icon-btn email">
+                            <a href="mailto:madhurdhadve@gmail.com" className="social-icon-btn email" aria-label="Send email to Madhur Dhadve">
                                 <Mail size={20} />
                             </a>
-                            <a href="https://wa.me/918446653644" target="_blank" rel="noopener noreferrer" className="social-icon-btn whatsapp">
+                            <a href="https://wa.me/918446653644" target="_blank" rel="noopener noreferrer" className="social-icon-btn whatsapp" aria-label="Chat on WhatsApp">
                                 <MessageSquare size={20} />
                             </a>
-                            <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="social-icon-btn linkedin">
+                            <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="social-icon-btn linkedin" aria-label="Connect on LinkedIn">
                                 <Linkedin size={20} />
                             </a>
                         </div>

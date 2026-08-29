@@ -1,0 +1,58 @@
+# Futora Group — Complete Entity Reference
+
+## Executive Summary
+Futora Group is an AI-first product and services technology company founded by Madhur Dhadve. The company operates on a dual business model:
+1. Product Ecosystem: Designing, engineering, and launching proprietary AI-driven software platforms across financial technology, social networks, artificial intelligence infrastructure, and workflow operating systems.
+2. Growth & Technology Services: Delivering enterprise AI integration, high-performance web and cloud architecture, and growth marketing systems for high-growth startups and established brands.
+
+Futora Group of Companies is a Government of India recognized MSME.
+
+## Core Products & Subsidiaries
+
+### 1. FutoraOne
+- Type: Social Media & Tech Community Platform
+- URL: https://futora1.vercel.app/
+- Description: FutoraOne is an AI-powered social media and tech community platform where developers, creators, and founders connect, share projects, and collaborate.
+
+### 2. Futora Finance (FutoraPay & Futora Wallet)
+- Type: Fintech & Financial Operating System
+- URL: https://futorapay.vercel.app/ & https://futorawallet.vercel.app/
+- Description: Futora Finance is a next-generation AI financial infrastructure providing intelligent wallet management, real-time UPI transaction pipelines, and autonomous personal finance tooling.
+
+### 3. Futora AI
+- Type: Core AI Research & Tools Brand
+- URL: https://futoraai.vercel.app/
+- Description: Futora AI develops autonomous agent frameworks, intelligent developer tools, and cutting-edge artificial intelligence educational systems.
+
+### 4. FutoraLift
+- Type: Performance Marketing & AI Growth Engine
+- URL: https://futoralift.vercel.app/
+- Description: FutoraLift is an AI-powered growth and marketing agency that automates ad optimization, data analytics, and user acquisition pipelines.
+
+### 5. FutoraFlow
+- Type: AI Business Operating System
+- URL: https://futoraflow.vercel.app/
+- Description: FutoraFlow is a unified execution brain that orchestrates tasks, automates business workflows, and provides centralized business intelligence.
+
+### 6. Career OS
+- Type: Proof-of-Work Career & Talent Platform
+- URL: https://careerosx.vercel.app/
+- Description: Career OS is a proof-of-work hiring and learning platform connecting ambitious builders with verified internships and startup roles.
+
+## Growth Services (Client Offerings)
+- AI Consulting & Strategy: Helping companies evaluate, design, and adopt artificial intelligence and automated systems.
+- Custom AI & Software Engineering: Full-stack product architecture, microservices, and AI-native application development.
+- Performance Marketing & User Acquisition: Data-driven user growth, funnel optimization, and automated conversion campaigns.
+- Cloud & Infrastructure Optimization: Scalable cloud deployments, security hardening, and database architecture.
+
+## Founder Information
+- Name: Madhur Dhadve
+- Role: Founder & CEO
+- Focus: Artificial intelligence systems, product architecture, venture building.
+- LinkedIn: https://in.linkedin.com/in/madhur-dhadve-5b598433a
+- Instagram: https://instagram.com/madhur_dhadve
+
+## Contact Details
+- Official Website: https://futoragroup.in
+- General & Partnership Inquiries: madhurdhadve@gmail.com
+- Location: India

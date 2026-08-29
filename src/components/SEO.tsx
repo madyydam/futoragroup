@@ -6,9 +6,16 @@ interface SEOProps {
     description: string;
     url?: string;
     image?: string;
+    schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const SEO = ({ title, description, url = 'https://futora.com', image = '/logo.png' }: SEOProps) => {
+const SEO = ({
+    title,
+    description,
+    url = 'https://futoragroup.in',
+    image = '/logo.webp',
+    schema
+}: SEOProps) => {
     const fullTitle = `${title} | Futora Group`;
 
     return (
@@ -31,6 +38,13 @@ const SEO = ({ title, description, url = 'https://futora.com', image = '/logo.pn
             <meta name='twitter:title' content={fullTitle} />
             <meta name='twitter:description' content={description} />
             <meta name='twitter:image' content={image} />
+
+            {/* Structured Data (JSON-LD) */}
+            {schema && (
+                <script type="application/ld+json">
+                    {JSON.stringify(schema)}
+                </script>
+            )}
         </Helmet>
     );
 };

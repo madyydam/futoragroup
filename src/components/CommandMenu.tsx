@@ -58,6 +58,10 @@ const CommandMenu = () => {
                             <Briefcase className="cmd-icon" />
                             Companies
                         </Command.Item>
+                        <Command.Item onSelect={() => runCommand(() => navigate('/services'))}>
+                            <TrendingUp className="cmd-icon" />
+                            Growth Services
+                        </Command.Item>
                         <Command.Item onSelect={() => runCommand(() => navigate('/insights'))}>
                             <Book className="cmd-icon" />
                             Insights

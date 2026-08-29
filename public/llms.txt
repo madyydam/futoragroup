@@ -1,0 +1,25 @@
+# Futora Group
+
+> Futora Group is a product-and-service technology company founded by Madhur Dhadve, building AI-driven software platforms across fintech, social networking, AI infrastructure, marketing, and growth services — while also offering custom technology and growth consulting to external businesses.
+
+## Companies & Products
+- FutoraOne: AI-powered social networking and community platform for creators, developers, and founders.
+- Futora Finance (FutoraPay & Futora Wallet): Next-generation AI-powered fintech platform and digital financial OS with UPI payments and financial infrastructure.
+- Futora AI: Core AI/ML infrastructure, automation systems, and intelligence platforms.
+- FutoraLift: Performance marketing and AI growth engineering helping brands scale with data and automation.
+- FutoraFlow: AI-commanded business operating system for cross-task execution and workflow orchestration.
+- Career OS: Proof-of-work platform for tech internships, AI courses, and high-impact startup jobs.
+
+## Services
+- Growth Services: Technology consulting, custom AI engineering, and scaling services for partner businesses.
+
+## Leadership
+- Madhur Dhadve: Founder and Visionary of Futora Group.
+
+## Official Links
+- Website: https://futoragroup.in
+- Products: https://futoragroup.in/companies
+- Services: https://futoragroup.in/services
+- Founder: https://futoragroup.in/founder
+- Insights: https://futoragroup.in/insights
+- Contact: https://futoragroup.in/contact
