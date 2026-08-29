@@ -201,16 +201,24 @@ const Home: FC = () => {
 
     const faqs = useMemo(() => [
         {
+            question: 'Who is Madhur Dhadve?',
+            answer: 'Madhur Dhadve is the founder and CEO of Futora Group, an Indian technology entrepreneur and AI specialist building venture-scale software platforms and growth engineering ecosystems.'
+        },
+        {
             question: 'What is Futora Group?',
-            answer: 'Futora Group is a product-and-service technology company founded by Madhur Dhadve, building AI-driven software platforms across fintech, social networking, AI infrastructure, and workflow operating systems while offering growth and technology consulting to external businesses.'
+            answer: 'Futora Group is an AI-first technology company and conglomerate founded by Madhur Dhadve, building proprietary AI software platforms (FutoraPay, FutoraOne, Futora AI, FutoraLift, FutoraFlow) while providing enterprise growth engineering and technology consulting.'
+        },
+        {
+            question: 'What does Futora Group do?',
+            answer: 'Futora Group invents, scales, and operates proprietary AI platforms in fintech, social media, and automation, while offering custom AI development, performance marketing, and technology consulting to external partner companies.'
         },
         {
             question: 'Is Futora Group a product company or a service company?',
-            answer: 'Futora Group operates on a dual model: we build and own proprietary AI products (FutoraOne, FutoraPay, Futora AI, FutoraLift, FutoraFlow) and deliver technology and growth services (Growth Services) to help partner companies scale.'
+            answer: 'Futora Group operates on a dual model: we build and own proprietary AI products (FutoraOne, FutoraPay, Futora AI, FutoraLift, FutoraFlow) and deliver high-impact technology and growth services (Growth Services) to help partner companies scale.'
         },
         {
-            question: 'What is Futora Finance (FutoraPay & Futora Wallet)?',
-            answer: 'Futora Finance is an AI-powered financial infrastructure ecosystem providing Futora Wallet for intelligent financial management and Futora Pay for next-generation instant UPI transactions.'
+            question: 'What is FutoraPay and how does it work with UPI?',
+            answer: 'FutoraPay is an AI-powered financial infrastructure platform that combines smart personal wealth management with secure, high-concurrency instant UPI transaction processing.'
         },
         {
             question: 'What is FutoraOne?',
@@ -219,10 +227,6 @@ const Home: FC = () => {
         {
             question: 'What services does Futora Group offer to external businesses?',
             answer: 'Through our Growth Services division, we provide enterprise AI consulting, custom software and AI engineering, performance marketing and launch distribution via FutoraLift, and cloud infrastructure optimization.'
-        },
-        {
-            question: 'Who founded Futora Group?',
-            answer: 'Futora Group was founded by Madhur Dhadve, an Indian tech entrepreneur and AI specialist building billion-dollar scalable technology ecosystems.'
         }
     ], []);
 

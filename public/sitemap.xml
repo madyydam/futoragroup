@@ -91,6 +91,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://futoragroup.in/insights/5</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://futoragroup.in/neuromorphic-computing.webp</image:loc>
+      <image:title>Autonomous AI Agents in Production &amp; Multi-Agent Workflows</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://futoragroup.in/insights/6</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://futoragroup.in/ai-finance-hero.webp</image:loc>
+      <image:title>Product vs Service Company: Dual-Model Tech Ecosystem</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://futoragroup.in/contact</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
