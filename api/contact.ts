@@ -1,50 +1,53 @@
-import { defineConfig, type Plugin } from 'vite';
-import react from '@vitejs/plugin-react';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
-// Dev server middleware for local SMTP testing
-const smtpDevPlugin = (): Plugin => ({
-  name: 'smtp-dev-server',
-  configureServer(server) {
-    server.middlewares.use(async (req, res, next) => {
-      if (req.url === '/api/contact' && req.method === 'POST') {
-        let body = '';
-        req.on('data', chunk => {
-          body += chunk.toString();
-        });
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+    // Set CORS headers
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    );
 
-        req.on('end', async () => {
-          try {
-            const { name, email, message } = JSON.parse(body || '{}');
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
 
-            if (!name || !email || !message) {
-              res.statusCode = 400;
-              res.setHeader('Content-Type', 'application/json');
-              res.end(JSON.stringify({ error: 'Please provide name, email, and message.' }));
-              return;
-            }
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
 
-            const transporter = nodemailer.createTransport({
-              service: 'gmail',
-              auth: {
+    try {
+        const { name, email, message } = req.body || {};
+
+        if (!name || !email || !message) {
+            return res.status(400).json({ error: 'Please provide name, email, and message.' });
+        }
+
+        // Configure Gmail SMTP Transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
                 user: 'futoralift@gmail.com',
                 pass: 'olifirudgbrvzgos'
-              }
-            });
+            }
+        });
 
-            const submissionDate = new Date().toLocaleString('en-IN', {
-              timeZone: 'Asia/Kolkata',
-              dateStyle: 'full',
-              timeStyle: 'medium'
-            });
+        const submissionDate = new Date().toLocaleString('en-IN', {
+            timeZone: 'Asia/Kolkata',
+            dateStyle: 'full',
+            timeStyle: 'medium'
+        });
 
-            // 1. Send notification to futoragroup@gmail.com
-            const adminMailOptions = {
-              from: `"Futora Group Forms" <futoralift@gmail.com>`,
-              to: 'futoragroup@gmail.com',
-              replyTo: email,
-              subject: `🚀 New Lead: ${name} — Futora Group Website`,
-              html: `
+        // 1. Send Notification Email to futoragroup@gmail.com
+        const adminMailOptions = {
+            from: `"Futora Group Forms" <futoralift@gmail.com>`,
+            to: 'futoragroup@gmail.com',
+            replyTo: email,
+            subject: `🚀 New Lead: ${name} — Futora Group Website`,
+            html: `
                 <div style="font-family: Arial, sans-serif; background-color: #0d0e15; color: #ffffff; padding: 30px; border-radius: 12px;">
                     <div style="text-align: center; margin-bottom: 25px;">
                         <h2 style="color: #00ffff; margin: 0; font-size: 24px;">New Contact Submission</h2>
@@ -70,15 +73,15 @@ const smtpDevPlugin = (): Plugin => ({
                         <a href="mailto:${email}" style="background: #00ffff; color: #000000; font-weight: bold; padding: 10px 20px; text-decoration: none; border-radius: 6px; display: inline-block;">Reply to ${name}</a>
                     </div>
                 </div>
-              `
-            };
+            `
+        };
 
-            // 2. Auto-confirmation to submitter
-            const userConfirmationOptions = {
-              from: `"Futora Group" <futoralift@gmail.com>`,
-              to: email,
-              subject: `Thank you for contacting Futora Group, ${name}!`,
-              html: `
+        // 2. Send Auto-Confirmation to Submitter
+        const userConfirmationOptions = {
+            from: `"Futora Group" <futoralift@gmail.com>`,
+            to: email,
+            subject: `Thank you for contacting Futora Group, ${name}!`,
+            html: `
                 <div style="font-family: Arial, sans-serif; background-color: #0d0e15; color: #ffffff; padding: 30px; border-radius: 12px;">
                     <h2 style="color: #00ffff; margin-top: 0;">Hello ${name},</h2>
                     <p style="color: #e5e7eb; font-size: 15px; line-height: 1.6;">
@@ -101,48 +104,18 @@ const smtpDevPlugin = (): Plugin => ({
                         <span style="font-size: 12px; opacity: 0.7;">Corporate Office: Pune, India (Government of India Recognized MSME)</span>
                     </p>
                 </div>
-              `
-            };
+            `
+        };
 
-            await Promise.all([
-              transporter.sendMail(adminMailOptions),
-              transporter.sendMail(userConfirmationOptions)
-            ]);
+        // Send both emails in parallel
+        await Promise.all([
+            transporter.sendMail(adminMailOptions),
+            transporter.sendMail(userConfirmationOptions)
+        ]);
 
-            console.log(`[SMTP DEV] Emails successfully sent for ${email}`);
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ success: true, message: 'Email sent successfully via SMTP' }));
-          } catch (err: any) {
-            console.error('[SMTP DEV ERROR]:', err);
-            res.statusCode = 500;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ error: err.message || 'SMTP Error' }));
-          }
-        });
-        return;
-      }
-      next();
-    });
-  }
-});
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), smtpDevPlugin()],
-  build: {
-    sourcemap: true,
-    cssCodeSplit: true,
-    chunkSizeWarningLimit: 1200,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei', 'maath'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-ui': ['lucide-react', 'cmdk', '@emailjs/browser']
-        }
-      }
+        return res.status(200).json({ success: true, message: 'Emails sent successfully via SMTP' });
+    } catch (error: any) {
+        console.error('SMTP Send Error:', error);
+        return res.status(500).json({ error: error.message || 'Failed to send email via SMTP' });
     }
-  }
-});
+}

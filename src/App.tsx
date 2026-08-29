@@ -7,6 +7,7 @@ import CommandMenu from './components/CommandMenu';
 
 import AnimatedRoutes from './AnimatedRoutes';
 import CustomCursor from './components/CustomCursor';
+import FutoraChatbot from './components/FutoraChatbot';
 import './index.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <CustomCursor />
         <Navbar />
         <CommandMenu />
+        <FutoraChatbot />
 
         <main>
           <AnimatedRoutes />

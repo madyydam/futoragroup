@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
@@ -6,18 +6,31 @@ import * as THREE from 'three';
 
 const Stars = (props: React.ComponentProps<typeof Points>) => {
     const ref = useRef<THREE.Points>(null!);
-    const sphere = useMemo(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }), []);
+    // 5004 is evenly divisible by 3 (stride 3) ensuring no buffer overrun
+    const sphere = useMemo(() => random.inSphere(new Float32Array(5004), { radius: 1.5 }), []);
+    const scrollYRef = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            scrollYRef.current = window.pageYOffset || document.documentElement.scrollTop;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useFrame((_state, delta) => {
         if (ref.current) {
-            // Basic rotation
-            ref.current.rotation.x -= delta / 15;
-            ref.current.rotation.y -= delta / 20;
+            // Smooth rotation based on delta time
+            ref.current.rotation.x -= delta * 0.06;
+            ref.current.rotation.y -= delta * 0.05;
 
-            // Scroll Reactivity - Warp Speed Effect
-            const scrollY = window.scrollY;
+            // Scroll Reactivity - Warp Speed Effect using cached scroll ref
+            const scrollY = scrollYRef.current;
             ref.current.rotation.z = scrollY * 0.0005;
-            ref.current.position.z = Math.min(scrollY * 0.002, 5); // Move forward but cap it
+            ref.current.position.z = Math.min(scrollY * 0.002, 5);
         }
     });
 

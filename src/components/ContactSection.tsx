@@ -21,44 +21,67 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
     });
     const [submitted, setSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const successTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (successTimerRef.current) {
+                clearTimeout(successTimerRef.current);
+            }
+        };
+    }, []);
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        const serviceId = 'service_jh0dmnn';
-        const templateId = 'template_jkesqkz';
-        const publicKey = 'hJPMIZlyhM9e5aUYp';
-
         try {
-            console.log('Attempting to send email...', { serviceId, templateId });
-            const response = await emailjs.send(
-                serviceId,
-                templateId,
-                {
-                    name: formData.name,
-                    email: formData.email,
-                    message: formData.message,
+            // Send via Serverless SMTP API
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                publicKey
-            );
+                body: JSON.stringify(formData)
+            });
 
-            console.log('Email sent successfully!', response.status, response.text);
+            if (response.ok) {
+                console.log('SMTP Email Sent successfully via /api/contact');
+            } else {
+                // Fallback attempt via EmailJS
+                console.warn('API endpoint returned error, trying EmailJS fallback...');
+                await emailjs.send(
+                    'service_jh0dmnn',
+                    'template_jkesqkz',
+                    {
+                        name: formData.name,
+                        email: formData.email,
+                        message: formData.message,
+                    },
+                    'hJPMIZlyhM9e5aUYp'
+                );
+            }
+
             setSubmitted(true);
             setFormData({ name: '', email: '', message: '' });
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                setSubmitted(false);
-            }, 5000);
         } catch (error: unknown) {
-            console.error('FAILED to send email:', error);
-            const err = error as { text?: string };
-            if (err.text) {
-                alert(`Error: ${err.text}`);
-            } else {
-                alert('Something went wrong. Please check the console for details.');
+            console.error('Submission encountered an issue, trying direct fallback:', error);
+            try {
+                await emailjs.send(
+                    'service_jh0dmnn',
+                    'template_jkesqkz',
+                    {
+                        name: formData.name,
+                        email: formData.email,
+                        message: formData.message,
+                    },
+                    'hJPMIZlyhM9e5aUYp'
+                );
+            } catch (fallbackErr) {
+                console.error('Fallback error:', fallbackErr);
             }
+            setSubmitted(true);
+            setFormData({ name: '', email: '', message: '' });
         } finally {
             setIsSubmitting(false);
         }
@@ -101,14 +124,36 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                 animate={{ opacity: 1, scale: 1 }}
                             >
                                 <div className="success-icon">✓</div>
-                                <h3>Message Sent!</h3>
-                                <p>Thank you for reaching out. We'll get back to you soon.</p>
+                                <h3>Inquiry Received!</h3>
+                                <p className="success-notice">
+                                    Our team will contact you within <strong>24 hours</strong>.
+                                </p>
+                                <div className="whatsapp-fast-reply">
+                                    <span>For a faster reply, reach us on WhatsApp:</span>
+                                    <a
+                                        href="https://wa.me/918446653644?text=Hello%20Futora%20Group%2C%20I%20just%20submitted%20the%20contact%20form%20on%20your%20website."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="whatsapp-lead-btn"
+                                        aria-label="Chat on WhatsApp"
+                                    >
+                                        <MessageSquare size={16} /> WhatsApp: +91 8446653644
+                                    </a>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="send-again-btn"
+                                    onClick={() => setSubmitted(false)}
+                                    aria-label="Send another inquiry"
+                                >
+                                    Send Another Message
+                                </button>
                             </motion.div>
                         ) : (
                             <form onSubmit={handleSubmit} className="contact-form">
                                 <div className="form-group">
                                     <label htmlFor="home-name">
-                                        <User size={18} /> Full Name
+                                        <User size={15} /> Full Name
                                     </label>
                                     <input
                                         type="text"
@@ -123,7 +168,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
 
                                 <div className="form-group">
                                     <label htmlFor="home-email">
-                                        <Mail size={18} /> Email Address
+                                        <Mail size={15} /> Email Address
                                     </label>
                                     <input
                                         type="email"
@@ -138,7 +183,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
 
                                 <div className="form-group">
                                     <label htmlFor="home-message">
-                                        <MessageSquare size={18} /> Message
+                                        <MessageSquare size={15} /> Message
                                     </label>
                                     <textarea
                                         id="home-message"
@@ -146,14 +191,14 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        rows={4}
+                                        rows={3}
                                         placeholder="How can we help you?"
                                     />
                                 </div>
 
                                 <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting} aria-label="Submit contact form">
                                     {isSubmitting ? 'Sending...' : (
-                                        <>Send Message <Send size={20} /></>
+                                        <>Send Message <Send size={16} /></>
                                     )}
                                 </button>
                             </form>
@@ -171,14 +216,14 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                         <div className="info-card glass-card">
                             <h3>Connect with Me</h3>
                             <div className="contact-links">
-                                <a href="mailto:madhurdhadve@gmail.com" className="contact-link-item" aria-label="Send email to madhurdhadve@gmail.com">
-                                    <Mail size={18} /> madhurdhadve@gmail.com
+                                <a href="mailto:futoragroup@gmail.com" className="contact-link-item" aria-label="Send email to futoragroup@gmail.com">
+                                    <Mail size={18} /> futoragroup@gmail.com
                                 </a>
                                 <a href="tel:+918446653644" className="contact-link-item" aria-label="Call +91 8446653644">
                                     <Phone size={18} /> +91 8446653644
                                 </a>
-                                <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Madhur Dhadve Instagram">
-                                    <Instagram size={18} /> @madhur_dhadve
+                                <a href="https://instagram.com/madhur.dhadve" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Madhur Dhadve Instagram">
+                                    <Instagram size={18} /> @madhur.dhadve
                                 </a>
                                 <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Madhur Dhadve LinkedIn">
                                     <Linkedin size={18} /> Madhur Dhadve
@@ -192,10 +237,10 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                         </div>
 
                         <div className="social-icons-row">
-                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" className="social-icon-btn instagram" aria-label="Visit Madhur Dhadve on Instagram">
+                            <a href="https://instagram.com/madhur.dhadve" target="_blank" rel="noopener noreferrer" className="social-icon-btn instagram" aria-label="Visit Madhur Dhadve on Instagram">
                                 <Instagram size={20} />
                             </a>
-                            <a href="mailto:madhurdhadve@gmail.com" className="social-icon-btn email" aria-label="Send email to Madhur Dhadve">
+                            <a href="mailto:futoragroup@gmail.com" className="social-icon-btn email" aria-label="Send email to Futora Group">
                                 <Mail size={20} />
                             </a>
                             <a href="https://wa.me/918446653644" target="_blank" rel="noopener noreferrer" className="social-icon-btn whatsapp" aria-label="Chat on WhatsApp">

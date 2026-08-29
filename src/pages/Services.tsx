@@ -1,75 +1,232 @@
 import { useMemo, memo } from 'react';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Cpu, TrendingUp, ShieldCheck, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { 
+    Code2, 
+    Globe,
+    Smartphone,
+    Layers,
+    Cpu,
+    LayoutDashboard,
+    RefreshCw,
+    Zap,
+    Brain, 
+    Bot,
+    GitBranch,
+    Eye,
+    Database,
+    Network,
+    Cloud, 
+    GitPullRequest,
+    Terminal,
+    Boxes,
+    Activity,
+    TrendingDown,
+    Gauge,
+    HardDrive,
+    Building2, 
+    Users,
+    Briefcase,
+    Workflow,
+    CreditCard,
+    Server,
+    ShoppingBag, 
+    Store,
+    Target,
+    FileCode,
+    Search, 
+    BookOpen,
+    PenTool,
+    Link2,
+    MapPin,
+    BarChart2,
+    Sparkles, 
+    Award,
+    Palette,
+    Megaphone,
+    LineChart,
+    Share2,
+    Compass, 
+    CheckSquare,
+    TrendingUp,
+    Map,
+    FileCheck,
+    UserPlus,
+    Crown,
+    ShieldCheck, 
+    ShieldAlert,
+    LifeBuoy,
+    Sliders,
+    CheckCircle2,
+    ArrowRight, 
+    ArrowUpRight 
+} from 'lucide-react';
 import SEO from '../components/SEO';
 import ContactSection from '../components/ContactSection';
 import './Services.css';
 
+interface ServiceItem {
+    name: string;
+    icon: ReactNode;
+}
+
+interface ServiceCategory {
+    id: string;
+    title: string;
+    icon: ReactNode;
+    accent: string;
+    badge: string;
+    items: ServiceItem[];
+}
+
 const Services: FC = () => {
-    const services = useMemo(() => [
+    const serviceCategories: ServiceCategory[] = useMemo(() => [
         {
-            id: 'ai-consulting',
-            icon: <Brain size={32} />,
-            title: 'AI Consulting & Strategy',
-            quotable: 'Futora Group provides enterprise AI strategy, autonomous agent architecture, and AI roadmap design for modern companies.',
-            description: 'We audit your technical architecture and identify high-leverage opportunities to integrate autonomous AI workflows, reduce operational costs, and build defensible moats.',
-            features: [
-                'Autonomous Agent & Workflow Architecture',
-                'Enterprise LLM & Model Selection',
-                'Data Pipeline & Retrieval-Augmented Generation (RAG)',
-                'AI Security & Governance Audits'
-            ],
-            accent: '#00ffff'
+            id: 'software-development',
+            title: 'Software Development',
+            icon: <Code2 size={22} />,
+            accent: '#00ffff',
+            badge: 'Engineering',
+            items: [
+                { name: 'Custom Software Development', icon: <Code2 size={18} /> },
+                { name: 'Web Application Development', icon: <Globe size={18} /> },
+                { name: 'Mobile App Development (iOS & Android)', icon: <Smartphone size={18} /> },
+                { name: 'SaaS Product Development (MVP to Scale)', icon: <Layers size={18} /> },
+                { name: 'API Design & Development', icon: <Cpu size={18} /> },
+                { name: 'Internal Tools & Admin Dashboards', icon: <LayoutDashboard size={18} /> },
+                { name: 'Legacy System Modernization & Migration', icon: <RefreshCw size={18} /> },
+                { name: 'Progressive Web Apps (PWAs)', icon: <Zap size={18} /> }
+            ]
         },
         {
-            id: 'custom-engineering',
-            icon: <Cpu size={32} />,
-            title: 'Custom AI & Product Engineering',
-            quotable: 'Futora Group builds high-concurrency web, mobile, and cloud software platforms with embedded artificial intelligence.',
-            description: 'From zero-to-one MVP development to high-throughput financial and data platforms, our engineering team turns complex AI concepts into production-grade, scalable systems.',
-            features: [
-                'Full-Stack Web & Mobile App Development',
-                'Fintech & Payment Integration Pipelines',
-                'Custom Machine Learning Model Fine-Tuning',
-                'Microservices & High-Concurrency Cloud Systems'
-            ],
-            accent: '#6366f1'
-        },
-        {
-            id: 'growth-engineering',
-            icon: <TrendingUp size={32} />,
-            title: 'Growth Marketing & Distribution (FutoraLift)',
-            quotable: 'FutoraLift is Futora Group\'s growth arm delivering performance marketing, launch distribution, and automated user acquisition.',
-            description: 'Scaling is a science of algorithmic testing. We execute high-conversion marketing funnels, viral distribution loops, and programmatic ad optimization to acquire your first 10,000 users.',
-            features: [
-                'Programmatic & AI-Driven Ad Optimization',
-                'Launch Distribution & PR Distribution Loops',
-                'Conversion Rate Optimization (CRO)',
-                'Global & India Go-To-Market Execution'
-            ],
-            accent: '#0066ff'
+            id: 'ai-automation',
+            title: 'AI & Automation',
+            icon: <Brain size={22} />,
+            accent: '#a855f7',
+            badge: 'Intelligence',
+            items: [
+                { name: 'AI-Powered Feature Integration', icon: <Sparkles size={18} /> },
+                { name: 'Custom LLM & Chatbot Development', icon: <Bot size={18} /> },
+                { name: 'Workflow Automation', icon: <GitBranch size={18} /> },
+                { name: 'Machine Learning Model Development', icon: <Brain size={18} /> },
+                { name: 'Computer Vision Solutions', icon: <Eye size={18} /> },
+                { name: 'AI Agents & Copilots', icon: <Cpu size={18} /> },
+                { name: 'Data Pipeline & Analytics Automation', icon: <Database size={18} /> },
+                { name: 'RAG (Retrieval-Augmented Generation) Systems', icon: <Network size={18} /> }
+            ]
         },
         {
             id: 'cloud-infrastructure',
-            icon: <ShieldCheck size={32} />,
-            title: 'Infrastructure Scaling & Hardening',
-            quotable: 'Futora Group optimizes cloud infrastructure for microsecond latency, zero-downtime reliability, and institutional security.',
-            description: 'We modernize legacy infrastructure into lightning-fast, secure cloud architectures ready for global spikes in traffic and stringent compliance.',
-            features: [
-                'Cloud Architecture & Cost Optimization',
-                'Performance Hardening & Latency Minimization',
-                'Compliance & Security Hardening',
-                'DevOps & Automated CI/CD Pipelines'
-            ],
-            accent: '#00df9a'
+            title: 'Cloud & Infrastructure',
+            icon: <Cloud size={22} />,
+            accent: '#00df9a',
+            badge: 'DevOps & Scale',
+            items: [
+                { name: 'Cloud Architecture & Migration (AWS, Azure, GCP)', icon: <Cloud size={18} /> },
+                { name: 'DevOps & CI/CD Pipeline Setup', icon: <GitPullRequest size={18} /> },
+                { name: 'Infrastructure as Code (Terraform, CloudFormation)', icon: <Terminal size={18} /> },
+                { name: 'Kubernetes & Container Orchestration', icon: <Boxes size={18} /> },
+                { name: 'Site Reliability Engineering (SRE)', icon: <Activity size={18} /> },
+                { name: 'Cloud Cost Optimization', icon: <TrendingDown size={18} /> },
+                { name: 'Monitoring & Observability Setup', icon: <Gauge size={18} /> },
+                { name: 'Disaster Recovery & Backup Solutions', icon: <HardDrive size={18} /> }
+            ]
+        },
+        {
+            id: 'enterprise-systems',
+            title: 'Enterprise Systems',
+            icon: <Building2 size={22} />,
+            accent: '#ffaa00',
+            badge: 'Enterprise Operations',
+            items: [
+                { name: 'ERP Systems (Inventory, Billing, HR, Operations)', icon: <Building2 size={18} /> },
+                { name: 'CRM Development & Integration', icon: <Users size={18} /> },
+                { name: 'HRMS / Payroll Systems', icon: <Briefcase size={18} /> },
+                { name: 'Business Process Automation', icon: <Workflow size={18} /> },
+                { name: 'Third-Party Integrations & Payment Gateways', icon: <CreditCard size={18} /> },
+                { name: 'Database Design & Optimization', icon: <Server size={18} /> }
+            ]
+        },
+        {
+            id: 'web-commerce',
+            title: 'Web & Commerce',
+            icon: <ShoppingBag size={22} />,
+            accent: '#00a3ff',
+            badge: 'Commerce & Web',
+            items: [
+                { name: 'Marketing Websites (High-Performance & Conversion)', icon: <Globe size={18} /> },
+                { name: 'E-commerce Development', icon: <ShoppingBag size={18} /> },
+                { name: 'Headless Commerce Solutions', icon: <Store size={18} /> },
+                { name: 'Landing Page Design & Optimization', icon: <Target size={18} /> },
+                { name: 'CMS Development (WordPress & Custom CMS)', icon: <FileCode size={18} /> }
+            ]
+        },
+        {
+            id: 'seo-content',
+            title: 'SEO & Content',
+            icon: <Search size={22} />,
+            accent: '#6366f1',
+            badge: 'Organic Growth',
+            items: [
+                { name: 'Technical SEO Audits & Implementation', icon: <Search size={18} /> },
+                { name: 'Content Strategy & Topical Authority Building', icon: <BookOpen size={18} /> },
+                { name: 'Content Engine Development (Blogs & Hubs)', icon: <PenTool size={18} /> },
+                { name: 'Link Building & Off-page SEO', icon: <Link2 size={18} /> },
+                { name: 'Local SEO & Geo-Targeting', icon: <MapPin size={18} /> },
+                { name: 'SEO Performance Reporting', icon: <BarChart2 size={18} /> }
+            ]
+        },
+        {
+            id: 'branding-marketing',
+            title: 'Branding & Marketing',
+            icon: <Sparkles size={22} />,
+            accent: '#ec4899',
+            badge: 'Growth & Brand',
+            items: [
+                { name: 'Brand Identity & Positioning', icon: <Award size={18} /> },
+                { name: 'UI/UX Design & Design Systems', icon: <Palette size={18} /> },
+                { name: 'Paid Growth / Performance Marketing (PPC & Ads)', icon: <Megaphone size={18} /> },
+                { name: 'Marketing Automation Setup', icon: <Zap size={18} /> },
+                { name: 'Analytics & Conversion Rate Optimization (CRO)', icon: <LineChart size={18} /> },
+                { name: 'Social Media Strategy', icon: <Share2 size={18} /> }
+            ]
+        },
+        {
+            id: 'consulting-strategy',
+            title: 'Consulting & Strategy',
+            icon: <Compass size={22} />,
+            accent: '#14b8a6',
+            badge: 'Technical Advisory',
+            items: [
+                { name: 'IT Strategy Consulting', icon: <Compass size={18} /> },
+                { name: 'Technical Architecture Reviews', icon: <CheckSquare size={18} /> },
+                { name: 'Digital Transformation Consulting', icon: <TrendingUp size={18} /> },
+                { name: 'Product Discovery & Roadmapping', icon: <Map size={18} /> },
+                { name: 'Technology Due Diligence (Investors/M&A)', icon: <FileCheck size={18} /> },
+                { name: 'Team & Staff Augmentation', icon: <UserPlus size={18} /> },
+                { name: 'Fractional CTO Services', icon: <Crown size={18} /> }
+            ]
+        },
+        {
+            id: 'quality-support',
+            title: 'Quality & Support',
+            icon: <ShieldCheck size={22} />,
+            accent: '#10b981',
+            badge: 'Assurance & Security',
+            items: [
+                { name: 'QA & Software Testing (Manual & Automated)', icon: <CheckCircle2 size={18} /> },
+                { name: 'Security Audits & Penetration Testing', icon: <ShieldAlert size={18} /> },
+                { name: 'Ongoing Maintenance & Support (SLA-based)', icon: <LifeBuoy size={18} /> },
+                { name: 'Performance Optimization & Hardening', icon: <Sliders size={18} /> },
+                { name: 'Compliance Consulting (GDPR, HIPAA, SOC 2)', icon: <ShieldCheck size={18} /> }
+            ]
         }
     ], []);
 
     const serviceSchema = useMemo(() => ({
         '@context': 'https://schema.org',
         '@type': 'Service',
-        'serviceType': 'Technology & AI Growth Services',
+        'serviceType': 'Technology & Growth Services',
         'provider': {
             '@type': 'Organization',
             'name': 'Futora Group of Companies',
@@ -79,23 +236,45 @@ const Services: FC = () => {
         'areaServed': 'Global',
         'hasOfferCatalog': {
             '@type': 'OfferCatalog',
-            'name': 'Futora Group Growth & Technology Services',
-            'itemListElement': services.map((service) => ({
-                '@type': 'Offer',
-                'itemOffered': {
-                    '@type': 'Service',
-                    'name': service.title,
-                    'description': service.quotable
-                }
+            'name': 'Futora Group Technology and Growth Services',
+            'itemListElement': serviceCategories.map((category) => ({
+                '@type': 'OfferCatalog',
+                'name': category.title,
+                'itemListElement': category.items.map((item) => ({
+                    '@type': 'Offer',
+                    'itemOffered': {
+                        '@type': 'Service',
+                        'name': item.name
+                    }
+                }))
             }))
         }
-    }), [services]);
+    }), [serviceCategories]);
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.05
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 15 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.35 }
+        }
+    };
 
     return (
         <div className="services-page">
             <SEO
-                title="Growth Services — AI Consulting, Engineering & Scaling"
-                description="Futora Group offers custom AI consulting, product engineering, performance marketing (FutoraLift), and cloud scaling services to partner businesses."
+                title="Technology & Growth Services — Software, AI, Cloud & Marketing"
+                description="Comprehensive technology and growth consulting by Futora Group: Software Development, AI & Automation, Cloud & DevOps, Enterprise Systems, Web & Commerce, SEO, Branding & Marketing, and Strategy."
                 url="https://futoragroup.in/services"
                 schema={serviceSchema}
             />
@@ -110,76 +289,95 @@ const Services: FC = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="services-badge">
-                            <Sparkles size={16} /> Partner & Enterprise Solutions
+                            <Sparkles size={14} /> Partner & Enterprise Solutions
                         </div>
                         <h1>
                             Technology & <span className="gradient-text">Growth Services</span>
                         </h1>
                         <p className="services-quotable">
-                            Futora Group delivers high-impact AI strategy, custom software engineering, and growth marketing to partner companies and high-growth ventures.
+                            High-velocity engineering, AI systems, cloud infrastructure, and growth engines built to scale modern businesses.
                         </p>
                         <div className="services-hero-cta">
                             <a href="#services-contact" className="btn btn-primary" aria-label="Book a consultation with Futora Group">
-                                Partner With Us <ArrowRight size={18} />
-                            </a>
-                            <a href="#services-list" className="secondary-link" aria-label="Explore all services offered by Futora Group">
-                                View Service Offerings
+                                Partner With Us <ArrowRight size={16} />
                             </a>
                         </div>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Services Grid */}
-            <section id="services-list" className="section services-grid-section">
+            {/* Categories & Service Cards Grid */}
+            <section id="services-categories" className="section services-categories-section">
                 <div className="container">
-                    <motion.div
-                        className="section-header-compact"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2>How We Partner With Businesses</h2>
-                        <p className="services-subtitle">
-                            We bring the same world-class engineering and growth engines that power our proprietary platforms to our clients.
-                        </p>
-                    </motion.div>
-
-                    <div className="services-grid">
-                        {services.map((service, index) => (
-                            <motion.article
-                                key={service.id}
-                                className="service-card glass-card"
-                                initial={{ opacity: 0, y: 30 }}
+                    <div className="services-categories-container">
+                        {serviceCategories.map((category) => (
+                            <motion.div
+                                key={category.id}
+                                className="service-category-block"
+                                initial={{ opacity: 0, y: 25 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
+                                viewport={{ once: true, margin: "-40px" }}
+                                transition={{ duration: 0.5 }}
                             >
-                                <div className="service-icon-wrapper" style={{ color: service.accent, borderColor: `${service.accent}40` }}>
-                                    {service.icon}
+                                <div className="service-category-header">
+                                    <div 
+                                        className="service-category-icon"
+                                        style={{ 
+                                            color: category.accent,
+                                            borderColor: `${category.accent}60`,
+                                            background: `${category.accent}15`
+                                        }}
+                                    >
+                                        {category.icon}
+                                    </div>
+                                    <div className="service-category-title-wrap">
+                                        <h2>{category.title}</h2>
+                                        <span 
+                                            className="service-category-badge"
+                                            style={{
+                                                color: category.accent,
+                                                borderColor: `${category.accent}40`,
+                                                background: `${category.accent}10`
+                                            }}
+                                        >
+                                            {category.badge}
+                                        </span>
+                                    </div>
                                 </div>
-                                <h3>{service.title}</h3>
-                                <p className="service-quotable-text">{service.quotable}</p>
-                                <p className="service-description-text">{service.description}</p>
 
-                                <div className="service-features-list">
-                                    {service.features.map((feature, i) => (
-                                        <div key={i} className="service-feature-item">
-                                            <CheckCircle2 size={16} style={{ color: service.accent, flexShrink: 0 }} />
-                                            <span>{feature}</span>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <a
-                                    href="#services-contact"
-                                    className="service-card-cta"
-                                    aria-label={`Inquire about ${service.title}`}
-                                    style={{ color: service.accent }}
+                                <motion.div
+                                    className="service-items-grid"
+                                    variants={containerVariants}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
                                 >
-                                    Inquire about {service.title} <ArrowRight size={16} />
-                                </a>
-                            </motion.article>
+                                    {category.items.map((item, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            className="service-item-card"
+                                            variants={itemVariants}
+                                        >
+                                            <div 
+                                                className="service-item-icon-wrap"
+                                                style={{
+                                                    color: category.accent,
+                                                    borderColor: 'rgba(255, 255, 255, 0.25)',
+                                                    background: 'rgba(255, 255, 255, 0.05)'
+                                                }}
+                                            >
+                                                {item.icon}
+                                            </div>
+                                            <span className="service-item-name">{item.name}</span>
+                                            <ArrowUpRight 
+                                                className="service-item-arrow" 
+                                                size={15} 
+                                                style={{ color: category.accent }}
+                                            />
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

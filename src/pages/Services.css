@@ -1,10 +1,10 @@
 .services-page {
-    padding-top: 100px;
+    padding-top: 80px;
     min-height: 100vh;
 }
 
 .services-hero {
-    padding: 80px 0 60px;
+    padding: 50px 0 30px;
     text-align: center;
 }
 
@@ -12,195 +12,256 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 16px;
+    padding: 5px 14px;
     background: rgba(99, 102, 241, 0.1);
     border: 1px solid rgba(99, 102, 241, 0.3);
     border-radius: 100px;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: #a855f7;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .services-hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 20px;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 12px;
     letter-spacing: -0.02em;
 }
 
 .services-quotable {
-    font-size: 1.2rem;
-    max-width: 760px;
-    margin: 0 auto 32px;
+    font-size: 0.95rem;
+    max-width: 680px;
+    margin: 0 auto 26px;
     color: var(--gray-200);
-    line-height: 1.6;
+    line-height: 1.55;
 }
 
 .services-hero-cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
 }
 
-.services-grid-section {
-    padding-top: 40px;
+.services-categories-section {
+    padding: 20px 0 60px;
 }
 
-.services-subtitle {
-    font-size: 1.1rem;
-    color: var(--gray-300);
-    max-width: 650px;
+.services-categories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.service-card {
-    padding: 36px;
-    display: flex;
-    flex-direction: column;
+.service-category-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+.service-category-block:hover {
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
-.service-icon-wrapper {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid;
+.service-category-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.service-category-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    border: 1px solid;
+    flex-shrink: 0;
 }
 
-.service-card h3 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 12px;
-}
-
-.service-quotable-text {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #fff;
-    line-height: 1.5;
-    margin-bottom: 14px;
-    border-left: 2px solid var(--primary-color, #6366f1);
-    padding-left: 12px;
-}
-
-.service-description-text {
-    font-size: 0.9rem;
-    color: var(--gray-300);
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.service-features-list {
+.service-category-title-wrap {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 28px;
-    flex-grow: 1;
-}
-
-.service-feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: var(--gray-200);
-}
-
-.service-card-cta {
-    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.service-category-title-wrap h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.service-category-badge {
+    font-size: 0.65rem;
     font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: gap 0.2s ease;
-    margin-top: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 2px 10px;
+    border-radius: 100px;
+    border: 1px solid;
 }
 
-.service-card-cta:hover {
+.service-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 14px;
+}
+
+/* Service Card with Fine White Border Glow */
+.service-item-card {
+    background: rgba(15, 15, 25, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    padding: 16px 18px;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
     gap: 12px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: default;
+    position: relative;
 }
 
+.service-item-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.18), 0 10px 30px rgba(0, 0, 0, 0.45);
+    background: rgba(25, 25, 40, 0.6);
+}
+
+.service-item-icon-wrap {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.service-item-card:hover .service-item-icon-wrap {
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.service-item-name {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.35;
+    flex: 1;
+    letter-spacing: -0.01em;
+}
+
+.service-item-arrow {
+    opacity: 0.5;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    flex-shrink: 0;
+}
+
+.service-item-card:hover .service-item-arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
+/* Why Partner with Us / Edge */
 .services-edge {
-    padding: 60px 0;
+    padding: 40px 0 60px;
 }
 
 .services-edge-card {
-    padding: 50px 40px;
+    padding: 40px 30px;
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    border-radius: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .services-edge-card h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 14px;
     color: #fff;
 }
 
 .services-edge-card p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--gray-200);
-    line-height: 1.7;
-    margin-bottom: 40px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .services-edge-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
 }
 
 .stat-box {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 20px;
+    gap: 4px;
+    padding: 16px;
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 16px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stat-number {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 800;
 }
 
 .stat-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--gray-300);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
+    .service-category-block {
+        padding: 16px;
+    }
+
+    .service-items-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-item-card {
+        min-height: 60px;
+        padding: 12px 14px;
+    }
+
     .services-edge-stats {
         grid-template-columns: 1fr;
     }
-    .service-card {
-        padding: 24px;
-    }
+
     .services-edge-card {
-        padding: 30px 20px;
+        padding: 24px 16px;
     }
 }

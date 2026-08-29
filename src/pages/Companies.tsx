@@ -290,9 +290,6 @@ const Companies: FC = () => {
                                         <p className="company-tagline">{company.tagline}</p>
                                     </div>
                                 </div>
-                                <p style={{ fontSize: '0.88rem', color: '#fff', fontStyle: 'italic', opacity: 0.95, marginBottom: '12px', borderLeft: '2px solid rgba(255,255,255,0.2)', paddingLeft: '10px' }}>
-                                    {company.quotable}
-                                </p>
                                 {company.description && (
                                     <p className="company-description">{company.description}</p>
                                 )}
@@ -311,7 +308,7 @@ const Companies: FC = () => {
                                                     background: 'rgba(255,255,255,0.03)',
                                                     border: '1px solid rgba(255,255,255,0.06)',
                                                     borderRadius: '8px',
-                                                    padding: '12px',
+                                                    padding: '8px',
                                                     display: 'flex',
                                                     flexDirection: 'column',
                                                     transition: 'all 0.2s ease',
@@ -331,23 +328,23 @@ const Companies: FC = () => {
                                                 <div style={{
                                                     display: 'flex',
                                                     alignItems: 'center',
-                                                    gap: '8px',
-                                                    marginBottom: '8px',
+                                                    gap: '6px',
+                                                    marginBottom: '6px',
                                                     color: '#00df9a'
                                                 }}>
                                                     {module.icon}
-                                                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{module.name}</span>
+                                                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#fff' }}>{module.name}</span>
                                                 </div>
                                                 <div style={{
                                                     background: 'rgba(0, 223, 154, 0.1)',
                                                     border: '1px solid rgba(0, 223, 154, 0.3)',
                                                     borderRadius: '100px',
-                                                    padding: '2px 10px',
-                                                    fontSize: '0.65rem',
+                                                    padding: '1px 8px',
+                                                    fontSize: '0.60rem',
                                                     color: '#00df9a',
                                                     fontWeight: 600,
                                                     width: 'fit-content',
-                                                    marginBottom: '8px',
+                                                    marginBottom: '6px',
                                                     cursor: 'default',
                                                     boxShadow: '0 0 10px rgba(0, 223, 154, 0.1)'
                                                 }}>
@@ -355,17 +352,17 @@ const Companies: FC = () => {
                                                 </div>
 
                                                 <div style={{
-                                                    marginTop: '12px',
+                                                    marginTop: '6px',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     gap: '4px',
-                                                    fontSize: '0.75rem',
+                                                    fontSize: '0.68rem',
                                                     color: '#00df9a',
                                                     fontWeight: 600,
                                                     textShadow: '0 0 8px rgba(0, 223, 154, 0.6)',
                                                     opacity: 1
                                                 }}>
-                                                    Visit App <ArrowRight size={12} />
+                                                    Visit App <ArrowRight size={11} />
                                                 </div>
                                             </a>
                                         ))}
@@ -428,7 +425,7 @@ const Companies: FC = () => {
                                     {product.icon}
                                 </div>
                                 <div className="mini-card-content">
-                                    <h3>{product.name}</h3>
+                                    <h4>{product.name}</h4>
                                     <p className="mini-card-description">{product.description}</p>
                                     <span className="mini-card-tag">{product.tag}</span>
                                 </div>

@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase, Radio, ChevronDown, Cpu, Layers } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Sparkles, Target, Zap, Brain, Users, CreditCard, TrendingUp, ExternalLink, CheckCircle, Rocket, LineChart, Wallet, Briefcase, Radio, ChevronDown, Code2, Cloud, Building2, ShoppingBag, Search, Compass, ShieldCheck } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 import Hero3D from '../components/Hero3D';
@@ -199,6 +199,18 @@ const Home: FC = () => {
         }
     ], []);
 
+    const homeServices = useMemo(() => [
+        { name: 'Software Development', icon: <Code2 size={20} />, color: '#00ffff', badge: 'Engineering' },
+        { name: 'AI & Automation', icon: <Brain size={20} />, color: '#a855f7', badge: 'Intelligence' },
+        { name: 'Cloud & Infrastructure', icon: <Cloud size={20} />, color: '#00df9a', badge: 'DevOps & Scale' },
+        { name: 'Enterprise Systems', icon: <Building2 size={20} />, color: '#ffaa00', badge: 'Enterprise' },
+        { name: 'Web & Commerce', icon: <ShoppingBag size={20} />, color: '#00a3ff', badge: 'Commerce' },
+        { name: 'SEO & Content', icon: <Search size={20} />, color: '#6366f1', badge: 'Organic Growth' },
+        { name: 'Branding & Marketing', icon: <Sparkles size={20} />, color: '#ec4899', badge: 'Growth' },
+        { name: 'Consulting & Strategy', icon: <Compass size={20} />, color: '#14b8a6', badge: 'Advisory' },
+        { name: 'Quality & Support', icon: <ShieldCheck size={20} />, color: '#10b981', badge: 'Assurance' }
+    ], []);
+
     const faqs = useMemo(() => [
         {
             question: 'Who is Madhur Dhadve?',
@@ -244,22 +256,20 @@ const Home: FC = () => {
                 'jobTitle': 'Founder & Visionary',
                 'sameAs': [
                     'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
-                    'https://instagram.com/madhur_dhadve'
+                    'https://instagram.com/madhur.dhadve'
                 ]
             },
             'sameAs': [
                 'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
-                'https://instagram.com/madhur_dhadve'
+                'https://instagram.com/madhur.dhadve'
             ],
             'description': 'Futora Group is a product-and-service technology company building AI platforms across fintech, social media, marketing, and growth sectors.',
-            'brand': [
-                { '@type': 'Brand', 'name': 'FutoraLift' },
-                { '@type': 'Brand', 'name': 'FutoraPay' },
-                { '@type': 'Brand', 'name': 'FutoraOne' },
-                { '@type': 'Brand', 'name': 'Futora AI' },
-                { '@type': 'Brand', 'name': 'FutoraFlow' },
-                { '@type': 'Brand', 'name': 'Career OS' }
-            ]
+            'brand': companies.map((c) => ({
+                '@type': 'Brand',
+                'name': c.name,
+                'description': c.quotable || c.description,
+                'url': c.link
+            }))
         },
         {
             '@context': 'https://schema.org',
@@ -382,107 +392,8 @@ const Home: FC = () => {
                             <a href="#companies" className="btn btn-primary" aria-label="Explore Futora Group Companies and Products">
                                 Explore Products
                             </a>
-                            <Link to="/services" className="btn btn-secondary" aria-label="Explore Futora Group Technology and Growth Services" style={{
-                                padding: '12px 28px',
-                                borderRadius: '100px',
-                                background: 'rgba(255,255,255,0.06)',
-                                border: '1px solid rgba(255,255,255,0.15)',
-                                color: '#fff',
-                                textDecoration: 'none',
-                                fontWeight: 600,
-                                fontSize: '0.9rem',
-                                transition: 'all 0.2s ease'
-                            }}>
-                                Growth Services
-                            </Link>
-                            <a href="#contact" className="secondary-link" aria-label="Contact Futora Group">
-                                Contact Futora <ArrowRight size={18} />
-                            </a>
                         </motion.div>
                     </motion.div>
-                </div>
-            </section>
-
-            {/* Two Ways We Work: Dual Model */}
-            <section className="section dual-model-section">
-                <div className="container">
-                    <motion.div
-                        className="section-header-compact"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <div className="innovation-badge">
-                            <Layers size={14} /> Dual Operating Model
-                        </div>
-                        <h2>Two Ways We Work</h2>
-                        <p className="upcoming-subtitle">
-                            Combining the relentless innovation of a product venture builder with the hands-on partnership of a modern engineering and growth firm.
-                        </p>
-                    </motion.div>
-
-                    <div className="dual-model-grid" style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                        gap: '28px',
-                        marginTop: '36px'
-                    }}>
-                        <motion.div
-                            className="glass-card"
-                            style={{
-                                padding: '36px',
-                                borderRadius: '24px',
-                                border: '1px solid rgba(99, 102, 241, 0.3)',
-                                background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(10, 1, 24, 0.6) 100%)'
-                            }}
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(99, 102, 241, 0.1)', borderRadius: '16px', color: '#6366f1', marginBottom: '20px' }}>
-                                <Cpu size={28} />
-                            </div>
-                            <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '12px' }}>1. Proprietary Products</h3>
-                            <p style={{ color: 'var(--gray-200)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                                We invent, architect, and scale self-owned AI platforms across fintech (FutoraPay), social (FutoraOne), automation (FutoraFlow), and developer infrastructure.
-                            </p>
-                            <a href="#companies" className="btn btn-primary" aria-label="Explore proprietary products" style={{ fontSize: '0.85rem', padding: '10px 22px' }}>
-                                Explore Products <ArrowRight size={16} />
-                            </a>
-                        </motion.div>
-
-                        <motion.div
-                            className="glass-card"
-                            style={{
-                                padding: '36px',
-                                borderRadius: '24px',
-                                border: '1px solid rgba(0, 223, 154, 0.3)',
-                                background: 'linear-gradient(135deg, rgba(0, 223, 154, 0.05) 0%, rgba(5, 0, 16, 0.6) 100%)'
-                            }}
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(0, 223, 154, 0.1)', borderRadius: '16px', color: '#00df9a', marginBottom: '20px' }}>
-                                <TrendingUp size={28} />
-                            </div>
-                            <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '12px' }}>2. Growth & Tech Services</h3>
-                            <p style={{ color: 'var(--gray-200)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                                We partner with external businesses and enterprises to deploy custom AI architectures, performance growth marketing (FutoraLift), and high-scale cloud engineering.
-                            </p>
-                            <Link to="/services" className="btn btn-primary" aria-label="Explore Growth Services offerings" style={{
-                                fontSize: '0.85rem',
-                                padding: '10px 22px',
-                                background: 'linear-gradient(135deg, #00df9a 0%, #00b881 100%)',
-                                color: '#000'
-                            }}>
-                                Explore Services <ArrowRight size={16} />
-                            </Link>
-                        </motion.div>
-                    </div>
                 </div>
             </section>
 
@@ -528,11 +439,6 @@ const Home: FC = () => {
                                 </div>
                                 <h3 style={{ marginBottom: '4px' }}>{company.name}</h3>
                                 <p className="company-role" style={{ fontSize: '0.7rem', opacity: 0.9, marginBottom: '8px' }}>{company.tagline}</p>
-                                {company.quotable && (
-                                    <p style={{ fontSize: '0.78rem', color: '#fff', fontStyle: 'italic', opacity: 0.9, marginBottom: '8px', borderLeft: '2px solid rgba(255,255,255,0.2)', paddingLeft: '8px' }}>
-                                        {company.quotable}
-                                    </p>
-                                )}
                                 {company.description && (
                                     <p className="company-description" style={{ marginBottom: company.modules ? '12px' : '8px' }}>{company.description}</p>
                                 )}
@@ -662,7 +568,7 @@ const Home: FC = () => {
                                     {product.icon}
                                 </div>
                                 <div className="mini-card-content">
-                                    <h3>{product.name}</h3>
+                                    <h4>{product.name}</h4>
                                     <p className="mini-card-description">{product.description}</p>
                                     <span className="mini-card-tag">{product.tag}</span>
                                 </div>
@@ -702,6 +608,81 @@ const Home: FC = () => {
                                 <p>{value.description}</p>
                             </motion.div>
                         ))}
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Technology & Growth Services Section */}
+            <section className="section home-services-section">
+                <div className="container">
+                    <motion.div
+                        className="section-header-compact"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className="innovation-badge">
+                            <Sparkles size={14} /> Partner & Enterprise Solutions
+                        </div>
+                        <h2>Technology & <span className="gradient-text">Growth Services</span></h2>
+                        <p className="upcoming-subtitle">
+                            High-velocity engineering, custom AI architectures, cloud scaling, and performance growth engines built for modern businesses.
+                        </p>
+                    </motion.div>
+
+                    <div className="home-services-grid">
+                        {homeServices.map((cat, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.04, duration: 0.4 }}
+                            >
+                                <Link 
+                                    to="/services" 
+                                    className="home-service-card"
+                                    aria-label={`Explore ${cat.name} services`}
+                                >
+                                    <div 
+                                        className="home-service-icon"
+                                        style={{ 
+                                            color: cat.color,
+                                            borderColor: `${cat.color}40`,
+                                            background: `${cat.color}12`
+                                        }}
+                                    >
+                                        {cat.icon}
+                                    </div>
+                                    <div className="home-service-text">
+                                        <h4>{cat.name}</h4>
+                                        <span 
+                                            className="home-service-badge"
+                                            style={{
+                                                color: cat.color,
+                                                borderColor: `${cat.color}30`,
+                                                background: `${cat.color}0a`
+                                            }}
+                                        >
+                                            {cat.badge}
+                                        </span>
+                                    </div>
+                                    <ArrowUpRight className="home-service-arrow" size={16} style={{ color: cat.color }} />
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <motion.div 
+                        style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <Link to="/services" className="btn btn-primary" aria-label="Explore all technology and growth services">
+                            Explore All Services <ArrowRight size={18} />
+                        </Link>
                     </motion.div>
                 </div>
             </section>

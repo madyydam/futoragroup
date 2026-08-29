@@ -5,8 +5,8 @@
     left: 0;
     width: 24px;
     height: 24px;
-    pointer-events: none;
-    z-index: 9999;
+    pointer-events: none !important;
+    z-index: 2147483647 !important;
     /* Removed background causing boxy look, moving styles to inner texture */
     will-change: transform;
 }

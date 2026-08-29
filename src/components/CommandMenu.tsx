@@ -100,9 +100,9 @@ const CommandMenu = () => {
                     </Command.Group>
 
                     <Command.Group heading="Actions">
-                        <Command.Item onSelect={() => runCommand(() => window.location.href = 'mailto:madhurdhadve@gmail.com')}>
+                        <Command.Item onSelect={() => runCommand(() => window.location.href = 'mailto:futoragroup@gmail.com')}>
                             <Mail className="cmd-icon" />
-                            Email Founder
+                            Email Futora Group
                         </Command.Item>
                     </Command.Group>
                 </Command.List>

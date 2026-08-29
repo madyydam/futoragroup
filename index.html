@@ -59,12 +59,22 @@
   <!-- Twitter Meta Tags -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:site" content="@futoragroup" />
-  <meta property="twitter:creator" content="@madhur_dhadve" />
+  <meta property="twitter:creator" content="@madhur.dhadve" />
   <meta property="twitter:url" content="https://futoragroup.in/" />
   <meta property="twitter:title" content="Futora Group — India's AI Technology Ecosystem & Conglomerate" />
   <meta property="twitter:description"
     content="Building the future of AI-driven platforms across fintech, social networking, automation, and enterprise growth engineering." />
   <meta property="twitter:image" content="https://futoragroup.in/logo.webp" />
+
+  <!-- Geographic & Local Entity Meta Tags (GEO) -->
+  <meta name="geo.region" content="IN-MH" />
+  <meta name="geo.placename" content="Pune, Maharashtra, India" />
+  <meta name="geo.position" content="18.5204;73.8567" />
+  <meta name="ICBM" content="18.5204, 73.8567" />
+
+  <!-- LLM / AEO Discoverability Links -->
+  <link rel="alternate" type="text/plain" href="https://futoragroup.in/llms.txt" title="LLM Ecosystem Context" />
+  <link rel="alternate" type="text/plain" href="https://futoragroup.in/llms-full.txt" title="LLM Full Knowledge Graph" />
 
   <!-- Master Conglomerate Knowledge Graph (JSON-LD) -->
   <script type="application/ld+json">
@@ -82,6 +92,12 @@
             "url": "https://futoragroup.in/logo.webp",
             "caption": "Futora Group Logo"
           },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
           "founder": {
             "@type": "Person",
             "@id": "https://futoragroup.in/#founder",
@@ -89,21 +105,22 @@
             "jobTitle": "Founder & Visionary CEO",
             "sameAs": [
               "https://in.linkedin.com/in/madhur-dhadve-5b598433a",
-              "https://instagram.com/madhur_dhadve"
+              "https://instagram.com/madhur.dhadve"
             ]
           },
           "sameAs": [
             "https://in.linkedin.com/in/madhur-dhadve-5b598433a",
-            "https://instagram.com/madhur_dhadve"
+            "https://instagram.com/madhur.dhadve"
           ],
-          "description": "Futora Group is an AI-first technology conglomerate and ecosystem operating on a dual model: inventing proprietary AI platforms and delivering enterprise growth & technology consulting.",
+          "description": "Futora Group is an AI-first technology conglomerate and ecosystem operating on a dual model: inventing proprietary AI platforms and delivering enterprise growth & technology consulting. Recognized MSME under the Government of India.",
           "knowsAbout": [
             "Artificial Intelligence",
             "Fintech Infrastructure",
             "Autonomous Agents",
             "Social Networks",
             "Growth Marketing",
-            "Cloud Engineering"
+            "Cloud Engineering",
+            "Enterprise Software Architecture"
           ],
           "subOrganization": [
             {
@@ -141,12 +158,34 @@
               "name": "Career OS",
               "applicationCategory": "EducationalApplication",
               "url": "https://careerosx.vercel.app/"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "FutoraDrop",
+              "applicationCategory": "BusinessApplication",
+              "url": "https://futoradrop.vercel.app/"
             }
           ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Futora Technology & Growth Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Development" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & Infrastructure" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Systems" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Commerce" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO & Content" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding & Marketing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulting & Strategy" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Quality & Support" } }
+            ]
+          },
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "corporate inquiries",
-            "email": "madhurdhadve@gmail.com",
+            "email": "futoragroup@gmail.com",
+            "telephone": "+918446653644",
             "areaServed": "Global"
           }
         },

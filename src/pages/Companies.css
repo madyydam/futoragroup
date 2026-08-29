@@ -1,20 +1,25 @@
 .companies-page {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 .companies-hero {
-    padding: 80px 0 60px;
+    padding: 40px 0 24px;
     text-align: center;
 }
 
 .companies-hero h1 {
-    margin-bottom: 20px;
+    font-size: clamp(2.4rem, 5.5vw, 3.5rem);
+    margin-bottom: 14px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .companies-hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
+    font-size: 0.9rem;
+    max-width: 600px;
     margin: 0 auto;
+    color: var(--gray-200);
+    line-height: 1.5;
 }
 
 .companies-list .container {
@@ -22,7 +27,7 @@
 }
 
 .company-detail-card {
-    padding: 30px;
+    padding: 18px 16px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -32,19 +37,17 @@
 .company-detail-header {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .company-detail-icon {
-    width: 72px;
-    /* Increased from 54px */
-    height: 72px;
-    /* Increased from 54px */
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 18px;
+    border-radius: 12px;
     color: var(--pure-white);
     flex-shrink: 0;
     overflow: hidden;
@@ -58,38 +61,50 @@
 }
 
 .company-detail-title h2 {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     margin-bottom: 2px;
     color: var(--pure-white);
 }
 
 .company-tagline {
-    font-size: 0.85rem;
+    font-size: 0.72rem;
     color: var(--electric-blue);
     font-weight: 500;
 }
 
+.company-quotable {
+    font-size: 0.72rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.72);
+    border-left: 1.5px solid rgba(255, 255, 255, 0.2);
+    padding: 2px 0 2px 8px;
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+}
+
 .company-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.78rem;
+    line-height: 1.45;
     color: var(--gray-100);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     flex-grow: 1;
 }
 
 .company-features {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 24px;
+    gap: 6px;
+    margin-bottom: 14px;
 }
 
 .feature-badge {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.65rem;
     color: var(--gray-100);
     font-weight: 500;
 }
@@ -224,11 +239,14 @@
 .visit-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    border-radius: 12px;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.78rem;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
 }
 
 .company-card-blue .visit-btn {
@@ -245,14 +263,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 10px 24px;
-    border-radius: 12px;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.78rem;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
     background: #a855f7;
     color: white;
+    text-decoration: none;
 }
 
 .company-card-neon .visit-btn {

@@ -1,187 +1,195 @@
-/* Contact Section Utility Styles */
+/* Contact Section - Screen-Fitted Compact Design */
 .contact-section {
-    padding-top: 80px;
-    padding-bottom: 120px;
+    padding: 24px 0 36px;
+    position: relative;
 }
 
 .contact-header {
     text-align: center;
-    margin-bottom: 60px;
-    max-width: 800px;
+    margin-bottom: 22px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .contact-header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+    margin-bottom: 6px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
 }
 
 .contact-header p {
-    font-size: 1.2rem;
-    color: var(--gray-100);
-    opacity: 0.8;
+    font-size: 0.86rem;
+    color: var(--gray-200);
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 40px;
-    max-width: 1100px;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 20px;
+    max-width: 1020px;
     margin: 0 auto;
+    align-items: stretch;
 }
 
 .contact-form-wrapper {
-    padding: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(15, 15, 25, 0.4);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 15, 25, 0.45);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .contact-form-wrapper h2 {
-    margin-bottom: 32px;
-    font-size: 2.2rem;
+    margin-bottom: 14px;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 10px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
 }
 
 .form-group label {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     color: var(--pure-white);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.78rem;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 14px 18px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--pure-white);
     font-family: var(--font-secondary);
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    font-size: 0.84rem;
+    transition: all 0.25s ease;
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 65px;
+    max-height: 80px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--neon-cyan);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 15px rgba(0, 255, 247, 0.15);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 12px rgba(0, 255, 247, 0.12);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--gray-300);
+    font-size: 0.8rem;
 }
 
 .submit-btn {
     width: 100%;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 4px;
+    padding: 9px 18px;
+    font-size: 0.84rem;
+    border-radius: 8px;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+    justify-content: space-between;
 }
 
 .info-card {
-    padding: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
     transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .info-card:hover {
-    border-color: var(--neon-cyan);
-    transform: translateX(5px);
+    border-color: rgba(0, 223, 154, 0.3);
 }
 
 .info-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     margin-bottom: 12px;
     color: var(--pure-white);
-}
-
-.info-card p {
-    color: var(--gray-100);
-    line-height: 1.7;
-}
-
-.info-card a {
-    color: var(--neon-cyan);
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.info-card a:hover {
-    color: var(--electric-blue);
 }
 
 .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 }
 
 .contact-link-item {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: var(--gray-100);
     text-decoration: none;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    font-size: 0.84rem;
+    transition: all 0.25s ease;
+    padding: 2px 0;
 }
 
 .contact-link-item:hover {
     color: var(--neon-cyan);
-    transform: translateX(5px);
+    transform: translateX(3px);
 }
 
 .contact-link-item svg {
     color: var(--neon-cyan);
+    flex-shrink: 0;
 }
 
 .social-icons-row {
     display: flex;
-    gap: 16px;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 8px;
 }
 
 .social-icon-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     color: white;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .social-icon-btn:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .social-icon-btn.instagram {
@@ -202,38 +210,116 @@
 
 .success-message {
     text-align: center;
-    padding: 40px 20px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 .success-icon {
-    width: 70px;
-    height: 70px;
-    background: var(--gradient-neon);
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-neon, linear-gradient(135deg, #00ffff 0%, #00df9a 100%));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
-    color: var(--deep-obsidian);
-    margin: 0 auto 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 223, 154, 0.4);
 }
 
-@media (max-width: 968px) {
+.success-message h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+
+.success-notice {
+    font-size: 0.84rem;
+    color: var(--gray-200, #e5e7eb);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.success-notice strong {
+    color: #00ffff;
+}
+
+.whatsapp-fast-reply {
+    margin-top: 6px;
+    padding: 12px 14px;
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.whatsapp-fast-reply span {
+    font-size: 0.76rem;
+    color: var(--gray-300, #d1d5db);
+}
+
+.whatsapp-lead-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #25d366;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    width: 100%;
+}
+
+.whatsapp-lead-btn:hover {
+    background: #20ba5a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.send-again-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--gray-300, #9ca3af);
+    font-size: 0.74rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: all 0.2s ease;
+}
+
+.send-again-btn:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 868px) {
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .contact-form-wrapper {
-        padding: 40px 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-form-wrapper {
-        padding: 30px 20px;
+        padding: 20px 16px;
     }
 
-    .contact-form-wrapper h2 {
-        font-size: 1.8rem;
+    .info-card {
+        padding: 18px 16px;
     }
 }

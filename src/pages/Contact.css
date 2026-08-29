@@ -1,5 +1,9 @@
 .contact-page {
-    padding-top: 100px;
+    padding-top: 70px;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contact-hero {

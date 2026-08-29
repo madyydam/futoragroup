@@ -3,4 +3,38 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
+# AI Crawlers & Answer Engines (AEO & GEO Enabled)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://futoragroup.in/sitemap.xml
+# LLM Knowledge Graph
+# https://futoragroup.in/llms.txt
+# https://futoragroup.in/llms-full.txt

@@ -43,7 +43,7 @@ const Founder: FC = () => {
         ],
         'sameAs': [
             'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
-            'https://instagram.com/madhur_dhadve'
+            'https://instagram.com/madhur.dhadve'
         ]
     }), []);
 
@@ -79,10 +79,10 @@ const Founder: FC = () => {
                             <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on LinkedIn">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="https://instagram.com/madhur_dhadve" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on Instagram">
+                            <a href="https://instagram.com/madhur.dhadve" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on Instagram">
                                 <Instagram size={20} />
                             </a>
-                            <a href="mailto:madhurdhadve@gmail.com" aria-label="Send email to Madhur Dhadve">
+                            <a href="mailto:futoragroup@gmail.com" aria-label="Send email to Futora Group">
                                 <Mail size={20} />
                             </a>
                         </div>
