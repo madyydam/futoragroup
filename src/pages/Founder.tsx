@@ -23,13 +23,24 @@ const Founder: FC = () => {
         '@type': 'Person',
         'name': 'Madhur Dhadve',
         'jobTitle': 'Founder & CEO',
+        'nationality': {
+            '@type': 'Country',
+            'name': 'India'
+        },
         'worksFor': {
             '@type': 'Organization',
             'name': 'Futora Group of Companies',
             'url': 'https://futoragroup.in'
         },
-        'description': 'Founder and visionary behind Futora Group, leading an ecosystem of AI products and growth services.',
+        'description': 'Madhur Dhadve is the founder and CEO of Futora Group, an AI-first product-and-service technology company based in India building platforms across fintech, social, and automation.',
         'url': 'https://futoragroup.in/founder',
+        'knowsAbout': [
+            'Artificial Intelligence',
+            'Autonomous Agents',
+            'Fintech Infrastructure',
+            'Product Management',
+            'Growth Engineering'
+        ],
         'sameAs': [
             'https://in.linkedin.com/in/madhur-dhadve-5b598433a',
             'https://instagram.com/madhur_dhadve'
@@ -47,8 +58,8 @@ const Founder: FC = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <SEO
-                            title="Madhur Dhadve — Founder & Visionary"
-                            description="Meet Madhur Dhadve, the visionary founder and CEO behind Futora Group. Building billion-dollar AI platforms across fintech, social, and growth services."
+                            title="Madhur Dhadve — Founder & CEO of Futora Group"
+                            description="Madhur Dhadve is the founder and CEO of Futora Group, an AI-first product-and-service technology company based in India."
                             url="https://futoragroup.in/founder"
                             schema={founderSchema}
                         />
@@ -63,7 +74,7 @@ const Founder: FC = () => {
                             </div>
                         </motion.div>
                         <h1><span className="gradient-text">Madhur Dhadve</span></h1>
-                        <p className="founder-title">Founder & Visionary</p>
+                        <p className="founder-title">Founder & Visionary CEO, Futora Group</p>
                         <div className="founder-social">
                             <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on LinkedIn">
                                 <Linkedin size={20} />
@@ -87,7 +98,10 @@ const Founder: FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2>About Madhur</h2>
+                        <h2>About Madhur Dhadve</h2>
+                        <p style={{ fontSize: '1.05rem', color: '#fff', fontWeight: 500, lineHeight: 1.7, marginBottom: '20px', borderLeft: '3px solid var(--neon-cyan)', paddingLeft: '16px' }}>
+                            Madhur Dhadve is the founder and CEO of Futora Group, a product-and-service AI technology company based in India building venture-scale platforms across fintech (FutoraPay), social (FutoraOne), automation (Futora AI, FutoraFlow), and enterprise growth services.
+                        </p>
                         <ul className="main-points">
                             <li><strong>Visionary Founder:</strong> Leading Futora Group with a mission to build a powerful ecosystem of AI-driven companies and partner services.</li>
                             <li><strong>AI Specialist:</strong> Passionate about artificial intelligence, autonomous agent workflows, and future technology systems.</li>
