@@ -17,27 +17,57 @@ const Careers: FC = () => {
             title: 'Senior AI Engineer',
             department: 'Futora AI',
             location: 'Remote',
-            type: 'Full-time'
+            type: 'Full-time',
+            description: 'Lead architecture of autonomous AI agent workflows and LLM infrastructure across Futora AI platforms.'
         },
         {
             title: 'Growth Marketing Lead',
             department: 'FutoraLift',
             location: 'Remote',
-            type: 'Full-time'
+            type: 'Full-time',
+            description: 'Scale programmatic performance marketing, conversion funnels, and distribution loops for fast-scaling brands.'
         },
         {
             title: 'Full Stack Developer',
             department: 'FutoraPay',
             location: 'Remote',
-            type: 'Full-time'
+            type: 'Full-time',
+            description: 'Build secure, high-concurrency fintech platforms, UPI transaction pipelines, and intelligent wallet UI.'
         },
         {
             title: 'Community Manager',
             department: 'FutoraOne',
             location: 'Remote',
-            type: 'Part-time'
+            type: 'Part-time',
+            description: 'Grow and foster our global developer, builder, and tech creator community on FutoraOne.'
         }
     ], []);
+
+    const careersSchema = useMemo(() => ({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'itemListElement': jobs.map((job, idx) => ({
+            '@type': 'ListItem',
+            'position': idx + 1,
+            'item': {
+                '@type': 'JobPosting',
+                'title': job.title,
+                'description': job.description,
+                'datePosted': '2026-08-01',
+                'employmentType': job.type === 'Full-time' ? 'FULL_TIME' : 'PART_TIME',
+                'hiringOrganization': {
+                    '@type': 'Organization',
+                    'name': `Futora Group - ${job.department}`,
+                    'sameAs': 'https://futoragroup.in'
+                },
+                'jobLocationType': 'TELECOMMUTE',
+                'applicantLocationRequirements': {
+                    '@type': 'Country',
+                    'name': 'India'
+                }
+            }
+        }))
+    }), [jobs]);
 
     return (
         <div className="careers-page">
@@ -45,6 +75,7 @@ const Careers: FC = () => {
                 title="Careers at Futora Group — Build the Future of AI"
                 description="Join Futora Group. We are hiring visionaries, AI engineers, and growth marketers to build proprietary platforms and scale technology services."
                 url="https://futoragroup.in/careers"
+                schema={careersSchema}
             />
 
             <section className="careers-hero">
