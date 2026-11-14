@@ -251,6 +251,37 @@ section {
     box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
 }
 
+.company-card-ruby {
+    border-color: rgba(244, 63, 94, 0.6) !important;
+    box-shadow: 0 10px 30px rgba(244, 63, 94, 0.1);
+}
+
+.company-card-ruby .company-icon {
+    background: #ffffff !important;
+    border: 1px solid rgba(244, 63, 94, 0.4);
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
+}
+
+.company-card-ruby::before {
+    background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
+    opacity: 1 !important;
+}
+
+.company-card-ruby .company-role {
+    color: #f43f5e;
+}
+
+.company-card-ruby .company-btn {
+    background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(225, 29, 72, 0.35);
+}
+
+.company-card-ruby:hover {
+    border-color: #f43f5e;
+    box-shadow: 0 20px 60px rgba(244, 63, 94, 0.2);
+}
+
 .company-card-futorapay-premium {
     border-color: rgba(0, 223, 154, 0.6) !important;
     box-shadow: 0 10px 30px rgba(0, 223, 154, 0.1);

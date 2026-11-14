@@ -50,6 +50,19 @@ const Home: FC = () => {
             link: 'https://futoralift.vercel.app/'
         },
         {
+            id: 'kivo',
+            logo: '/kivo-logo.webp',
+            name: 'KIVO',
+            tagline: 'Cloud Restaurant Platform & POS',
+            quotable: 'KIVO is an all-in-one cloud restaurant POS and management SaaS with lightning-fast billing, kitchen display (KDS), and offline resilience with cloud auto-sync.',
+            description: 'All-in-one cloud restaurant management SaaS and POS with instant billing, live KDS, recipe inventory costing, and offline resilience.',
+            theme: 'ruby',
+            gradient: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            buttonGradient: 'linear-gradient(135deg, #e11d48 0%, #9f1239 100%)',
+            accentColor: '#f43f5e',
+            link: 'https://www.kivo.futoragroup.in/'
+        },
+        {
             id: 'futoradrop',
             icon: <Rocket size={32} />,
             name: 'FutoraDrop',
@@ -218,15 +231,15 @@ const Home: FC = () => {
         },
         {
             question: 'What is Futora Group?',
-            answer: 'Futora Group is an AI-first technology company and conglomerate founded by Madhur Dhadve, building proprietary AI software platforms (FutoraPay, FutoraOne, Futora AI, FutoraLift, FutoraFlow) while providing enterprise growth engineering and technology consulting.'
+            answer: 'Futora Group is an AI-first technology company and conglomerate founded by Madhur Dhadve, building proprietary AI software platforms (KIVO, FutoraPay, FutoraOne, Futora AI, FutoraLift, FutoraFlow) while providing enterprise growth engineering and technology consulting.'
         },
         {
             question: 'What does Futora Group do?',
-            answer: 'Futora Group invents, scales, and operates proprietary AI platforms in fintech, social media, and automation, while offering custom AI development, performance marketing, and technology consulting to external partner companies.'
+            answer: 'Futora Group invents, scales, and operates proprietary AI platforms in fintech, hospitality/restaurant tech (KIVO), social media, and automation, while offering custom AI development, performance marketing, and technology consulting to external partner companies.'
         },
         {
             question: 'Is Futora Group a product company or a service company?',
-            answer: 'Futora Group operates on a dual model: we build and own proprietary AI products (FutoraOne, FutoraPay, Futora AI, FutoraLift, FutoraFlow) and deliver high-impact technology and growth services (Growth Services) to help partner companies scale.'
+            answer: 'Futora Group operates on a dual model: we build and own proprietary AI products (KIVO, FutoraOne, FutoraPay, Futora AI, FutoraLift, FutoraFlow) and deliver high-impact technology and growth services (Growth Services) to help partner companies scale.'
         },
         {
             question: 'What is FutoraPay and how does it work with UPI?',
@@ -283,7 +296,7 @@ const Home: FC = () => {
                 }
             }))
         }
-    ], [faqs]);
+    ], [companies, faqs]);
 
     // Animation Variants
     const containerVariants: Variants = {
@@ -338,7 +351,7 @@ const Home: FC = () => {
         <div className="home">
             <SEO
                 title="Building the Future with AI Products & Growth Services"
-                description="Futora Group is a product-and-service tech ecosystem founded by Madhur Dhadve, building AI platforms across fintech (FutoraPay), social (FutoraOne), AI (Futora AI), and marketing (FutoraLift)."
+                description="Futora Group is a product-and-service tech ecosystem founded by Madhur Dhadve, building AI platforms across restaurant tech (KIVO), fintech (FutoraPay), social (FutoraOne), AI (Futora AI), and marketing (FutoraLift)."
                 url="https://futoragroup.in/"
                 schema={homeSchemas}
             />

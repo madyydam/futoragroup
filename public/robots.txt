@@ -35,6 +35,3 @@ User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: https://futoragroup.in/sitemap.xml
-# LLM Knowledge Graph
-# https://futoragroup.in/llms.txt
-# https://futoragroup.in/llms-full.txt

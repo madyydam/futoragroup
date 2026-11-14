@@ -80,6 +80,18 @@ export const CHATBOT_KNOWLEDGE: KnowledgeItem[] = [
         suggestions: ['Explore all growth services', 'Contact for marketing']
     },
     {
+        id: 'kivo-restaurant-pos',
+        keywords: ['kivo', 'restaurant', 'pos', 'kds', 'horeca', 'billing', 'kitchen display', 'cafe', 'food', 'table management', 'inventory'],
+        topics: ['products', 'restaurant', 'saas'],
+        title: 'KIVO — Cloud Restaurant Management & POS',
+        answer: 'KIVO is an all-in-one cloud restaurant POS and management SaaS platform featuring lightning-fast billing, live Kitchen Display (KDS), table & QR reservations, recipe inventory costing, and offline resilience with cloud auto-sync.',
+        links: [
+            { label: 'Visit KIVO', url: 'https://www.kivo.futoragroup.in/', isExternal: true },
+            { label: 'Explore Products', url: '/companies' }
+        ],
+        suggestions: ['What is FutoraPay?', 'Tell me about all products']
+    },
+    {
         id: 'futoraflow-automation',
         keywords: ['futoraflow', 'futora flow', 'automation', 'workflow', 'pipelines', 'business os'],
         topics: ['products', 'automation'],
@@ -268,7 +280,7 @@ export function findBestAnswer(query: string): {
 
     // Intelligent Fallback
     return {
-        answer: "I'd love to assist you! Futora Group is an AI-first conglomerate operating proprietary platforms (FutoraPay, FutoraOne, Futora AI, FutoraLift, FutoraFlow, Career OS) and delivering 9 domains of enterprise Growth & Technology Services. How can I help you explore further?",
+        answer: "I'd love to assist you! Futora Group is an AI-first conglomerate operating proprietary platforms (KIVO, FutoraPay, FutoraOne, Futora AI, FutoraLift, FutoraFlow, Career OS) and delivering 9 domains of enterprise Growth & Technology Services. How can I help you explore further?",
         links: [
             { label: 'Explore Products', url: '/companies' },
             { label: 'View Services', url: '/services' },

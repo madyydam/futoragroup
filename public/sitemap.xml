@@ -18,6 +18,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
+      <image:loc>https://futoragroup.in/kivo-logo.webp</image:loc>
+      <image:title>KIVO Official Logo</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://futoragroup.in/futorafinance-logo.webp</image:loc>
       <image:title>Futora Finance Logo</image:title>
     </image:image>

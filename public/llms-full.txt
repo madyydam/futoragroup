@@ -11,42 +11,47 @@ Futora Group of Companies is an officially registered Micro, Small, and Medium E
 
 ## Core Proprietary Platforms & Ventures
 
-### 1. Futora Finance (FutoraPay & Futora Wallet)
+### 1. KIVO
+- Category: Cloud Restaurant Management SaaS & POS
+- URL: https://www.kivo.futoragroup.in/
+- Description: All-in-one cloud restaurant POS and management SaaS with lightning-fast billing, live Kitchen Display System (KDS), inventory recipe costing, table reservations, and offline resilience with cloud auto-sync.
+
+### 2. Futora Finance (FutoraPay & Futora Wallet)
 - Category: Financial Technology & Payment Infrastructure
 - URLs: https://futorapay.vercel.app/ & https://futorawallet.vercel.app/
 - Description: AI-powered financial infrastructure providing autonomous wealth management OS (Futora Wallet) alongside next-generation instant UPI payment gateways (FutoraPay) engineered for high transaction speed and institutional-grade encryption.
 
-### 2. FutoraOne
+### 3. FutoraOne
 - Category: AI Social Media & Tech Community Network
 - URL: https://futora1.vercel.app/
 - Description: Collaborative social and networking ecosystem connecting software engineers, creator-engineers, and tech startup founders in micro-communities with AI-powered feed curation and discovery.
 
-### 3. Futora AI
+### 4. Futora AI
 - Category: Artificial Intelligence Infrastructure & Developer Tools
 - URL: https://futoraai.vercel.app/
 - Description: Intelligent developer ecosystem providing autonomous agent frameworks, custom LLM fine-tuning pipelines, and developer intelligence APIs.
 
-### 4. FutoraLift
+### 5. FutoraLift
 - Category: AI-Powered Growth & Performance Marketing
 - URL: https://futoralift.vercel.app/
 - Description: Growth engineering agency and automated marketing engine utilizing AI analytics, conversion rate optimization (CRO), and automated user acquisition pipelines to scale global brands.
 
-### 5. FutoraFlow
+### 6. FutoraFlow
 - Category: Enterprise Workflow Automation OS
 - URL: https://futoraflow.vercel.app/
 - Description: Unified business process operating system that coordinates cross-tool workflows, autonomous tasks, and real-time business telemetry.
 
-### 6. Career OS
+### 7. Career OS
 - Category: Career Acceleration & Proof-of-Work Talent Ecosystem
 - URL: https://careerosx.vercel.app/
 - Description: Proof-of-work hiring and educational platform connecting aspiring developers and tech talent with high-impact roles, curated internships, and AI skills roadmaps.
 
-### 7. FutoraDrop
+### 8. FutoraDrop
 - Category: High-Velocity Startup Launch Engine
 - URL: https://futoradrop.vercel.app/
 - Description: Distribution launchpad assisting early-stage Indian technology founders in acquiring their first 1,000 active users.
 
-### 8. Upcoming Innovations (Labs Pipeline)
+### 9. Upcoming Innovations (Labs Pipeline)
 - FutoraAgents: Autonomous multi-agent coordination frameworks.
 - FutoraSense: Real-time business signal & anomaly detection.
 - FutoraPulse: Social trend and consumer sentiment forecasting.

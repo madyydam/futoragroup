@@ -97,6 +97,20 @@ const Companies: FC = () => {
             link: 'https://futoralift.vercel.app/'
         },
         {
+            id: 'kivo',
+            logo: '/kivo-logo.webp',
+            name: 'KIVO',
+            tagline: 'Cloud Restaurant Platform & POS',
+            quotable: 'KIVO is an all-in-one cloud restaurant POS and management SaaS with lightning-fast billing, kitchen display (KDS), and offline resilience with cloud auto-sync.',
+            description: 'All-in-one cloud restaurant management SaaS and POS with instant billing, live KDS, recipe inventory costing, and offline resilience.',
+            features: ['Cloud POS & Billing', 'Kitchen Display (KDS)', 'Inventory & Costing', 'Offline Auto-Sync'],
+            theme: 'ruby',
+            gradient: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            buttonGradient: 'linear-gradient(135deg, #e11d48 0%, #9f1239 100%)',
+            accentColor: '#f43f5e',
+            link: 'https://www.kivo.futoragroup.in/'
+        },
+        {
             icon: <Rocket size={32} />,
             name: 'FutoraDrop',
             tagline: 'Global Launch Engine',
@@ -245,7 +259,7 @@ const Companies: FC = () => {
                     >
                         <SEO
                             title="Our Companies & AI Products"
-                            description="Explore the Futora Group product portfolio: FutoraLift (Marketing), FutoraDrop (Launch), FutoraPay (Fintech), FutoraOne (Social), Futora AI (Tools), FutoraFlow (AI OS), and Career OS."
+                            description="Explore the Futora Group product portfolio: FutoraLift (Marketing), KIVO (Restaurant POS & Management), FutoraDrop (Launch), FutoraPay (Fintech), FutoraOne (Social), Futora AI (Tools), FutoraFlow (AI OS), and Career OS."
                             url="https://futoragroup.in/companies"
                             schema={productsSchema}
                         />

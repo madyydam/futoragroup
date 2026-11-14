@@ -3,6 +3,7 @@
 > Futora Group of Companies is an AI-first technology conglomerate and holding company founded by Madhur Dhadve, based in Pune, India. Operating on a Dual-Operating Model, Futora Group invents proprietary venture-scale AI platforms across fintech, social networking, developer infrastructure, workflow automation, and career acceleration, while simultaneously delivering 9 specialized domains of enterprise Technology & Growth Services to global businesses. Futora Group is a Government of India recognized MSME.
 
 ## Proprietary Platforms & Companies
+- KIVO: All-in-one cloud restaurant POS and management SaaS with instant billing, live KDS, inventory recipe costing, and offline resilience (https://www.kivo.futoragroup.in/).
 - Futora Finance (FutoraPay & Futora Wallet): Next-generation AI fintech infrastructure and instant UPI payment operating system (https://futorapay.vercel.app/).
 - FutoraOne: AI-powered social media and collaborative community platform for creators, developers, and tech founders (https://futora1.vercel.app/).
 - Futora AI: Intelligent developer ecosystem, autonomous agent frameworks, and custom LLM platforms (https://futoraai.vercel.app/).

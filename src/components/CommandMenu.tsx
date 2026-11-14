@@ -11,7 +11,8 @@ import {
     CreditCard,
     TrendingUp,
     Users,
-    Brain
+    Brain,
+    Utensils
 } from 'lucide-react';
 import './CommandMenu.css';
 
@@ -84,6 +85,10 @@ const CommandMenu = () => {
                         <Command.Item onSelect={() => runCommand(() => window.open('https://futoralift.vercel.app/', '_blank'))}>
                             <TrendingUp className="cmd-icon" />
                             FutoraLift
+                        </Command.Item>
+                        <Command.Item onSelect={() => runCommand(() => window.open('https://www.kivo.futoragroup.in/', '_blank'))}>
+                            <Utensils className="cmd-icon" />
+                            KIVO
                         </Command.Item>
                         <Command.Item onSelect={() => runCommand(() => window.open('https://futorapay.vercel.app/', '_blank'))}>
                             <CreditCard className="cmd-icon" />
