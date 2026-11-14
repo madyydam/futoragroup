@@ -15,7 +15,7 @@ const Footer: FC = () => {
                         <h3 className="gradient-text">FUTORA</h3>
                         <p>Building the Future with AI, Automation & Innovation</p>
                         <div className="footer-socials">
-                            <a href="mailto:futoragroup@gmail.com" aria-label="Send email to Futora Group">
+                            <a href="mailto:ceo@futoragroup.in" aria-label="Send email to Futora Group">
                                 <Mail size={20} />
                             </a>
                             <a href="https://in.linkedin.com/in/madhur-dhadve-5b598433a" target="_blank" rel="noopener noreferrer" aria-label="Visit Futora Group on LinkedIn">

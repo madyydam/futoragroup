@@ -82,7 +82,7 @@ const Founder: FC = () => {
                             <a href="https://instagram.com/madhur.dhadve" target="_blank" rel="noopener noreferrer" aria-label="Madhur Dhadve on Instagram">
                                 <Instagram size={20} />
                             </a>
-                            <a href="mailto:futoragroup@gmail.com" aria-label="Send email to Futora Group">
+                            <a href="mailto:ceo@futoragroup.in" aria-label="Send email to Futora Group">
                                 <Mail size={20} />
                             </a>
                         </div>

@@ -26,7 +26,7 @@ export const CHATBOT_KNOWLEDGE: KnowledgeItem[] = [
         keywords: ['founder', 'ceo', 'madhur', 'dhadve', 'owner', 'who started', 'creator', 'leadership'],
         topics: ['founder', 'leadership'],
         title: 'About the Founder — Madhur Dhadve',
-        answer: 'Madhur Dhadve is the Founder & Visionary CEO of Futora Group. He is an AI specialist, product architect, and tech entrepreneur building billion-dollar AI platforms from India for the world. You can reach out directly via email at futoragroup@gmail.com or call +91 8446653644.',
+        answer: 'Madhur Dhadve is the Founder & Visionary CEO of Futora Group. He is an AI specialist, product architect, and tech entrepreneur building billion-dollar AI platforms from India for the world. You can reach out directly via email at ceo@futoragroup.in or call +91 8446653644.',
         links: [
             { label: 'Founder Profile', url: '/founder' },
             { label: 'LinkedIn', url: 'https://in.linkedin.com/in/madhur-dhadve-5b598433a', isExternal: true },
@@ -174,7 +174,7 @@ export const CHATBOT_KNOWLEDGE: KnowledgeItem[] = [
         keywords: ['contact', 'email', 'phone', 'call', 'partner', 'hire us', 'reach out', 'whatsapp', 'address'],
         topics: ['contact'],
         title: 'Contact & Partnerships',
-        answer: 'You can connect directly with the Futora Group leadership team:\n• **Email**: futoragroup@gmail.com\n• **Direct Phone / WhatsApp**: +91 8446653644\n• **Instagram**: @madhur.dhadve\n• **LinkedIn**: Madhur Dhadve\n• **Corporate Office**: Pune, India (MSME Registered)',
+        answer: 'You can connect directly with the Futora Group leadership team:\n• **Email**: ceo@futoragroup.in\n• **Direct Phone / WhatsApp**: +91 8446653644\n• **Instagram**: @madhur.dhadve\n• **LinkedIn**: Madhur Dhadve\n• **Corporate Office**: Pune, India (MSME Registered)',
         links: [
             { label: 'Open Contact Form', url: '/contact' },
             { label: 'WhatsApp Chat', url: 'https://wa.me/918446653644', isExternal: true }

@@ -139,7 +139,7 @@ const Careers: FC = () => {
                                     </div>
                                 </div>
                                 <a
-                                    href={`mailto:futoragroup@gmail.com?subject=Interest%20in%20${encodeURIComponent(job.title)}`}
+                                    href={`mailto:ceo@futoragroup.in?subject=Interest%20in%20${encodeURIComponent(job.title)}`}
                                     className="apply-btn secondary"
                                     aria-label={`Express interest in ${job.title} position`}
                                 >
@@ -161,7 +161,7 @@ const Careers: FC = () => {
                         <p style={{ maxWidth: '500px', margin: '1rem auto 2rem', color: 'var(--text-secondary)' }}>
                             We are always looking for exceptional builders. If you think you can add massive value, email us directly.
                         </p>
-                        <a href="mailto:futoragroup@gmail.com" className="btn btn-primary" aria-label="Email Futora Group regarding careers">
+                        <a href="mailto:ceo@futoragroup.in" className="btn btn-primary" aria-label="Email Futora Group regarding careers">
                             Email Futora Group <ArrowRight size={20} />
                         </a>
                     </motion.div>

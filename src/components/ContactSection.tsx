@@ -216,8 +216,8 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                         <div className="info-card glass-card">
                             <h3>Connect with Me</h3>
                             <div className="contact-links">
-                                <a href="mailto:futoragroup@gmail.com" className="contact-link-item" aria-label="Send email to futoragroup@gmail.com">
-                                    <Mail size={18} /> futoragroup@gmail.com
+                                <a href="mailto:ceo@futoragroup.in" className="contact-link-item" aria-label="Send email to ceo@futoragroup.in">
+                                    <Mail size={18} /> ceo@futoragroup.in
                                 </a>
                                 <a href="tel:+918446653644" className="contact-link-item" aria-label="Call +91 8446653644">
                                     <Phone size={18} /> +91 8446653644
@@ -240,7 +240,7 @@ const ContactSection: FC<ContactSectionProps> = ({ id }) => {
                             <a href="https://instagram.com/madhur.dhadve" target="_blank" rel="noopener noreferrer" className="social-icon-btn instagram" aria-label="Visit Madhur Dhadve on Instagram">
                                 <Instagram size={20} />
                             </a>
-                            <a href="mailto:futoragroup@gmail.com" className="social-icon-btn email" aria-label="Send email to Futora Group">
+                            <a href="mailto:ceo@futoragroup.in" className="social-icon-btn email" aria-label="Send email to Futora Group">
                                 <Mail size={20} />
                             </a>
                             <a href="https://wa.me/918446653644" target="_blank" rel="noopener noreferrer" className="social-icon-btn whatsapp" aria-label="Chat on WhatsApp">

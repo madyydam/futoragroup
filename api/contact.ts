@@ -41,10 +41,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             timeStyle: 'medium'
         });
 
-        // 1. Send Notification Email to futoragroup@gmail.com
+        // 1. Send Notification Email to ceo@futoragroup.in
         const adminMailOptions = {
             from: `"Futora Group Forms" <futoralift@gmail.com>`,
-            to: 'futoragroup@gmail.com',
+            to: 'ceo@futoragroup.in',
             replyTo: email,
             subject: `🚀 New Lead: ${name} — Futora Group Website`,
             html: `

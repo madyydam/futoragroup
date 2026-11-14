@@ -14,7 +14,7 @@ const Contact: FC = () => {
         'mainEntity': {
             '@type': 'Organization',
             'name': 'Futora Group of Companies',
-            'email': 'futoragroup@gmail.com',
+            'email': 'ceo@futoragroup.in',
             'founder': 'Madhur Dhadve',
             'url': 'https://futoragroup.in/'
         }
